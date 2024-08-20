@@ -1,11 +1,11 @@
 set -e
 
-ascii_art='________                               .__  .__
-\_____  \   _____ _____ _______   ____ |  | |  |
- /   |   \ /     \\__  \\_  __ \_/ __ \|  | |  |
+ascii_art='________                               .__  .__   
+\_____  \   _____ _____ _______   ____ |  | |  |  
+ /   |   \ /     \\\__  \\\_  __ \_/ __ \|  | |  |  
 /    |    \  Y Y  \/ __ \|  | \/\  ___/|  |_|  |__
 \_______  /__|_|  (____  /__|    \___  >____/____/
-        \/      \/     \/            \/
+        \/      \/     \/            \/           
 '
 
 echo -e "$ascii_art"
@@ -21,7 +21,7 @@ rm -rf ~/.local/share/omakub
 git clone https://github.com/kasui92/omarell.git ~/.local/share/omakub >/dev/null
 if [[ $OMAKUB_REF != "main" ]]; then
   cd ~/.local/share/omakub
-  git fetch origin main && git checkout main
+  git fetch origin "${OMAKUB_REF:-stable}" && git checkout "${OMAKUB_REF:-stable}"
   cd -
 fi
 
