@@ -11,6 +11,6 @@ Pin-Priority: 1000
 sudo apt-get update && sudo apt-get install firefox
 
 # Set as default-web-browser
-if [ -n "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER"] && [ "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" == "Chrome" ]; then
-  xdg-settings set default-web-browser google-chrome.desktop
+if [ -n "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER"] && [ "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" == "Firefox" ]; then
+  xdg-settings set default-web-browser firefox.desktop
 fi
