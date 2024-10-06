@@ -5,7 +5,9 @@ HISTSIZE=32768
 HISTFILESIZE="${HISTSIZE}"
 
 # Autocompletion
-source /usr/share/bash-completion/bash_completion
+if [ ! -f /usr/share/bash-completion/bash_completion ]; then
+    sudo apt install -y bash-completion
+fi
 # enable case insensitive mode on auto completion in bash
 bind -s 'set completion-ignore-case on'
 
