@@ -12,6 +12,14 @@ The name "Omarell" is derived from the Italian term "umarell" (often spelled "om
 
 In the spirit of its namesake, Omarell takes the base Omakub system—which transforms a fresh Ubuntu installation into a fully-configured, modern development environment with a single command—and adds its own improvements and extra customizations, watching over and enhancing the original work.
 
+# Installation
+
+To install Omarell, simply run the following command in your terminal:
+
+```bash
+eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/main/boot.sh)"
+```
+
 ## Key Features
 
 - **All Omakub benefits**: the entire Omakub ecosystem remains intact, with all its tools and configurations
