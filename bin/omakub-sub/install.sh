@@ -1,26 +1,28 @@
 CHOICES=(
-  "Dev Editor        Install alternative programming editors"
+  "Browser           Install alternative web browsers"
   "Dev Language      Install programming language environment"
   "Dev Database      Install development database in Docker"
-  "1password         Manage your passwords securely across devices"
-  "Audacity          Record and edit audio"
-  "ASDControl        Set brightness on Apple Studio and XDR displays"
-  "Brave             Chrome-based browser with built-in ad blocking"
-  "Dropbox           Sync files across computers with ease"
   "Mainline Kernels  Install newer Linux kernels than Ubuntu defaults"
-  "OBS Studio        Record screencasts with inputs from both display + webcam"
-  "Ollama            Run LLMs, like Meta's Llama3, locally"
-  "Retroarch         Play retro games"
-  "Scrcpy            Android screen mirroring (requires dev mode / USB debug on!)"
+  "Audacity          Record and edit audio"
+  "DBeaver           Database management tool"
+  "Discord           Voice, video and text chat for gamers"
+  "Figma             Collaborative interface design tool"
+  "Filezilla         FTP application"
+  "FlameShot         Screenshot tool with annotation"
+  "LocalSend         Send files to nearby devices"
+  "Obsidian          Multi-platform note taking application"
+  "OnlyOffice        Free collaborative online office suite"
+  "Pinta             Simple and easy to use drawing program"
+  "Postman           API platform for building and using APIs"
   "Spotify           Stream music from the world's most popular service"
-  "Steam             Play games from Valve's store"
-  "VirtualBox        Virtual machines to run Windows/Linux"
-  "Zoom              Attend and host video chat meetings"
+  "Thunderbird       Free email application that's easy to set up and customize"
+  "Vlc               Free and open source cross-platform multimedia player"
+  "Xournalpp         Note taking and PDF annotation application"
   "> All             Re-run any of the default installers"
   "<< Back           "
 )
 
-CHOICE=$(gum choose "${CHOICES[@]}" --height 21 --header "Install application")
+CHOICE=$(gum choose "${CHOICES[@]}" --height 23 --header "Install application")
 
 if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
   # Don't install anything
@@ -36,10 +38,9 @@ else
   INSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
   case "$INSTALLER" in
-  "dev-editor") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/install-dev-editor.sh" ;;
+  "browser") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/install-browser.sh" ;;
   "dev-language") INSTALLER_FILE="$OMAKUB_PATH/install/terminal/select-dev-language.sh" ;;
   "dev-database") INSTALLER_FILE="$OMAKUB_PATH/install/terminal/select-dev-storage.sh" ;;
-  "ollama") INSTALLER_FILE="$OMAKUB_PATH/install/terminal/optional/app-ollama.sh" ;;
   *) INSTALLER_FILE="$OMAKUB_PATH/install/desktop/optional/app-$INSTALLER.sh" ;;
   esac
 

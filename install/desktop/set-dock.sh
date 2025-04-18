@@ -1,23 +1,24 @@
+# Array to hold favorite apps
+apps=()
+
+# Favorite browser for dock
+if [[ -v OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER ]]; then
+  browser=$(echo "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+  apps+=("$browser.desktop")
+fi
+
 # Favorite apps for dock
-apps=(
-	"google-chrome.desktop"
-	"Alacritty.desktop"
-	"Neovim.desktop"
-	"code.desktop"
-	"WhatsApp.desktop"
-	"signal-desktop.desktop"
-	"Zoom.desktop"
-	"spotify.desktop"
-	"steam.desktop"
-	"pinta_pinta.desktop"
-	"md.obsidian.Obsidian.desktop"
-	"Activity.desktop"
-	"Docker.desktop"
-	"Omakub.desktop"
-	"1password.desktop"
-	"org.gnome.Settings.desktop"
-	"org.gnome.Nautilus.desktop"
-	"localsend_app.desktop"
+apps+=(
+  "Alacritty.desktop"
+  "Neovim.desktop"
+  "code.desktop"
+  "thunderbird.desktop"
+  "spotify.desktop"
+  "Activity.desktop"
+  "Docker.desktop"
+  "Omarell.desktop"
+  "org.gnome.Settings.desktop"
+  "org.gnome.Nautilus.desktop"
 )
 
 # Array to hold installed favorite apps
@@ -25,10 +26,10 @@ installed_apps=()
 
 # Directory where .desktop files are typically stored
 desktop_dirs=(
-	"/var/lib/flatpak/exports/share/applications"
-	"/usr/share/applications"
-	"/usr/local/share/applications"
-	"$HOME/.local/share/applications"
+  "/var/lib/flatpak/exports/share/applications"
+  "/usr/share/applications"
+  "/usr/local/share/applications"
+  "$HOME/.local/share/applications"
 )
 
 # Check if a .desktop file exists for each app

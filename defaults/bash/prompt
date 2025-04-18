@@ -2,6 +2,15 @@
 force_color_prompt=yes
 color_prompt=yes
 
-# Simple prompt with path in the window/pane title and caret for typing line
-PS1=$'\uf0a9 '
+# get current git branch
+git_branch() {
+    local branch
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+        echo -e "\001\e[1;36m\002git:(\001\e[0;38;5;107m\002${branch}\001\e[1;36m\002)\001\e[0m\002 "
+    fi
+}
+
+# Simple prompt with path in the window/pane title and carat for typing line
+PS1=$' $(git_branch)\[\e[31m\]→ \[\e[0m\]'
 PS1="\[\e]0;\w\a\]$PS1"

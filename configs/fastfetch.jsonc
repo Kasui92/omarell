@@ -47,7 +47,7 @@
         {
             "type": "swap",
             "key": "└ └󰓡 ",
-            "keyColor": "green",
+            "keyColor": "green"
         },
         {
             "type": "custom",
@@ -97,17 +97,17 @@
         {
             "type": "icons",
             "key": "│ ├󰀻",
-            "keyColor": "blue",
+            "keyColor": "blue"
         },
         {
             "type": "cursor",
             "key": "│ ├",
-            "keyColor": "blue",
+            "keyColor": "blue"
         },
         {
             "type": "terminalfont",
             "key": "│ ├",
-            "keyColor": "blue",
+            "keyColor": "blue"
         },
         {
             "type": "terminal",
@@ -138,6 +138,6 @@
             "type": "custom",
             "format": "\u001b[90m└────────────────────────────────────────────────────┘"
         },
-        "break",
+        "break"
     ]
 }

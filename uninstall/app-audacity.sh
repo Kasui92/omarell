@@ -1,1 +1,1 @@
-flatpak uninstall -y flathub org.audacityteam.Audacity
+flatpak uninstall -y org.audacityteam.Audacity

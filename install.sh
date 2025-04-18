@@ -5,7 +5,7 @@ set -e
 source ~/.local/share/omakub/install/check-version.sh
 
 # Ask for app choices
-echo "Get ready to make a few choices..."
+
 source ~/.local/share/omakub/install/terminal/required/app-gum.sh >/dev/null
 source ~/.local/share/omakub/install/first-run-choices.sh
 
@@ -15,7 +15,8 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   gsettings set org.gnome.desktop.screensaver lock-enabled false
   gsettings set org.gnome.desktop.session idle-delay 0
 
-  echo "Installing terminal and desktop tools..."
+  echo
+  echo -e "\033[1;35mInstalling terminal and desktop tools...\033[0m"
 
   # Install terminal tools
   source ~/.local/share/omakub/install/terminal.sh
@@ -27,6 +28,7 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   gsettings set org.gnome.desktop.screensaver lock-enabled true
   gsettings set org.gnome.desktop.session idle-delay 300
 else
-  echo "Only installing terminal tools..."
+  echo
+  echo -e "\033[1;35mOnly installing terminal tools...\033[0m"
   source ~/.local/share/omakub/install/terminal.sh
 fi

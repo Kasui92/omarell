@@ -8,12 +8,12 @@ if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
   cp $OMAKUB_PATH/themes/$THEME/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
 
   source $OMAKUB_PATH/themes/$THEME/gnome.sh
-  source $OMAKUB_PATH/themes/$THEME/tophat.sh
+  gum confirm "Do you want to set the theme wallpaper as login background?" && source $OMAKUB_PATH/themes/$THEME/gdm-background.sh > /dev/null 2>&1
+  source $OMAKUB_PATH/themes/$THEME/extensions.sh
   source $OMAKUB_PATH/themes/$THEME/vscode.sh
 
-  # Forgo setting the Chrome theme until we might find a less disruptive way of doing it.
-  # Having to quit Chrome, and all Chrome-based apps, is too much of an inposition.
-  # source $OMAKUB_PATH/themes/$THEME/chrome.sh
+  gum spin --spinner globe --title "Theme changed!" -- sleep 3
 fi
 
-source $OMAKUB_PATH/bin/omakub-sub/menu.sh
+clear
+source $OMAKUB_PATH/bin/omakub
