@@ -20,6 +20,13 @@ To install Omarell, simply run the following command in your terminal:
 eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/main/boot.sh)"
 ```
 
+You can also install Omarell in its "development" version to experiment and/or contribute, but you accept all the risks involved (and a few coffees won't always be enough). This is the command, for the brave:
+
+```bash
+OMARELL_REF=dev
+eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/main/boot.sh)"
+```
+
 ## Key Features
 
 - **All Omakub benefits**: the entire Omakub ecosystem remains intact, with all its tools and configurations
