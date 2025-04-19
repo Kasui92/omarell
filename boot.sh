@@ -40,9 +40,9 @@ sudo apt-get install -y git >/dev/null
 echo -e "\033[1;35mCloning Omarell...\033[0m"
 rm -rf ~/.local/share/omakub
 git clone https://github.com/Kasui92/omarell.git ~/.local/share/omakub >/dev/null
-if [[ $OMAKUB_REF != "main" ]]; then
+if [[ $OMAKUB_REF != "dev" ]]; then
 	cd ~/.local/share/omakub
-	git fetch origin "${OMAKUB_REF:-dev}" && git checkout "${OMAKUB_REF:-dev}"
+	git fetch origin "${OMAKUB_REF:-main}" && git checkout "${OMAKUB_REF:-main}"
 	cd -
 fi
 
