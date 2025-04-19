@@ -17,7 +17,6 @@ else
 
 	case "$INSTALLER" in
 	"omarell") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/migrate.sh" ;;
-	"localsend") INSTALLER_FILE="$OMAKUB_PATH/install/desktop/app-localsend.sh" ;;
 	*) INSTALLER_FILE="$OMAKUB_PATH/install/terminal/app-$INSTALLER.sh" ;;
 	esac
 
