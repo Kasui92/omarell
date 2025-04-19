@@ -4,4 +4,10 @@ else
 	SUB=$1
 fi
 
-[ -n "$SUB" ] && [ "$SUB" != "quit" ] && source $OMAKUB_PATH/bin/omakub-sub/$SUB.sh
+if [ -n "$SUB" ]; then
+	if [ "$SUB" = "quit" ]; then
+		clear
+	else
+		source $OMAKUB_PATH/bin/omakub-sub/$SUB.sh
+	fi
+fi
