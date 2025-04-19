@@ -1,5 +1,8 @@
 set -o pipefail
 
+# Give people a chance to retry running the installation
+trap 'echo -e "\033[1;35mOmarell installation failed! You can retry by running: source ~/.local/share/omakub/install.sh\033[0m"' ERR
+
 ascii_art='
 ________                               .__  .__
 \_____  \   _____ _____ _______   ____ |  | |  |
