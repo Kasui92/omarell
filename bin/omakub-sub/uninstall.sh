@@ -11,6 +11,7 @@ CHOICES=(
   "Flameshot        "
   "Google Chrome    "
   "Microsoft Edge   "
+  "NeoVim           "
   "LocalSend        "
   "Obs Studio       "
   "Obsidian         "
@@ -26,7 +27,7 @@ CHOICES=(
   "<< Back          "
 )
 
-CHOICE=$(gum choose "${CHOICES[@]}" --height 28 --header "Uninstall application")
+CHOICE=$(gum choose "${CHOICES[@]}" --height 29 --header "Uninstall application")
 
 if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
   # Don't install anything
