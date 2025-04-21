@@ -5,8 +5,3 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge sta
 sudo rm microsoft.gpg
 
 sudo apt update && sudo apt install -y microsoft-edge-stable
-
-# Set as default-web-browser
-if [ -n "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" ] && [ "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" == "Microsoft-Edge" ]; then
-  xdg-settings set default-web-browser microsoft-edge.desktop
-fi

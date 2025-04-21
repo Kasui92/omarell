@@ -12,8 +12,3 @@ EOF
 fi
 
 sudo apt-get update && sudo apt-get install -y firefox
-
-# Set as default-web-browser
-if [ -n "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" ] && [ "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" == "Firefox" ]; then
-  xdg-settings set default-web-browser firefox.desktop
-fi
