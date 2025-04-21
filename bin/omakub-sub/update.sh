@@ -1,6 +1,6 @@
 CHOICES=(
 	"Omarell       Update Omarell itself and run any migrations"
-	"System        Update system packages"
+	"System	       Update system packages"
 	"Firmware      Update firmware packages"
 	"LazyGit       TUI for Git"
 	"LazyDocker    TUI for Docker"
