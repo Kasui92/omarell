@@ -21,7 +21,7 @@ if command -v snap >/dev/null 2>&1; then
 
     remove_snaps >/dev/null
 
-    sudo apt autoremove --purge snapd gnome-software-plugin-snap -y >/dev/null 2>&1 || echo "Errore nella rimozione di snapd"
+    sudo apt autoremove --purge snapd gnome-software-plugin-snap -y >/dev/null 2>&1 || echo -e "\033[1;31mFailed to remove snapd and gnome-software-plugin-snap.\033[0m"
 
     sudo rm -rf /var/cache/snapd/ /var/lib/snapd/ /var/snap/ /snap /etc/snap >/dev/null 2>&1
     rm -rf ~/snap >/dev/null 2>&1
