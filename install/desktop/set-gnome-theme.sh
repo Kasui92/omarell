@@ -7,12 +7,16 @@ if [[ -v OMAKUB_FIRST_RUN_THEME ]]; then
     source $OMAKUB_PATH/themes/$OMAKUB_FIRST_RUN_THEME/gnome.sh
     source $OMAKUB_PATH/themes/$OMAKUB_FIRST_RUN_THEME/gdm-background.sh
     source $OMAKUB_PATH/themes/$OMAKUB_FIRST_RUN_THEME/extensions.sh
-    source $OMAKUB_PATH/themes/$OMAKUB_FIRST_RUN_THEME/vscode.sh
+    if [[ "$OMAKUB_FIRST_RUN_OPTIONAL_DEV_APPS" == *"Visual-Studio-Code"* ]]; then
+        source $OMAKUB_PATH/themes/$OMAKUB_FIRST_RUN_THEME/vscode.sh
+    fi
 else
     source $OMAKUB_PATH/themes/tokyo-night/gnome.sh
     source $OMAKUB_PATH/themes/tokyo-night/gdm-background.sh
     source $OMAKUB_PATH/themes/tokyo-night/extensions.sh
-    source $OMAKUB_PATH/themes/tokyo-night/vscode.sh
+    if [[ "$OMAKUB_FIRST_RUN_OPTIONAL_DEV_APPS" == *"Visual-Studio-Code"* ]]; then
+        source $OMAKUB_PATH/themes/tokyo-night/vscode.sh
+    fi
 fi
 
 
