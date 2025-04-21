@@ -46,24 +46,23 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
     "Zen"
   )
   DEFAULT_OPTIONAL_BROWSER='Firefox'
-  OMAKUB_FIRST_RUN_OPTIONAL_BROWSER=$(gum choose "${OPTIONAL_BROWSER[@]}" --no-limit --selected $DEFAULT_OPTIONAL_BROWSER --height 6 --header "Select browsers" | tr ' ' '-')
-  # no firefox? nah!
-  if [[ ! " ${OMAKUB_FIRST_RUN_OPTIONAL_BROWSER} " =~ "Firefox" ]]; then
-    echo -e "\033[1;35mNo Firefox? Nah!\033[0m"
-    OMAKUB_FIRST_RUN_OPTIONAL_BROWSER="${OMAKUB_FIRST_RUN_OPTIONAL_BROWSER} Firefox"
-  fi
-  export OMAKUB_FIRST_RUN_OPTIONAL_BROWSER
+  export OMAKUB_FIRST_RUN_OPTIONAL_BROWSER=$(gum choose "${OPTIONAL_BROWSER[@]}" --no-limit --selected $DEFAULT_OPTIONAL_BROWSER --height 6 --header "Select browsers" | tr ' ' '-')
 
-  # Default browser
-  SYSTEM_DEFAUL_BROWSER=()
-  for i in "${OPTIONAL_BROWSER[@]}"; do
-    browser=$(echo $i | tr ' ' '-')
-    if [[ " ${OMAKUB_FIRST_RUN_OPTIONAL_BROWSER} " =~ "$browser" ]]; then
-      SYSTEM_DEFAUL_BROWSER+=("$i")
-    fi
-  done
-  DEFAULT_SYSTEM_DEFAULT_BROWSER='Firefox'
-  export OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER=$(gum choose "${SYSTEM_DEFAUL_BROWSER[@]}" --limit 1 --selected $DEFAULT_SYSTEM_DEFAULT_BROWSER --height 6 --header "Select default browser" | tr ' ' '-')
+  # If the users selects at least one browser, ask for the default browser
+  if [[ "$OMAKUB_FIRST_RUN_OPTIONAL_BROWSER" != "" ]]; then
+    # Default browser
+    SYSTEM_DEFAUL_BROWSER=()
+    for i in "${OPTIONAL_BROWSER[@]}"; do
+      browser=$(echo $i | tr ' ' '-')
+      if [[ " ${OMAKUB_FIRST_RUN_OPTIONAL_BROWSER} " =~ "$browser" ]]; then
+        SYSTEM_DEFAUL_BROWSER+=("$i")
+      fi
+    done
+    DEFAULT_SYSTEM_DEFAULT_BROWSER='Firefox'
+    export OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER=$(gum choose "${SYSTEM_DEFAUL_BROWSER[@]}" --limit 1 --selected $DEFAULT_SYSTEM_DEFAULT_BROWSER --height 6 --header "Select default browser" | tr ' ' '-')
+  else
+    echo -e "\033[1;35mNo browser? You're a brave one! No problem, you can always install it later.\033[0m"
+  fi
 
   # Snap
   gum confirm "Do you want to remove snap and all its packages?" && echo -e "\033[1;35mGreat! Snap and all its packages will be removed.\033[0m" || echo -e "\033[1;35mWrong answer! Snap and all its packages will be removed anyway.\033[0m"
