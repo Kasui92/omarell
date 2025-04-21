@@ -58,7 +58,7 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
         SYSTEM_DEFAUL_BROWSER+=("$i")
       fi
     done
-    DEFAULT_SYSTEM_DEFAULT_BROWSER='Firefox'
+    DEFAULT_SYSTEM_DEFAULT_BROWSER=''
     export OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER=$(gum choose "${SYSTEM_DEFAUL_BROWSER[@]}" --limit 1 --selected $DEFAULT_SYSTEM_DEFAULT_BROWSER --height 6 --header "Select default browser" | tr ' ' '-')
   else
     echo -e "\033[1;35mNo browser? You're a brave one! No problem, you can always install it later.\033[0m"
