@@ -19,6 +19,8 @@ set_font() {
 	gsettings set org.gnome.desktop.interface monospace-font-name "$font_name 10"
 	cp "$OMAKUB_PATH/configs/alacritty/fonts/$file_name.toml" ~/.config/alacritty/font.toml
 	sed -i "s/\"editor.fontFamily\": \".*\"/\"editor.fontFamily\": \"$font_name\"/g" ~/.config/Code/User/settings.json
+
+	gum spin --spinner globe --title "Font changed!" -- sleep 3
 }
 
 if [ "$#" -gt 1 ]; then
@@ -46,4 +48,6 @@ case $choice in
 	;;
 esac
 
-source $OMAKUB_PATH/bin/omakub-sub/menu.sh
+clear
+source $OMAKUB_PATH/bin/omakub-sub/header.sh
+source $OMAKUB_PATH/bin/omakub-sub/appearance.sh

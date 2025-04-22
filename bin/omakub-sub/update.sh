@@ -18,9 +18,9 @@ else
 	INSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
 	case "$INSTALLER" in
-	"omarell") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/migrate.sh" ;;
-	"system") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/update-system.sh" ;;
-	"firmware") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/update-firmware.sh" ;;
+	"omarell") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/update/migrate.sh" ;;
+	"system") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/update/update-system.sh" ;;
+	"firmware") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/update/update-firmware.sh" ;;
 	*) INSTALLER_FILE="$OMAKUB_PATH/install/terminal/app-$INSTALLER.sh" ;;
 	esac
 
