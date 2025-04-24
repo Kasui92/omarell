@@ -16,7 +16,3 @@ else
 	# Don't update anything
 	echo ""
 fi
-
-clear
-source $OMAKUB_PATH/bin/omakub-sub/header.sh
-source $OMAKUB_PATH/bin/omakub-sub/font.sh

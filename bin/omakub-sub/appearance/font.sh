@@ -39,7 +39,6 @@ if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
 	echo ""
 elif [[ "$CHOICE" == "> Change size"* ]]; then
 	source $OMAKUB_PATH/bin/omakub-sub/appearance/font-size.sh
-	exit
 else
 	case "$CHOICE" in
 	"Cascadia Mono") set_font "CaskaydiaMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip" "ttf" ;;
