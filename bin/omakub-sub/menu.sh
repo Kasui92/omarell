@@ -9,16 +9,20 @@ if [ "$last_release_number" -gt "$local_version_number" ]; then
 	echo "" # Add spacing
 fi
 
-if [ $# -eq 0 ]; then
-	SUB=$(gum choose "Appearance" "Update" "Install" "Uninstall" "Manual" "Quit" --height 10 --header "" | tr '[:upper:]' '[:lower:]')
-else
-	SUB=$1
-fi
+CHOICES=(
+	"Appearance       "
+	"Update           "
+	"Install          "
+	"Uninstall        "
+	"Manual           "
+	"Quit             "
+)
 
-if [ -n "$SUB" ]; then
-	if [ "$SUB" = "quit" ]; then
-		clear
-	else
-		source $OMAKUB_PATH/bin/omakub-sub/$SUB.sh
-	fi
+CHOICE=$(gum choose "${CHOICES[@]}" --height 10 --header "" | tr '[:upper:]' '[:lower:]')
+
+if [ "$CHOICE" = "quit" ]; then
+	clear
+	exit 0
+else
+	source $OMAKUB_PATH/bin/omakub-sub/$SUB.sh
 fi
