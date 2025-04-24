@@ -13,8 +13,8 @@ else
 	APPEARANCE=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
 	case "$APPEARANCE" in
-	"theme") APPEARANCE_FILE="$OMAKUB_PATH/bin/omakub-sub/appareance/theme.sh" ;;
-	"font") APPEARANCE_FILE="$OMAKUB_PATH/bin/omakub-sub/appareance/font.sh" ;;
+	"theme") APPEARANCE_FILE="$OMAKUB_PATH/bin/omakub-sub/appearance/theme.sh" ;;
+	"font") APPEARANCE_FILE="$OMAKUB_PATH/bin/omakub-sub/appearance/font.sh" ;;
 	esac
 
 	source $APPEARANCE_FILE && gum spin --spinner globe --title "Change completed!" -- sleep 3
