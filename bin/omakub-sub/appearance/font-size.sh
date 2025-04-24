@@ -5,10 +5,13 @@ set_font_size() {
 	gum spin --spinner globe --title "Font changed!" -- sleep 3
 }
 
-choice=$(gum choose {7..14} "<< Back" --height 11 --header "Choose your terminal font size")
+CHOICE=$(gum choose {7..14} "<< Back" --height 11 --header "Choose your terminal font size")
 
-if [[ $choice =~ ^[0-9]+$ ]]; then
-	set_font_size $choice
+if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
+	# Don't update anything
+	echo ""
+elif [[ $choice =~ ^[0-9]+$ ]]; then
+	set_font_size $CHOICE
 else
 	# Don't update anything
 	echo ""

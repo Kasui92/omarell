@@ -23,30 +23,31 @@ set_font() {
 	gum spin --spinner globe --title "Font changed!" -- sleep 3
 }
 
-if [ "$#" -gt 1 ]; then
-	choice=${!#}
-else
-	choice=$(gum choose "Cascadia Mono" "Fira Mono" "JetBrains Mono" "Meslo" "> Change size" "<< Back" --height 8 --header "Choose your programming font")
-fi
+CHOICES=(
+	"Cascadia Mono"
+	"Fira Mono"
+	"JetBrains Mono"
+	"Meslo"
+	"> Change size"
+	"<< Back"
+)
 
-case $choice in
-"Cascadia Mono")
-	set_font "CaskaydiaMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip" "ttf"
-	;;
-"Fira Mono")
-	set_font "FiraMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip" "otf"
-	;;
-"JetBrains Mono")
-	set_font "JetBrainsMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip" "ttf"
-	;;
-"Meslo")
-	set_font "MesloLGS Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.zip" "ttf"
-	;;
-"> Change size")
-	source $OMAKUB_PATH/bin/omakub-sub/font-size.sh
+CHOICE=$(gum choose "${CHOICES[@]}" --height 8 --header "Choose your programming font")
+
+if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
+	# Don't update anything
+	echo ""
+elif [[ "$CHOICE" == "> Change size"* ]]; then
+	source $OMAKUB_PATH/bin/omakub-sub/appearance/font-size.sh
 	exit
-	;;
-esac
+else
+	case "$CHOICE" in
+	"Cascadia Mono") set_font "CaskaydiaMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip" "ttf" ;;
+	"Fira Mono") set_font "FiraMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip" "otf" ;;
+	"JetBrains Mono") set_font "JetBrainsMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip" "ttf" ;;
+	"Meslo") "MesloLGS Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.zip" "ttf" ;;
+	esac
+fi
 
 clear
 source $OMAKUB_PATH/bin/omakub-sub/header.sh
