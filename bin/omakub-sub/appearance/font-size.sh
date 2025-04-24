@@ -10,7 +10,7 @@ CHOICE=$(gum choose {7..14} "<< Back" --height 11 --header "Choose your terminal
 if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
 	# Don't update anything
 	echo ""
-elif [[ $choice =~ ^[0-9]+$ ]]; then
+elif [[ $CHOICE =~ ^[0-9]+$ ]]; then
 	set_font_size $CHOICE
 else
 	# Don't update anything
