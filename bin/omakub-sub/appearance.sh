@@ -17,7 +17,7 @@ else
 	"font") APPEARANCE_FILE="$OMAKUB_PATH/bin/omakub-sub/appareance/font.sh" ;;
 	esac
 
-	source $INSTALLER_FILE && gum spin --spinner globe --title "Change completed!" -- sleep 3
+	source $APPEARANCE_FILE && gum spin --spinner globe --title "Change completed!" -- sleep 3
 fi
 
 clear
