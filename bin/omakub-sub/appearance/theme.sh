@@ -15,6 +15,10 @@ if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
   fi
   source $OMAKUB_PATH/themes/$THEME/extensions.sh
   source $OMAKUB_PATH/themes/$THEME/vscode.sh
-else
-  source $OMAKUB_PATH/bin/omakub-sub/appearance.sh
+
+  gum spin --spinner globe --title "Theme changed!" -- sleep 3
 fi
+
+clear
+source $OMAKUB_PATH/bin/omakub-sub/header.sh
+source $OMAKUB_PATH/bin/omakub-sub/appearance.sh
