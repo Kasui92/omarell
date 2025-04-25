@@ -1,12 +1,19 @@
 # This script check if there is a new version of Omarell available
-last_release_tag=$(curl -s https://api.github.com/repos/Kasui92/omarell/releases/latest | grep tag_name | cut -d '"' -f 4)
-last_release_number=$(echo $last_release_tag | sed 's/^v//' | tr -d '.')
-local_version_tag=$(cat $OMAKUB_PATH/version)
-local_version_number=$(echo $local_version_tag | sed 's/^v//' | tr -d '.')
+if timeout 3 curl -s --head "https://api.github.com/repos/Kasui92/omarell/releases/latest" &>/dev/null; then
+    last_release_tag=$(curl -s "https://api.github.com/repos/Kasui92/omarell/releases/latest" | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4)
+    if [ -n "$last_release_tag" ] && [ -f "$OMAKUB_PATH/version" ]; then
+        last_release_number=${last_release_tag#v}
+        last_release_number=${last_release_number//./}
 
-if [ "$last_release_number" -gt "$local_version_number" ]; then
-	echo -e "\033[1;35mA new version of Omarell is available! \033[1m\033[32m($last_release_tag)\033[0m"
-	echo "" # Add spacing
+        local_version_tag=$(cat "$OMAKUB_PATH/version")
+        local_version_number=${local_version_tag#v}
+        local_version_number=${local_version_number//./}
+
+        if [ "$last_release_number" -gt "$local_version_number" ]; then
+            echo -e "\033[1;35mA new version of Omarell is available! \033[1m\033[32m($last_release_tag)\033[0m"
+            echo "" # Add spacing
+        fi
+    fi
 fi
 
 CHOICES=(
