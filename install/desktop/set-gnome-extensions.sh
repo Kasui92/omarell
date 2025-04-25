@@ -87,4 +87,4 @@ gsettings set org.gnome.shell.extensions.alphabetical-app-grid folder-order-posi
 # default settings are good!
 
 # Configure User Avatar In Quick Settings
-# default settings are good!
+gsettings set org.gnome.shell.extensions.quick-settings-avatar avatar-position 1
