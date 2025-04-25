@@ -89,16 +89,16 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
     "Windsurf"
   )
   DEFAULT_OPTIONAL_DEV_APPS='Visual Studio Code'
-  export OMAKUB_FIRST_RUN_OPTIONAL_DEV_APPS=$(gum choose "${OPTIONAL_DEV_APPS[@]}" --no-limit --selected "$DEFAULT_OPTIONAL_DEV_APPS" --height 9 --header "Select optional dev apps" | tr ' ' '-')
+  export OMAKUB_FIRST_RUN_OPTIONAL_DEV_APPS=$(gum choose "${OPTIONAL_DEV_APPS[@]}" --no-limit --selected "$DEFAULT_OPTIONAL_DEV_APPS" --height 9 --header "Select optional dev tools" | tr ' ' '-')
   echo $OMAKUB_FIRST_RUN_OPTIONAL_DEV_APPS
   if [[ "$OMAKUB_FIRST_RUN_OPTIONAL_DEV_APPS" != "" ]]; then
-    echo -e "\033[1;35mThe following dev apps will be installed:"
+    echo -e "\033[1;35mThe following dev tools will be installed:"
     for dev_app in $OMAKUB_FIRST_RUN_OPTIONAL_DEV_APPS; do
       dev_app_name=$(echo "$dev_app" | tr '-' ' ')
       echo -e "\033[1;35m- \033[1;34m$dev_app_name\033[1;35m\033[0m"
     done
   else
-    echo -e "\033[1;35mNo dev apps will be installed.\033[0m"
+    echo -e "\033[1;35mNo dev tools will be installed.\033[0m"
   fi
 fi
 

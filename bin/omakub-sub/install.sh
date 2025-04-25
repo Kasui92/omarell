@@ -1,19 +1,16 @@
 CHOICES=(
   "Browser           Install alternative web browsers"
+  "Dev Tools         Install development tools"
   "Dev Language      Install programming language environment"
   "Dev Database      Install development database in Docker"
   "Mainline Kernels  Install newer Linux kernels than Ubuntu defaults"
   "Audacity          Record and edit audio"
-  "DBeaver           Database management tool"
   "Discord           Voice, video and text chat for gamers"
-  "Figma             Collaborative interface design tool"
-  "Filezilla         FTP application"
   "FlameShot         Screenshot tool with annotation"
   "LocalSend         Send files to nearby devices"
   "Obsidian          Multi-platform note taking application"
   "OnlyOffice        Free collaborative online office suite"
   "Pinta             Simple and easy to use drawing program"
-  "Postman           API platform for building and using APIs"
   "Spotify           Stream music from the world's most popular service"
   "Thunderbird       Free email application that's easy to set up and customize"
   "Vlc               Free and open source cross-platform multimedia player"
@@ -39,6 +36,7 @@ else
 
   case "$INSTALLER" in
   "browser") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/install/install-browser.sh" ;;
+  "dev-tools") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/install/install-dev-apps.sh" ;;
   "dev-language") INSTALLER_FILE="$OMAKUB_PATH/install/terminal/select-dev-language.sh" ;;
   "dev-database") INSTALLER_FILE="$OMAKUB_PATH/install/terminal/select-dev-storage.sh" ;;
   *) INSTALLER_FILE="$OMAKUB_PATH/install/desktop/optional/app-$INSTALLER.sh" ;;
