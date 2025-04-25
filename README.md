@@ -30,11 +30,11 @@ eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/main/boot.sh
 ## Key Features
 
 - **All Omakub benefits**: the entire Omakub ecosystem remains intact, with all its tools and configurations
-- **Lightweight base installation**: minimal core setup without suggested applications (most are optional)
-- **Browser flexibility**: choice between multiple browsers (though Firefox is recommended!)
-- **Enhanced GNOME customizations**: additional desktop tweaks and interesting enhancements
-- **Theme selection**: option to choose your preferred theme during installation
+- **Lightweight base installation**: minimal core setup without suggested applications (most are optional) and initial theme selection
+- **Browser flexibility**: choice between multiple browsers
+- **Enhanced GNOME customizations**: additional desktop tweaks and interesting enhancements, like GDM background sync and consistency fixes
 - **Developer-focused**: maintains the developer-oriented approach of the original project while adding flexibility
+- **Updated menu system**: reorganized, cleaned up, and enhanced system menus for better organization and usability
 
 ## Documentation
 
