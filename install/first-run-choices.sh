@@ -49,8 +49,8 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
 
   # Browser
   OPTIONAL_BROWSER=(
+    "Brave Browser"
     "Firefox"
-    "Microsoft Edge"
     "Google Chrome"
     "Zen"
   )

@@ -1,8 +1,8 @@
 CHOICES=(
+  "Brave Browser     Privacy-focused web browser"
   "Firefox           Free and open source Web browser"
   "Zen               Lightweight web browser based on Firefox"
   "Google Chrome     Most popular web browser"
-  "Microsoft Edge    Chrome-based browser built by Microsoft"
   "<< Back           "
 )
 
