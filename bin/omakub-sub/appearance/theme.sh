@@ -4,16 +4,12 @@ THEME=$(gum choose "${THEME_NAMES[@]}" "<< Back" --header "Choose your theme" --
 if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
 
   if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-    SET_GDM_BACKGROUND=$(gum choose "Yes" "No" --header "Do you want to set the theme wallpaper as login background?" --height 5 | tr '[:upper:]' '[:lower:]')
-
-    cp $OMAKUB_PATH/themes/$THEME/alacritty.toml ~/.config/alacritty/theme.toml
-
+    gum confirm "Do you want to set the theme wallpaper as login background?" && source $OMAKUB_PATH/themes/$THEME/gdm-background.sh > /dev/null 2>&1
     source $OMAKUB_PATH/themes/$THEME/gnome.sh
-    if [ "$SET_GDM_BACKGROUND" == "yes" ]; then
-      source $OMAKUB_PATH/themes/$THEME/gdm-background.sh > /dev/null 2>&1
-    fi
     source $OMAKUB_PATH/themes/$THEME/extensions.sh
     source $OMAKUB_PATH/themes/$THEME/vscode.sh
+
+    cp $OMAKUB_PATH/themes/$THEME/alacritty.toml ~/.config/alacritty/theme.toml
   fi
 
   cp $OMAKUB_PATH/themes/$THEME/zellij.kdl ~/.config/zellij/themes/$THEME.kdl
