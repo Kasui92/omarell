@@ -31,10 +31,12 @@ eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/main/boot.sh
 
 - **All Omakub benefits**: the entire Omakub ecosystem remains intact, with all its tools and configurations
 - **Lightweight base installation**: minimal core setup without suggested applications (most are optional) and initial theme selection
+- **Updated menu system**: reorganized, cleaned up, and enhanced system menus for better organization and usability
 - **Browser flexibility**: choice between multiple browsers
 - **Enhanced GNOME customizations**: additional desktop tweaks and interesting enhancements, like GDM background sync and consistency fixes
+- **No Snaps!**: removed snap and replaced all applications with Flatpak or directly installed
 - **Developer-focused**: maintains the developer-oriented approach of the original project while adding flexibility
-- **Updated menu system**: reorganized, cleaned up, and enhanced system menus for better organization and usability
+
 
 ## Documentation
 
