@@ -15,6 +15,11 @@ if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
   cp $OMAKUB_PATH/themes/$THEME/zellij.kdl ~/.config/zellij/themes/$THEME.kdl
   sed -i "s/theme \".*\"/theme \"$THEME\"/g" ~/.config/zellij/config.kdl
 
+  if [ -d "$OMAKUB_PATH/themes/$THEME/btop.theme" ]; then
+    cp $OMAKUB_PATH/themes/$THEME/btop.theme ~/.config/btop/$THEME.theme
+    sed -i "s/theme = \".*\"/theme = \"$THEME\"/g" ~/.config/btop/btop.conf
+  fi
+
   if [ -d "$HOME/.config/nvim" ]; then
     cp $OMAKUB_PATH/themes/$THEME/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
   fi
