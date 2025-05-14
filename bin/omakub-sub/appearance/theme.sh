@@ -16,7 +16,7 @@ if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
   sed -i "s/theme \".*\"/theme \"$THEME\"/g" ~/.config/zellij/config.kdl
 
   if [ -f "$OMAKUB_PATH/themes/$THEME/btop.theme" ]; then
-    cp $OMAKUB_PATH/themes/$THEME/btop.theme ~/.config/btop/$THEME.theme
+    cp $OMAKUB_PATH/themes/$THEME/btop.theme ~/.config/btop/themes/$THEME.theme
     sed -i "s/theme = \".*\"/theme = \"$THEME\"/g" ~/.config/btop/btop.conf
   else
     sed -i "s/theme = \".*\"/theme = \"Default\"/g" ~/.config/btop/btop.conf
