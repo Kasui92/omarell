@@ -5,7 +5,7 @@ set -e
 source ~/.local/share/omakub/install/check-version.sh
 
 # Ask for app choices
-
+echo -e "\033[1;35mGet ready to make a few choices...\033[0m"
 source ~/.local/share/omakub/install/terminal/required/app-gum.sh >/dev/null
 source ~/.local/share/omakub/install/first-run-choices.sh
 
