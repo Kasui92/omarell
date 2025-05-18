@@ -6,3 +6,5 @@ if [ ! -f "$HOME/.config/btop/btop.conf" ]; then
 
   echo -e "\033[1;35mThe btop config file has been copied to ~/.config/btop/btop.conf, now you can change Activity theme using Omarell.\033[0m"
 fi
+
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Xtra/ apps "['gnome-language-selector.desktop', 'org.gnome.PowerStats.desktop', 'yelp.desktop', 'org.gnome.eog.desktop']"
