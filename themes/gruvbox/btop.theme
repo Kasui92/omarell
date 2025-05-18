@@ -10,7 +10,7 @@
 # Use "start", "mid" and "end" for three color gradient
 
 # Main background, empty for terminal default, need to be empty if you want transparent background
-theme[main_bg]="#1d2021"
+theme[main_bg]="#282828"
 
 # Main text color
 theme[main_fg]="#a89984"
@@ -37,19 +37,19 @@ theme[graph_text]="#585858"
 theme[proc_misc]="#98971a"
 
 # Cpu box outline color
-theme[cpu_box]="#a9b665"
+theme[cpu_box]="#a89984"
 
 # Memory/disks box outline color
-theme[mem_box]="#a9b665"
+theme[mem_box]="#a89984"
 
 # Net up/down box outline color
-theme[net_box]="#a9b665"
+theme[net_box]="#a89984"
 
 # Processes box outline color
-theme[proc_box]="#a9b665"
+theme[proc_box]="#a89984"
 
 # Box divider line and small boxes line color
-theme[div_line]="#a9b665"
+theme[div_line]="#a89984"
 
 # Temperature graph colors
 theme[temp_start]="#458588"
