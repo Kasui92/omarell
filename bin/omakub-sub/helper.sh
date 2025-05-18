@@ -3,14 +3,14 @@
 # Check if current git branch is main
 current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 if [ "$current_branch" != "main" ]; then
-  # Exit silently if not on main branch
-  exit 0
+  # Return silently if not on main branch
+  return 0 2>/dev/null || true
 fi
 
 # Check if the script is running in a git repository
 if ! git rev-parse --is-inside-work-tree &>/dev/null; then
-  # Exit silently if not in a git repository
-  exit 0
+  # Return silently if not in a git repository
+  return 0 2>/dev/null || true
 fi
 
 # Try to fetch the latest release tag from GitHub API (with a timeout of 3 seconds)
