@@ -3,8 +3,8 @@ if [[ -v OMAKUB_FIRST_RUN_THEME ]]; then
     cp $OMAKUB_PATH/themes/$OMAKUB_FIRST_RUN_THEME/zellij.kdl ~/.config/zellij/themes/$OMAKUB_FIRST_RUN_THEME.kdl
     sed -i "s/theme \".*\"/theme \"$OMAKUB_FIRST_RUN_THEME\"/g" ~/.config/zellij/config.kdl
 
-    cp $OMAKUB_PATH/themes/$THEME/btop.theme ~/.config/btop/themes/$THEME.theme
-    sed -i "s/theme = \".*\"/theme = \"$THEME\"/g" ~/.config/btop/btop.conf
+    cp $OMAKUB_PATH/themes/$OMAKUB_FIRST_RUN_THEME/btop.theme ~/.config/btop/themes/$OMAKUB_FIRST_RUN_THEME.theme
+    sed -i "s/theme = \".*\"/theme = \"$OMAKUB_FIRST_RUN_THEME\"/g" ~/.config/btop/btop.conf
 
     cp $OMAKUB_PATH/themes/$OMAKUB_FIRST_RUN_THEME/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
 
