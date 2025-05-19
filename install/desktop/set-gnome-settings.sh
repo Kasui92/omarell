@@ -8,4 +8,6 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'CaskaydiaMono Ner
 gsettings set org.gnome.desktop.calendar show-weekdate true
 
 # Remove the Ubuntu logo from the Plymouth splash screen
-sudo mv /usr/share/plymouth/ubuntu-logo.png /usr/share/plymouth/ubuntu-logo.png.bak
+if [[ -f /usr/share/plymouth/ubuntu-logo.png ]]; then
+  sudo mv /usr/share/plymouth/ubuntu-logo.png /usr/share/plymouth/ubuntu-logo.png.bak
+fi
