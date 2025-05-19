@@ -8,6 +8,7 @@ source ~/.local/share/omakub/install/check-version.sh
 echo -e "\033[1;35mGet ready to make a few choices...\033[0m"
 source ~/.local/share/omakub/install/terminal/required/app-gum.sh >/dev/null
 source ~/.local/share/omakub/install/first-run-choices.sh
+source ~/.local/share/omakub/install/identification.sh
 
 # Desktop software and tweaks will only be installed if we're running Gnome
 if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
