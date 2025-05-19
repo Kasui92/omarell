@@ -23,9 +23,9 @@ if [[ -n "$languages" ]]; then
       sudo add-apt-repository -y ppa:ondrej/php
       # Check the version of source.list file and replace $(lsb_release -sc) with noble
       if grep -q "Suites: $(lsb_release -sc)" /etc/apt/sources.list.d/ondrej-ubuntu-php-"$(lsb_release -sc)".sources; then
-        sudo sed -i 's/Suites: "$(lsb_release -sc)"/Suites: noble/g' /etc/apt/sources.list.d/ondrej-ubuntu-php-"$(lsb_release -sc)".sources
+        sudo sed -i "s/Suites: $(lsb_release -sc)/Suites: noble/g" /etc/apt/sources.list.d/ondrej-ubuntu-php-$(lsb_release -sc).sources
       else
-        sudo sed -i 's/"$(lsb_release -sc)"/noble/g' /etc/apt/sources.list.d/ondrej-ubuntu-php-"$(lsb_release -sc)".sources
+        sudo sed -i "s/$(lsb_release -sc)/noble/g" /etc/apt/sources.list.d/ondrej-ubuntu-php-"$(lsb_release -sc)".sources
       fi
       sudo apt -y install php8.4 php8.4-{curl,apcu,intl,mbstring,opcache,pgsql,mysql,sqlite3,redis,xml,zip}
       php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
