@@ -1,4 +1,4 @@
-set -e
+set -o pipefail
 
 ascii_art='
 ________                               .__  .__
