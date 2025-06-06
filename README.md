@@ -37,12 +37,11 @@ eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/main/boot.sh
 - **No Snaps!**: removed snap and replaced all applications with Flatpak or directly installed
 - **Developer-focused**: maintains the developer-oriented approach of the original project while adding flexibility
 
-
 ## Documentation
 
 For complete documentation of the core features, visit the [official Omakub manual](https://manual.omakub.org).
 
-For Omarell-specific features, consult this repository.
+For Omarell-specific features, consult the [WIKI](https://github.com/Kasui92/omarell/wiki).
 
 ## License
 
