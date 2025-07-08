@@ -1,18 +1,11 @@
 CHOICES=(
-  "Browser           Install alternative web browsers"
-  "Dev Tools         Install development tools"
-  "Dev Language      Install programming language environment"
-  "Dev Database      Install development database in Docker"
   "Mainline Kernels  Install newer Linux kernels than Ubuntu defaults"
-  "Audacity          Record and edit audio"
-  "Discord           Voice, video and text chat for gamers"
   "FlameShot         Screenshot tool with annotation"
   "Libreoffice       Free and open source office suite"
   "LocalSend         Send files to nearby devices"
-  "Obsidian          Multi-platform note taking application"
   "Pinta             Simple and easy to use drawing program"
   "Spotify           Stream music from the world's most popular service"
-  "Thunderbird       Free email application that's easy to set up and customize"
+  "Visual Studio Code  Source code editor with support for development operations"
   "Vlc               Free and open source cross-platform multimedia player"
   "Xournalpp         Note taking and PDF annotation application"
   "> All             Re-run any of the default installers"
@@ -35,10 +28,6 @@ else
   INSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
   case "$INSTALLER" in
-  "browser") INSTALLER_FILE="$OMARELL_PATH/bin/omarell-sub/install/install-browser.sh" ;;
-  "dev-tools") INSTALLER_FILE="$OMARELL_PATH/bin/omarell-sub/install/install-dev-apps.sh" ;;
-  "dev-language") INSTALLER_FILE="$OMARELL_PATH/install/terminal/select-dev-language.sh" ;;
-  "dev-database") INSTALLER_FILE="$OMARELL_PATH/install/terminal/select-dev-storage.sh" ;;
   *) INSTALLER_FILE="$OMARELL_PATH/install/desktop/optional/app-$INSTALLER.sh" ;;
   esac
 

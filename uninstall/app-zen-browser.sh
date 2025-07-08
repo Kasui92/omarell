@@ -1,1 +1,0 @@
-sudo apt purge -y zen

@@ -1,18 +1,12 @@
 # Array to hold favorite apps
 apps=()
 
-# Favorite browser for dock
-if [[ -v OMARELL_FIRST_RUN_SYSTEM_DEFAULT_BROWSER ]]; then
-  browser=$(echo "$OMARELL_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
-  apps+=("$browser.desktop")
-fi
-
 # Favorite apps for dock
 apps+=(
+  "firefox.desktop"
   "Alacritty.desktop"
   "Neovim.desktop"
   "code.desktop"
-  "thunderbird.desktop"
   "spotify.desktop"
   "Activity.desktop"
   "Docker.desktop"

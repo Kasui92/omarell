@@ -41,9 +41,11 @@ sudo apt-get install -y git >/dev/null
 echo -e "\nCloning Omarell..."
 rm -rf ~/.local/share/omarell
 git clone https://github.com/Kasui92/omarell.git ~/.local/share/omarell >/dev/null
-if [[ $OMARELL_REF != "dev" ]]; then
+
+if [[ -n "$OMARELL_REF" ]]; then
+  echo -e "\eUsing branch: $OMARELL_REF"
 	cd ~/.local/share/omarell
-	git fetch origin "${OMARELL_REF:-main}" && git checkout "${OMARELL_REF:-main}"
+	git fetch origin "${OMARELL_REF}" && git checkout "${OMARELL_REF}"
 	cd -
 fi
 

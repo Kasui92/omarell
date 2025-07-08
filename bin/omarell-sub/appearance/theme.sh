@@ -7,7 +7,6 @@ if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
     gum confirm "Do you want to set the theme wallpaper as login background?" && source $OMARELL_PATH/themes/$THEME/gdm-background.sh > /dev/null 2>&1
     source $OMARELL_PATH/themes/$THEME/gnome.sh
     source $OMARELL_PATH/themes/$THEME/extensions.sh
-    source $OMARELL_PATH/themes/$THEME/vscode.sh
 
     cp $OMARELL_PATH/themes/$THEME/alacritty.toml ~/.config/alacritty/theme.toml
   fi
