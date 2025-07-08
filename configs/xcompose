@@ -1,5 +1,0 @@
-include "%H/.local/share/omarell/defaults/xcompose"
-
-# Identification
-<Multi_key> <space> <n> : "$OMARELL_USER_NAME"
-<Multi_key> <space> <e> : "$OMARELL_USER_EMAIL"

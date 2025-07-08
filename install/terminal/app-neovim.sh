@@ -10,26 +10,12 @@ cd -
 # Install luarocks and tree-sitter-cli to resolve lazyvim :checkhealth warnings
 sudo apt install -y luarocks tree-sitter-cli
 
-# Only attempt to set configuration if Neovim has never been run
-if [ ! -d "$HOME/.config/nvim" ]; then
-  # Use LazyVim
-  git clone https://github.com/LazyVim/starter ~/.config/nvim
-  # Remove the .git folder, so you can add it to your own repo later
-  rm -rf ~/.config/nvim/.git
-
-  # Make everything match the terminal transparency
-  mkdir -p ~/.config/nvim/plugin/after
-  cp ~/.local/share/omarell/configs/neovim/transparency.lua ~/.config/nvim/plugin/after/
-
-  # Default to Tokyo Night theme
-  cp ~/.local/share/omarell/themes/tokyo-night/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
-
-  # Turn off animated scrolling
-  cp ~/.local/share/omarell/configs/neovim/snacks-animated-scrolling-off.lua ~/.config/nvim/lua/plugins/
-
-  # Turn off relative line numbers
-  echo "vim.opt.relativenumber = false" >>~/.config/nvim/lua/config/options.lua
-fi
+# Use LazyVim
+rm -rf ~/.config/nvim/.git
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+cp -R ~/.local/share/omarell/config/nvim/* ~/.config/nvim/
+rm -rf ~/.config/nvim/.git
+echo "vim.opt.relativenumber = false" >>~/.config/nvim/lua/config/options.lua
 
 # Replace desktop launcher with one running inside Alacritty
 if [[ -d ~/.local/share/applications ]]; then

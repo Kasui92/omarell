@@ -1,5 +1,8 @@
-# Make alacritty default terminal emulator
-sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
+# Install desktop environment and utilities
+sudo apt install -y \
+  gnome-sushi gnome-tweak-tool \
+  wl-clipboard \
+  systemd-container
 
 # Adding alacritty to nautilus contextual menu requires the python wrapper for the libraries
 sudo apt install -y python3-nautilus

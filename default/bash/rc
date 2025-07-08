@@ -3,3 +3,4 @@ source ~/.local/share/omarell/defaults/bash/aliases
 source ~/.local/share/omarell/defaults/bash/functions
 source ~/.local/share/omarell/defaults/bash/prompt
 source ~/.local/share/omarell/defaults/bash/init
+source ~/.local/share/omarell/defaults/bash/envs

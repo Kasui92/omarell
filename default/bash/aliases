@@ -3,10 +3,21 @@ alias ls='eza -lh --group-directories-first --icons=auto'
 alias lsa='ls -a'
 alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
-alias lf="ls -l | egrep -v '^d'"
-alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
-alias fd='fdfind'
-alias cd='z'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias cd="zd"
+zd() {
+  if [ $# -eq 0 ]; then
+    builtin cd ~ && return
+  elif [ -d "$1" ]; then
+    builtin cd "$1"
+  else
+    z "$@" && printf " \U000F17A9 " && pwd || echo "Error: Directory not found"
+  fi
+}
+md() {
+  mkdir -p $1
+  cd $1
+}
 
 # Directories
 alias ..='cd ..'
@@ -17,11 +28,14 @@ alias ....='cd ../../..'
 alias n='nvim'
 alias g='git'
 alias d='docker'
-alias r='rails'
 alias bat='batcat'
-alias lazygit='CONFIG_DIR="$HOME/.config/lazygit" lazygit'
 alias lzg='lazygit'
 alias lzd='lazydocker'
+
+# Browser
+open() {
+  xdg-open "$@" >/dev/null 2>&1
+}
 
 # Git
 alias gcm='git commit -m'

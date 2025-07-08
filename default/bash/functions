@@ -1,9 +1,3 @@
-# Create a new directory and enter it
-md() {
-    mkdir -p $1
-    cd $1
-}
-
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
@@ -83,11 +77,60 @@ app2folder-remove() {
   fi
 }
 
+# Create a desktop launcher for a web app
+web2app() {
+  if [ "$#" -ne 3 ]; then
+    echo "Usage: web2app <AppName> <AppURL> <IconURL> (IconURL must be in PNG -- use https://dashboardicons.com)"
+    return 1
+  fi
+
+  local APP_NAME="$1"
+  local APP_URL="$2"
+  local ICON_URL="$3"
+  local ICON_DIR="$HOME/.local/share/applications/icons"
+  local DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
+  local ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
+
+  mkdir -p "$ICON_DIR"
+
+  if ! curl -sL -o "$ICON_PATH" "$ICON_URL"; then
+    echo "Error: Failed to download icon."
+    return 1
+  fi
+
+  cat > "$DESKTOP_FILE" <<EOF
+[Desktop Entry]
+Version=1.0
+Name=$APP_NAME
+Comment=$APP_NAME
+Exec=chromium --new-window --ozone-platform=wayland --app="$APP_URL" --name="$APP_NAME" --class="$APP_NAME"
+Terminal=false
+Type=Application
+Icon=$ICON_PATH
+StartupNotify=true
+EOF
+
+  chmod +x "$DESKTOP_FILE"
+}
+
+# Remove a web app desktop launcher
+web2app-remove() {
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: web2app-remove <AppName>"
+    return 1
+  fi
+
+  local APP_NAME="$1"
+  local ICON_DIR="$HOME/.local/share/applications/icons"
+  local DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
+  local ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
+
+  rm "$DESKTOP_FILE"
+  rm "$ICON_PATH"
+}
+
 # Ensure that external keyboards that use an fn key has the F keys as the default
 alias fix_fkeys='echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode'
-
-# Spotify window is too large on many displays, so fix this by zooming it down
-alias fix_spotify_window_size="sudo sed -i 's|^Exec=.*|Exec=spotify --force-device-scale-factor=1.5 %U|' /usr/local/share/applications/spotify.desktop"
 
 # SSH key management
 function ssh-key-put() {
