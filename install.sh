@@ -31,6 +31,9 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   # Revert to normal idle and lock settings
   gsettings set org.gnome.desktop.screensaver lock-enabled true
   gsettings set org.gnome.desktop.session idle-delay 300
+
+  # Reboot to pickup changes
+  gum confirm "Now everything is built as it should be. Reboot and let's see!" && sudo reboot
 else
   echo
   echo -e "\nOnly installing terminal tools..."
