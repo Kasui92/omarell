@@ -1,6 +1,5 @@
 CHOICES=(
 	"Theme         Change the theme of your system"
-	"Font          Change the font family and size of the terminal"
 	"<< Back       "
 )
 
@@ -14,7 +13,6 @@ else
 
 	case "$APPEARANCE" in
 	"theme") APPEARANCE_FILE="$OMARELL_PATH/bin/omarell-sub/appearance/theme.sh" ;;
-	"font") APPEARANCE_FILE="$OMARELL_PATH/bin/omarell-sub/appearance/font.sh" ;;
 	esac
 
 	source $APPEARANCE_FILE && gum spin --spinner globe --title "Change completed!" -- sleep 3
