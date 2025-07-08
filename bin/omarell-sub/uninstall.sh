@@ -1,32 +1,16 @@
 CHOICES=(
-  "Dev Languages     "
   "Docker            "
   "Mainline Kernels  "
-  "Audacity          "
-  "Cursor            "
-  "Brave Browser     "
-  "DBeaver           "
-  "Discord           "
-  "FastFetch         "
-  "Figma             "
-  "Filezilla         "
   "Firefox           "
   "Flameshot         "
-  "Google Chrome     "
   "NeoVim            "
   "Libreoffice       "
   "LocalSend         "
-  "Obs Studio        "
-  "Obsidian          "
   "Pinta             "
-  "Postman           "
   "Spotify           "
-  "Thunderbird       "
   "Visual Studio Code"
   "Vlc               "
-  "Windsurf          "
   "Xournalpp         "
-  "Zen               "
   "> All             Remove all applications"
   "<< Back           "
 )
@@ -48,7 +32,6 @@ else
 
   case "$UNINSTALLER" in
   "docker") UNINSTALLER_FILE="$OMARELL_PATH/uninstall/docker.sh" ;;
-  "dev-language") UNINSTALLER_FILE="$OMARELL_PATH/uninstall/dev-language.sh" ;;
   *) UNINSTALLER_FILE="$OMARELL_PATH/uninstall/app-$UNINSTALLER.sh" ;;
   esac
 
