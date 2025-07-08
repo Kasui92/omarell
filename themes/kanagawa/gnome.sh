@@ -1,3 +1,3 @@
-OMAKUB_THEME_COLOR="purple"
-OMAKUB_THEME_BACKGROUND="kanagawa/background.jpg"
-source $OMAKUB_PATH/themes/set-gnome-theme.sh
+OMARELL_THEME_COLOR="purple"
+OMARELL_THEME_BACKGROUND="kanagawa/background.jpg"
+source $OMARELL_PATH/themes/set-gnome-theme.sh

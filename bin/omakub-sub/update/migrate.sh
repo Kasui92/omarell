@@ -1,9 +1,9 @@
-cd $OMAKUB_PATH
+cd $OMARELL_PATH
 last_updated_at=$(git log -1 --format=%cd --date=unix)
 git pull
 
-if [ -d "$OMAKUB_PATH/migrations" ] && [ "$(ls -A $OMAKUB_PATH/migrations)" ]; then
-  for file in $OMAKUB_PATH/migrations/*.sh; do
+if [ -d "$OMARELL_PATH/migrations" ] && [ "$(ls -A $OMARELL_PATH/migrations)" ]; then
+  for file in $OMARELL_PATH/migrations/*.sh; do
     filename=$(basename "$file")
     migrate_at="${filename%.sh}"
 

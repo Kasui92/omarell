@@ -25,7 +25,7 @@ if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
   # Don't install anything
   echo ""
 elif [[ "$CHOICE" == "> All"* ]]; then
-  INSTALLER_FILE=$(gum file $OMAKUB_PATH/install)
+  INSTALLER_FILE=$(gum file $OMARELL_PATH/install)
 
   [[ -n "$INSTALLER_FILE" ]] &&
     gum confirm "Run installer?" &&
@@ -35,15 +35,15 @@ else
   INSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
   case "$INSTALLER" in
-  "browser") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/install/install-browser.sh" ;;
-  "dev-tools") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/install/install-dev-apps.sh" ;;
-  "dev-language") INSTALLER_FILE="$OMAKUB_PATH/install/terminal/select-dev-language.sh" ;;
-  "dev-database") INSTALLER_FILE="$OMAKUB_PATH/install/terminal/select-dev-storage.sh" ;;
-  *) INSTALLER_FILE="$OMAKUB_PATH/install/desktop/optional/app-$INSTALLER.sh" ;;
+  "browser") INSTALLER_FILE="$OMARELL_PATH/bin/omarell-sub/install/install-browser.sh" ;;
+  "dev-tools") INSTALLER_FILE="$OMARELL_PATH/bin/omarell-sub/install/install-dev-apps.sh" ;;
+  "dev-language") INSTALLER_FILE="$OMARELL_PATH/install/terminal/select-dev-language.sh" ;;
+  "dev-database") INSTALLER_FILE="$OMARELL_PATH/install/terminal/select-dev-storage.sh" ;;
+  *) INSTALLER_FILE="$OMARELL_PATH/install/desktop/optional/app-$INSTALLER.sh" ;;
   esac
 
   source $INSTALLER_FILE && gum spin --spinner globe --title "Install completed!" -- sleep 3
 fi
 
 clear
-source $OMAKUB_PATH/bin/omakub
+source $OMARELL_PATH/bin/omarell

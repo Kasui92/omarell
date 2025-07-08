@@ -13,11 +13,11 @@ set_font() {
 		fc-cache
 		cd -
 		clear
-		source $OMAKUB_PATH/ascii.sh
+		source $OMARELL_PATH/ascii.sh
 	fi
 
 	gsettings set org.gnome.desktop.interface monospace-font-name "$font_name 10"
-	cp "$OMAKUB_PATH/configs/alacritty/fonts/$file_name.toml" ~/.config/alacritty/font.toml
+	cp "$OMARELL_PATH/configs/alacritty/fonts/$file_name.toml" ~/.config/alacritty/font.toml
 	sed -i "s/\"editor.fontFamily\": \".*\"/\"editor.fontFamily\": \"$font_name\"/g" ~/.config/Code/User/settings.json
 
 	gum spin --spinner globe --title "Font changed!" -- sleep 3
@@ -38,7 +38,7 @@ if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
 	# Don't update anything
 	echo ""
 elif [[ "$CHOICE" == "> Change size"* ]]; then
-	source $OMAKUB_PATH/bin/omakub-sub/appearance/font-size.sh
+	source $OMARELL_PATH/bin/omarell-sub/appearance/font-size.sh
 else
 	case "$CHOICE" in
 	"Cascadia Mono") set_font "CaskaydiaMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip" "ttf" ;;
@@ -49,5 +49,5 @@ else
 fi
 
 clear
-source $OMAKUB_PATH/bin/omakub-sub/header.sh
-source $OMAKUB_PATH/bin/omakub-sub/appearance.sh
+source $OMARELL_PATH/bin/omarell-sub/header.sh
+source $OMARELL_PATH/bin/omarell-sub/appearance.sh

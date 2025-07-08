@@ -30,21 +30,22 @@ for i in "${!lines[@]}"; do
   echo -e "${colors[color_index]}${lines[i]}"
 done
 
-echo -e "\033[1;35m=> Omarell: basically Omakub with some fancy, totally optional (... and unrequested!) tweaks.\033[0m"
-echo -e "\033[1;35m=> Just like its parent, it demands the purity of a fresh Ubuntu 24.04+ install... unless you enjoy debugging cryptic errors later!\033[0m"
+echo -e "\n=> Omarell: basically Omakub with some fancy, totally optional (... and unrequested!) tweaks."
+echo -e "\n=> Just like its parent, it demands the purity of a fresh Ubuntu 24.04+ install... unless you enjoy debugging cryptic errors later!"
+echo
 echo -e "\nBegin installation (or abort with ctrl+c)..."
 
 sudo apt-get update >/dev/null
 sudo apt-get install -y git >/dev/null
 
-echo -e "\033[1;35mCloning Omarell...\033[0m"
-rm -rf ~/.local/share/omakub
-git clone https://github.com/Kasui92/omarell.git ~/.local/share/omakub >/dev/null
+echo -e "\nCloning Omarell..."
+rm -rf ~/.local/share/omarell
+git clone https://github.com/Kasui92/omarell.git ~/.local/share/omarell >/dev/null
 if [[ $OMARELL_REF != "dev" ]]; then
-	cd ~/.local/share/omakub
+	cd ~/.local/share/omarell
 	git fetch origin "${OMARELL_REF:-main}" && git checkout "${OMARELL_REF:-main}"
 	cd -
 fi
 
-echo -e "\033[1;35mInstallation starting...\033[0m"
-source ~/.local/share/omakub/install.sh
+echo -e "\nInstallation starting..."
+source ~/.local/share/omarell/install.sh

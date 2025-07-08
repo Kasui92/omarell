@@ -3,10 +3,10 @@ cat <<EOF >~/.local/share/applications/Omarell.desktop
 Version=1.0
 Name=Omarell
 Comment=Omarell Controls
-Exec=alacritty --config-file /home/$USER/.config/alacritty/pane.toml --class=Omarell --title=Omarell -e omakub
+Exec=alacritty --config-file /home/$USER/.config/alacritty/pane.toml --class=Omarell --title=Omarell -e omarell
 Terminal=false
 Type=Application
-Icon=/home/$USER/.local/share/omakub/applications/icons/Omarell.png
+Icon=/home/$USER/.local/share/omarell/applications/icons/Omarell.png
 Categories=GTK;
 StartupNotify=false
 EOF

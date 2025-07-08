@@ -31,7 +31,7 @@ gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folder
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Xtra/ apps "['gnome-language-selector.desktop', 'org.gnome.PowerStats.desktop', 'yelp.desktop', 'org.gnome.eog.desktop']"
 
 # Add LibreOffice apps to a dedicated folder if it was selected during installation
-if grep -q "libreoffice" <<< "$OMAKUB_FIRST_RUN_OPTIONAL_APPS"; then
+if grep -q "libreoffice" <<< "$OMARELL_FIRST_RUN_OPTIONAL_APPS"; then
   # Create a LibreOffice folder and add all LibreOffice apps to it
   if [[ ! " ${folders[*]} " =~ " LibreOffice " ]]; then
     folders+=("LibreOffice")

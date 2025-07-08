@@ -2,7 +2,7 @@
 sudo apt install -y libreoffice
 
 # If is not installation, add LibreOffice to the app grid
-if ! grep -q "libreoffice" <<< "$OMAKUB_FIRST_RUN_OPTIONAL_APPS"; then
+if ! grep -q "libreoffice" <<< "$OMARELL_FIRST_RUN_OPTIONAL_APPS"; then
   # Check if the LibreOffice folder already exists
   if gsettings get org.gnome.desktop.app-folders folder-children | grep -q "LibreOffice"; then
     # If it exists, remove the LibreOffice folder

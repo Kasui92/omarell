@@ -17,16 +17,16 @@ remove_snaps() {
 }
 
 if command -v snap >/dev/null 2>&1; then
-    echo -e "\033[1;35mRemoving snap and all its packages...\033[0m"
+    echo -e "\nRemoving snap and all its packages..."
 
     remove_snaps >/dev/null
 
-    sudo apt autoremove --purge snapd gnome-software-plugin-snap -y >/dev/null 2>&1 || echo -e "\033[1;31mFailed to remove snapd and gnome-software-plugin-snap.\033[0m"
+    sudo apt autoremove --purge snapd gnome-software-plugin-snap -y >/dev/null 2>&1 || echo -e "\033[1;31mFailed to remove snapd and gnome-software-plugin-snap."
 
     sudo rm -rf /var/cache/snapd/ /var/lib/snapd/ /var/snap/ /snap /etc/snap >/dev/null 2>&1
     rm -rf ~/snap >/dev/null 2>&1
 
     sudo apt-mark hold snapd >/dev/null 2>&1
 
-    echo -e "\033[1;35mFinished!\033[0m"
+    echo -e "\nFinished!"
 fi

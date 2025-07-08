@@ -12,13 +12,13 @@ sudo bash -c "cat > $DESKTOP_FILE" <<EOL
 Name=Cursor
 Comment=AI-powered code editor
 Exec=/opt/cursor.appimage --no-sandbox
-Icon=/home/$USER/.local/share/omakub/applications/icons/cursor.png
+Icon=/home/$USER/.local/share/omarell/applications/icons/cursor.png
 Type=Application
 Categories=Development;IDE;
 EOL
 
 if [ -f "$DESKTOP_FILE" ]; then
-	echo -e "\033[1;35mCursor installed successfully.\033[0m"
+	echo -e "\nCursor installed successfully."
 else
-	echo -e "\033[1;31mCursor installation failed.\033[0m"
+	echo -e "\033[1;31mCursor installation failed."
 fi

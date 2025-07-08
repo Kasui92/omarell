@@ -2,16 +2,16 @@
 set -e
 
 # Give people a chance to retry running the installation
-trap 'echo -e "\033[1;35mOmarell installation failed! You can retry by running: source ~/.local/share/omakub/install.sh\033[0m"' ERR
+trap 'echo -e "\nOmarell installation failed! You can retry by running: source ~/.local/share/omarell/install.sh"' ERR
 
 # Check the distribution name and version and abort if incompatible
-source ~/.local/share/omakub/install/check-version.sh
+source ~/.local/share/omarell/install/check-version.sh
 
 # Ask for app choices
-echo -e "\033[1;35mGet ready to make a few choices...\033[0m"
-source ~/.local/share/omakub/install/terminal/required/app-gum.sh >/dev/null
-source ~/.local/share/omakub/install/first-run-choices.sh
-source ~/.local/share/omakub/install/identification.sh
+echo -e "\nGet ready to make a few choices..."
+source ~/.local/share/omarell/install/terminal/required/app-gum.sh >/dev/null
+source ~/.local/share/omarell/install/first-run-choices.sh
+source ~/.local/share/omarell/install/identification.sh
 
 # Desktop software and tweaks will only be installed if we're running Gnome
 if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
@@ -20,19 +20,19 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   gsettings set org.gnome.desktop.session idle-delay 0
 
   echo
-  echo -e "\033[1;35mInstalling terminal and desktop tools...\033[0m"
+  echo -e "\nInstalling terminal and desktop tools..."
 
   # Install terminal tools
-  source ~/.local/share/omakub/install/terminal.sh
+  source ~/.local/share/omarell/install/terminal.sh
 
   # Install desktop tools and tweaks
-  source ~/.local/share/omakub/install/desktop.sh
+  source ~/.local/share/omarell/install/desktop.sh
 
   # Revert to normal idle and lock settings
   gsettings set org.gnome.desktop.screensaver lock-enabled true
   gsettings set org.gnome.desktop.session idle-delay 300
 else
   echo
-  echo -e "\033[1;35mOnly installing terminal tools...\033[0m"
-  source ~/.local/share/omakub/install/terminal.sh
+  echo -e "\nOnly installing terminal tools..."
+  source ~/.local/share/omarell/install/terminal.sh
 fi

@@ -2,8 +2,8 @@
 apps=()
 
 # Favorite browser for dock
-if [[ -v OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER ]]; then
-  browser=$(echo "$OMAKUB_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+if [[ -v OMARELL_FIRST_RUN_SYSTEM_DEFAULT_BROWSER ]]; then
+  browser=$(echo "$OMARELL_FIRST_RUN_SYSTEM_DEFAULT_BROWSER" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
   apps+=("$browser.desktop")
 fi
 

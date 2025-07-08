@@ -1,3 +1,3 @@
-OMAKUB_THEME_COLOR="blue"
-OMAKUB_THEME_BACKGROUND="nord/background.jpg"
-source $OMAKUB_PATH/themes/set-gnome-theme.sh
+OMARELL_THEME_COLOR="blue"
+OMARELL_THEME_BACKGROUND="nord/background.jpg"
+source $OMARELL_PATH/themes/set-gnome-theme.sh

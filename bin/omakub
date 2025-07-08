@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source $OMAKUB_PATH/bin/omakub-sub/header.sh
-source $OMAKUB_PATH/bin/omakub-sub/helper.sh
-source $OMAKUB_PATH/bin/omakub-sub/menu.sh
+source $OMARELL_PATH/bin/omarell-sub/header.sh
+source $OMARELL_PATH/bin/omarell-sub/helper.sh
+source $OMARELL_PATH/bin/omarell-sub/menu.sh

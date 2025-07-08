@@ -1,2 +1,2 @@
-OMAKUB_THEME_BACKGROUND="catppuccin/background.png"
-source $OMAKUB_PATH/themes/set-gdm-background.sh
+OMARELL_THEME_BACKGROUND="catppuccin/background.png"
+source $OMARELL_PATH/themes/set-gdm-background.sh

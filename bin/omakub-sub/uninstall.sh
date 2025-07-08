@@ -37,7 +37,7 @@ if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
   # Don't install anything
   echo ""
 elif [[ "$CHOICE" == "> All"* ]]; then
-  UNINSTALLER_FILE=$(gum file $OMAKUB_PATH/uninstall)
+  UNINSTALLER_FILE=$(gum file $OMARELL_PATH/uninstall)
 
   [[ -n "$UNINSTALLER_FILE" ]] &&
     gum confirm "Run uninstaller?" &&
@@ -47,9 +47,9 @@ else
   UNINSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
   case "$UNINSTALLER" in
-  "docker") UNINSTALLER_FILE="$OMAKUB_PATH/uninstall/docker.sh" ;;
-  "dev-language") UNINSTALLER_FILE="$OMAKUB_PATH/uninstall/dev-language.sh" ;;
-  *) UNINSTALLER_FILE="$OMAKUB_PATH/uninstall/app-$UNINSTALLER.sh" ;;
+  "docker") UNINSTALLER_FILE="$OMARELL_PATH/uninstall/docker.sh" ;;
+  "dev-language") UNINSTALLER_FILE="$OMARELL_PATH/uninstall/dev-language.sh" ;;
+  *) UNINSTALLER_FILE="$OMARELL_PATH/uninstall/app-$UNINSTALLER.sh" ;;
   esac
 
   [[ -n "$UNINSTALLER_FILE" ]] &&
@@ -59,4 +59,4 @@ else
 fi
 
 clear
-source $OMAKUB_PATH/bin/omakub
+source $OMARELL_PATH/bin/omarell
