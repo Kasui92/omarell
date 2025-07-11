@@ -3,11 +3,11 @@ THEME=$(gum choose "${THEME_NAMES[@]}" "<< Back" --header "Choose your theme" --
 
 if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
   # Set current theme
-  ln -nsf "$HOME/.config/omakub/themes/$THEME" "$HOME/.config/omakub/current/theme"
+  ln -nsf "$HOME/.config/omarell/themes/$THEME" "$HOME/.config/omarell/current/theme"
 
   # Set desktop theme
   if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-    ln -nsf "$HOME/.config/omakub/backgrounds/$THEME" "$HOME/.config/omarchy/current/backgrounds"
+    ln -nsf "$HOME/.config/omarell/backgrounds/$THEME" "$HOME/.config/omarell/current/backgrounds"
 
     # Touch alacritty config to pickup the changed theme
     touch "$HOME/.config/alacritty/alacritty.toml"
