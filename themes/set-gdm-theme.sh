@@ -3,7 +3,8 @@
 
 # blur the image
 blurredpath=/tmp/blurred.jpg
-convert "$OMARELL_PATH/themes/$OMARELL_THEME_BACKGROUND" -channel RGBA -blur 0x26 $blurredpath
+current_background="$(readlink -f "$HOME/.config/omarell/current/background")"
+convert $current_background -channel RGBA -blur 0x26 $blurredpath
 
 # copy it to /usr/share/backgrounds
 sudo mkdir -p /usr/share/backgrounds/gdm
