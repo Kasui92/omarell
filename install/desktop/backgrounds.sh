@@ -6,4 +6,8 @@ download_background_image() {
   gum spin --title "Downloading $url as $path..." -- curl -sL -o "$BACKGROUNDS_DIR/$path" "$url"
 }
 
-for t in ~/.local/share/omarell/themes/*; do source "$t/backgrounds.sh"; done
+for t in ~/.local/share/omarell/themes/*/; do
+  if [ -d "$t" ]; then
+    source "$t/backgrounds.sh"
+  fi
+done
