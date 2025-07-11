@@ -1,4 +1,7 @@
 # Setup theme links
+if [ -d ~/.config/omarell/themes ]; then
+  rm -rf ~/.config/omarell/themes
+fi
 mkdir -p ~/.config/omarell/themes
 for f in ~/.local/share/omarell/themes/*; do ln -s "$f" ~/.config/omarell/themes/; done
 
