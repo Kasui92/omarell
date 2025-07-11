@@ -7,7 +7,7 @@ if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
 
   # Set desktop theme
   if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-    ln -nsf "$HOME/.config/omarell/backgrounds/$THEME" "$HOME/.config/omarell/current/backgrounds"
+    ln -nsf "$HOME/.config/omarell/backgrounds/$THEME" "$HOME/.config/omarell/current/background"
 
     # Touch alacritty config to pickup the changed theme
     touch "$HOME/.config/alacritty/alacritty.toml"
