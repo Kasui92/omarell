@@ -1,5 +1,5 @@
 themes {
-    kanagawa {
+    current {
         text_unselected {
             base 220 215 186
             background 22 22 29

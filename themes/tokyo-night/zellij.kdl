@@ -1,5 +1,5 @@
 themes {
-    tokyo-night {
+    current {
         text_unselected {
             base 192 202 245
             background 56 62 90

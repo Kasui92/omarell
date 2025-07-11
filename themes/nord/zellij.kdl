@@ -1,5 +1,5 @@
 themes {
-    nord {
+    current {
         text_unselected {
             base 229 233 240
             background 59 66 82

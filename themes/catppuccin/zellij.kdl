@@ -1,5 +1,5 @@
 themes {
-    catppuccin {
+    current {
         text_unselected {
             base 198 208 245
             background 41 44 60
