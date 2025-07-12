@@ -3,10 +3,15 @@ sudo apt remove --purge -y \
   ppa-purge redis-tools sqlite3 libsqlite3-0 \
   libyaml-dev libncurses5-dev libgdbm-dev libjemalloc2
 
+# Rename omakub to omarell
+if [ -d "$HOME/.local/share/omakub" ]; then
+  mv "$HOME/.local/share/omakub" "$HOME/.local/share/omarell"
+fi
+
 #
-source "$OMAKUB_PATH/install/terminal/0-config.sh"
-source "$OMAKUB_PATH/install/desktop/app-chromium.sh"
-source "$OMAKUB_PATH/install/desktop/backgrounds.sh"
+source "~/.local/share/omarell/install/terminal/0-config.sh"
+source "~/.local/share/omarell/install/desktop/app-chromium.sh"
+source "~/.local/share/omarell/install/desktop/backgrounds.sh"
 
 # Install ffmpeg for video support
 sudo apt install -y ffmpeg
@@ -37,7 +42,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 # Select current theme
 THEME_NAMES=("Tokyo Night" "Catppuccin" "Nord" "Everforest" "Gruvbox" "Kanagawa")
 OMARELL_FIRST_RUN_THEME=$(gum choose "${THEME_NAMES[@]}" ">> Skip" --header "Choose your current theme" --height 10 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
-source "$OMAKUB_PATH/install/desktop/set-theme.sh"
+source "~/.local/share/omarell/install/desktop/set-theme.sh"
 
 # Rename omakub to omarell
 if [ -d "$HOME/.local/share/omakub" ]; then
