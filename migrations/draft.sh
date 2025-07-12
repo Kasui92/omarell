@@ -13,6 +13,8 @@ source "~/.local/share/omarell/install/terminal/0-config.sh"
 source "~/.local/share/omarell/install/desktop/app-chromium.sh"
 source "~/.local/share/omarell/install/desktop/backgrounds.sh"
 
+source "~/.local/share/omarell/default/bash/shell"
+
 # Install ffmpeg for video support
 sudo apt install -y ffmpeg
 
