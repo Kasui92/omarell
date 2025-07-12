@@ -46,10 +46,17 @@ THEME_NAMES=("Tokyo Night" "Catppuccin" "Nord" "Everforest" "Gruvbox" "Kanagawa"
 OMARELL_FIRST_RUN_THEME=$(gum choose "${THEME_NAMES[@]}" ">> Skip" --header "Choose your current theme" --height 10 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 source "~/.local/share/omarell/install/desktop/set-theme.sh"
 
-# Rename omakub to omarell
-if [ -d "$HOME/.local/share/omakub" ]; then
-  mv "$HOME/.local/share/omakub" "$HOME/.local/share/omarell"
-fi
+# Change desktop applications
+sudo rm -rf .local/share/applications/About.desktop
+sudo rm -rf .local/share/applications/Activity.desktop
+sudo rm -rf .local/share/applications/Neovim.desktop
+sudo rm -rf .local/share/applications/Docker.desktop
+sudo rm -rf .local/share/applications/Omarell.desktop
+source ~/.local/share/omarell/applications/About.sh
+source ~/.local/share/omarell/applications/Activity.sh
+source ~/.local/share/omarell/applications/Neovim.sh
+source ~/.local/share/omarell/applications/Docker.sh
+source ~/.local/share/omarell/applications/Omarell.sh
 
 # Autoremove unused packages
 sudo apt autoremove -y
