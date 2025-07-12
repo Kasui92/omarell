@@ -1,4 +1,8 @@
 # Set default XCompose that is triggered with CapsLock
+if [ -f ~/.XCompose ]; then
+  rm ~/.XCompose
+fi
+
 tee ~/.XCompose >/dev/null <<EOF
 include "%H/.local/share/omasway/default/xcompose"
 
