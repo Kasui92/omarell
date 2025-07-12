@@ -29,6 +29,7 @@ for i in "${!lines[@]}"; do
   color_index=$((i % ${#colors[@]}))
   echo -e "${colors[color_index]}${lines[i]}"
 done
+echo -e "\033[0m" # Reset color
 
 echo -e "\n=> Omarell: basically Omakub with some fancy, totally optional (... and unrequested!) tweaks."
 echo -e "\n=> Just like its parent, it demands the purity of a fresh Ubuntu 24.04+ install... unless you enjoy debugging cryptic errors later!"
