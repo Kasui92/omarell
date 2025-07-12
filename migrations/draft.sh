@@ -1,7 +1,5 @@
 # Remove unused libraries
-sudo apt remove -y \
-  ppa-purge redis-tools sqlite3 libsqlite3-0 \
-  libyaml-dev libncurses5-dev libgdbm-dev libjemalloc2
+sudo apt remove -y ppa-purge
 
 # Rename omakub to omarell
 if [ -d "$HOME/.local/share/omakub" ]; then
