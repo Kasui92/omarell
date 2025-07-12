@@ -1,5 +1,5 @@
 # Remove unused libraries
-sudo apt remove --purge -y \
+sudo apt remove -y \
   ppa-purge redis-tools sqlite3 libsqlite3-0 \
   libyaml-dev libncurses5-dev libgdbm-dev libjemalloc2
 
@@ -28,9 +28,11 @@ gsettings set org.gnome.shell.extensions.tactile row-1 1
 gsettings set org.gnome.shell.extensions.tactile gap-size 10
 
 # Remove ulauncher
-sudo apt remove --purge -y ulauncher
-rm -rf ~/.config/ulauncher
-rm -rf ~/.local/share/ulauncher
+if command -v ulauncher &> /dev/null; then
+  sudo apt remove --purge -y ulauncher
+  rm -rf ~/.config/ulauncher
+  rm -rf ~/.local/share/ulauncher
+fi
 
 # Install wofi
 sudo apt install -y wofi
@@ -44,6 +46,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 # Select current theme
 THEME_NAMES=("Tokyo Night" "Catppuccin" "Nord" "Everforest" "Gruvbox" "Kanagawa")
 OMARELL_FIRST_RUN_THEME=$(gum choose "${THEME_NAMES[@]}" ">> Skip" --header "Choose your current theme" --height 10 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+
 source "~/.local/share/omarell/install/desktop/set-theme.sh"
 
 # Change desktop applications
