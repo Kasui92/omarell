@@ -40,8 +40,8 @@ OMARELL_FIRST_RUN_THEME=$(gum choose "${THEME_NAMES[@]}" ">> Skip" --header "Cho
 source "$OMARELL_PATH/install/desktop/set-theme.sh"
 
 # Rename omakub to omarell
-if [ -d "$HOME/.config/omakub" ]; then
-  mv "$HOME/.config/omakub" "$HOME/.config/omarell"
+if [ -d "$HOME/.local/share/omakub" ]; then
+  mv "$HOME/.local/share/omakub" "$HOME/.local/share/omarell"
 fi
 
 # Autoremove unused packages
