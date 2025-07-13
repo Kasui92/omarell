@@ -18,6 +18,7 @@ export OMARELL_FIRST_RUN_THEME
 if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   # Apps
   OPTIONAL_APPS=(
+    "Discord"
     "FlameShot"
     "Libreoffice"
     "LocalSend"
@@ -28,5 +29,5 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
     "Xournalpp"
   )
   DEFAULT_OPTIONAL_APPS='FlameShot','LocalSend','Pinta','Spotify'
-  export OMARELL_FIRST_RUN_OPTIONAL_APPS=$(gum choose "${OPTIONAL_APPS[@]}" --no-limit --selected $DEFAULT_OPTIONAL_APPS --height 10 --header "Select optional apps" | tr ' ' '-')
+  export OMARELL_FIRST_RUN_OPTIONAL_APPS=$(gum choose "${OPTIONAL_APPS[@]}" --no-limit --selected $DEFAULT_OPTIONAL_APPS --height 11 --header "Select optional apps" | tr ' ' '-')
 fi
