@@ -1,11 +1,12 @@
 CHOICES=(
   "Docker            "
   "Mainline Kernels  "
+  "Discord           "
   "Firefox           "
   "Flameshot         "
-  "NeoVim            "
   "Libreoffice       "
   "LocalSend         "
+  "NeoVim            "
   "Pinta             "
   "Spotify           "
   "Visual Studio Code"
@@ -31,8 +32,7 @@ else
   UNINSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
   case "$UNINSTALLER" in
-  "docker") UNINSTALLER_FILE="$HOME/.local/share/omarell/uninstall/docker.sh" ;;
-  *) UNINSTALLER_FILE="$HOME/.local/share/omarell/uninstall/app-$UNINSTALLER.sh" ;;
+  *) UNINSTALLER_FILE="$HOME/.local/share/omarell/uninstall/$UNINSTALLER.sh" ;;
   esac
 
   [[ -n "$UNINSTALLER_FILE" ]] &&
