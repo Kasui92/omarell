@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Kasui92/omarell/refs/heads/main/applications/icons/Omarell.png" alt="Omarell Logo">
+  <img src="https://raw.githubusercontent.com/Kasui92/omarell/refs/heads/main/applications/icons/Omarell.png" alt="Omarell Logo" height="200" width="200">
 </p>
 
 <h1 align="center">Omarell</h1>
@@ -28,12 +28,11 @@ curl -sSL https://omakasui.lucapattocchio.dev/omarell-dev | bash
 
 ## Key Features
 
-- **All Omakub benefits**: the entire Omakub ecosystem remains intact, with all its tools and configurations
+- **All Omakub benefits**: the base is Omakub and that remains, with a few more updates and a few less default apps
 - **Lightweight base installation**: minimal core setup without suggested applications (most are optional) and initial theme selection
 - **Updated menu system**: reorganized, cleaned up, and enhanced system menus for better organization and usability
 - **Enhanced GNOME customizations**: additional desktop tweaks and interesting enhancements, like GDM background sync and consistency fixes
-- **No Snaps!**: removed snap and replaced all applications with Flatpak or directly installed
-- **Developer-focused**: maintains the developer-oriented approach of the original project while adding flexibility
+- **No Snaps!**: removed snap and replaced all applications with Flatpak or from sources
 
 ## Documentation
 
