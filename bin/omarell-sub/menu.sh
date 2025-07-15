@@ -14,5 +14,5 @@ if [[ "$CHOICE" == "Quit"* ]] || [[ -z "$CHOICE" ]]; then
 	exit 0
 else
 	MENU=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
-	source $OMARELL_PATH/bin/omarell-sub/$MENU.sh
+	source $HOME/.local/share/omarell/bin/omarell-sub/$MENU.sh
 fi

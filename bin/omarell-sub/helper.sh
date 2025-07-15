@@ -19,11 +19,11 @@ if timeout 3 curl -s --head "https://api.github.com/repos/Kasui92/omarell/releas
   last_release_tag=$(curl -s "https://api.github.com/repos/Kasui92/omarell/releases/latest" | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4)
 
   # Check if the last release tag is not empty and if the version file exists
-  if [ -n "$last_release_tag" ] && [ -f "$OMARELL_PATH/version" ]; then
+  if [ -n "$last_release_tag" ] && [ -f "$HOME/.local/share/omarell/version" ]; then
     last_release_number=${last_release_tag#v}
     last_release_number=${last_release_number//./}
 
-    local_version_tag=$(cat "$OMARELL_PATH/version")
+    local_version_tag=$(cat "$HOME/.local/share/omarell/version")
     local_version_number=${local_version_tag#v}
     local_version_number=${local_version_number//./}
 

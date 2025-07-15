@@ -21,11 +21,11 @@ else
   INSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
   case "$INSTALLER" in
-  *) INSTALLER_FILE="$OMARELL_PATH/install/desktop/optional/app-$INSTALLER.sh" ;;
+  *) INSTALLER_FILE="$HOME/.local/share/omarell/install/desktop/optional/app-$INSTALLER.sh" ;;
   esac
 
   source $INSTALLER_FILE && gum spin --spinner globe --title "Install completed!" -- sleep 3
 fi
 
 clear
-source $OMARELL_PATH/bin/omarell
+source $HOME/.local/share/omarell/bin/omarell

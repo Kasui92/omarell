@@ -18,14 +18,14 @@ else
 	INSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
 	case "$INSTALLER" in
-	"omarell") INSTALLER_FILE="$OMARELL_PATH/bin/omarell-sub/update/migrate.sh" ;;
-	"system") INSTALLER_FILE="$OMARELL_PATH/bin/omarell-sub/update/update-system.sh" ;;
-	"firmware") INSTALLER_FILE="$OMARELL_PATH/bin/omarell-sub/update/update-firmware.sh" ;;
-	*) INSTALLER_FILE="$OMARELL_PATH/install/terminal/app-$INSTALLER.sh" ;;
+	"omarell") INSTALLER_FILE="$HOME/.local/share/omarell/bin/omarell-sub/update/migrate.sh" ;;
+	"system") INSTALLER_FILE="$HOME/.local/share/omarell/bin/omarell-sub/update/update-system.sh" ;;
+	"firmware") INSTALLER_FILE="$HOME/.local/share/omarell/bin/omarell-sub/update/update-firmware.sh" ;;
+	*) INSTALLER_FILE="$HOME/.local/share/omarell/install/terminal/app-$INSTALLER.sh" ;;
 	esac
 
 	source $INSTALLER_FILE && gum spin --spinner globe --title "Update completed!" -- sleep 3
 fi
 
 clear
-source $OMARELL_PATH/bin/omarell
+source $HOME/.local/share/omarell/bin/omarell

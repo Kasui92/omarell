@@ -7,7 +7,7 @@ if [[ -v OMARELL_FIRST_RUN_OPTIONAL_APPS ]]; then
 
 	if [[ -n "$apps" ]]; then
 		for app in $apps; do
-			source "$OMARELL_PATH/install/desktop/optional/app-${app,,}.sh"
+			source "$HOME/.local/share/omarell/install/desktop/optional/app-${app,,}.sh"
 		done
 	fi
 fi

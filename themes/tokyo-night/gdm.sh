@@ -1,2 +1,2 @@
 OMARELL_THEME_BACKGROUND="tokyo-night/background.jpg"
-source $OMARELL_PATH/themes/set-gdm-theme.sh
+source $HOME/.local/share/omarell/themes/set-gdm-theme.sh

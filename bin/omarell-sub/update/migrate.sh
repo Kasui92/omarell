@@ -1,9 +1,9 @@
-cd $OMARELL_PATH
+cd $HOME/.local/share/omarell
 last_updated_at=$(git log -1 --format=%cd --date=unix)
 git pull
 
-if [ -d "$OMARELL_PATH/migrations" ] && [ "$(ls -A $OMARELL_PATH/migrations)" ]; then
-  for file in $OMARELL_PATH/migrations/*.sh; do
+if [ -d "$HOME/.local/share/omarell/migrations" ] && [ "$(ls -A $HOME/.local/share/omarell/migrations)" ]; then
+  for file in $HOME/.local/share/omarell/migrations/*.sh; do
     filename=$(basename "$file")
     migrate_at="${filename%.sh}"
 

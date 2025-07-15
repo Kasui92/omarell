@@ -1,2 +1,2 @@
 OMARELL_THEME_BACKGROUND="catppuccin/background.png"
-source $OMARELL_PATH/themes/set-gdm-theme.sh
+source $HOME/.local/share/omarell/themes/set-gdm-theme.sh
