@@ -134,5 +134,16 @@ alias fix_fkeys='echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode'
 
 # SSH key management
 function ssh-key-put() {
-    cat ~/.ssh/id_ed25519.pub | ssh "$1" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >>  ~/.ssh/authorized_keys";
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: ssh-key-put <user@host> <optional:path_to_key (default: ~/.ssh/id_ed25519.pub)>"
+    return 1
+  fi
+
+  if [ -n "$2" ]; then
+    local SSH_KEY="$2"
+  else
+    local SSH_KEY="$HOME/.ssh/id_ed25519.pub"
+  fi
+
+  cat ~/.ssh/id_ed25519.pub | ssh "$1" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >>  ~/.ssh/authorized_keys";
 }
