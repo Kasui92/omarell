@@ -1,6 +1,6 @@
 # Copy over Omasway configs
 mkdir -p ~/.config
-cp -R ~/.local/share/omarell/config/* ~/.config/
+cp -R -av ~/.local/share/omarell/config/* ~/.config/
 
 # Configure the bash shell using Omarell defaults
 [ -f "~/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak
