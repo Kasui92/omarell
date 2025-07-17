@@ -12,7 +12,7 @@ gnome-extensions disable ding@rastersoft.com
 gum confirm "To install Gnome extensions, you need to accept some confirmations. Ready?"
 
 # Install new extensions
-gext install tactile@lundal.io
+gext install forge@jmmaranan.com
 gext install just-perfection-desktop@just-perfection
 gext install blur-my-shell@aunetx
 gext install space-bar@luchrioh
@@ -24,7 +24,7 @@ gext install quick-settings-tweaks@qwreey
 gext install quick-settings-avatar@d-go
 
 # Compile gsettings schemas in order to be able to set them
-sudo cp ~/.local/share/gnome-shell/extensions/tactile@lundal.io/schemas/org.gnome.shell.extensions.tactile.gschema.xml /usr/share/glib-2.0/schemas/
+sudo cp ~/.local/share/gnome-shell/extensions/forge@jmmaranan.com/schemas/org.gnome.shell.extensions.forge.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/just-perfection-desktop\@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/blur-my-shell\@aunetx/schemas/org.gnome.shell.extensions.blur-my-shell.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/org.gnome.shell.extensions.space-bar.gschema.xml /usr/share/glib-2.0/schemas/
@@ -34,15 +34,6 @@ sudo cp ~/.local/share/gnome-shell/extensions/gnome-ui-tune\@itstime.tech/schema
 sudo cp ~/.local/share/gnome-shell/extensions/quick-settings-tweaks\@qwreey/schemas/org.gnome.shell.extensions.quick-settings-tweaks.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/quick-settings-avatar\@d-go/schemas/org.gnome.shell.extensions.quick-settings-avatar.gschema.xml /usr/share/glib-2.0/schemas/
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
-
-# Configure Tactile
-gsettings set org.gnome.shell.extensions.tactile col-0 1
-gsettings set org.gnome.shell.extensions.tactile col-1 1
-gsettings set org.gnome.shell.extensions.tactile col-2 1
-gsettings set org.gnome.shell.extensions.tactile col-3 1
-gsettings set org.gnome.shell.extensions.tactile row-0 1
-gsettings set org.gnome.shell.extensions.tactile row-1 1
-gsettings set org.gnome.shell.extensions.tactile gap-size 10
 
 # Configure Just Perfection
 gsettings set org.gnome.shell.extensions.just-perfection animation 2
@@ -81,11 +72,13 @@ gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
 # Configure AlphabeticalAppGrid
 gsettings set org.gnome.shell.extensions.alphabetical-app-grid folder-order-position 'end'
 
-# Configure Gnome 4x UI Improvements
-# default settings are good!
-
-# Configure [QSTweak] Quick Setting Tweaker
-# default settings are good!
-
 # Configure User Avatar In Quick Settings
 gsettings set org.gnome.shell.extensions.quick-settings-avatar avatar-position 1
+
+# Configure Forge
+gsettings set org.gnome.shell.extensions.forge window-gap-size 5
+gsettings set org.gnome.shell.extensions.forge window-gap-size-increment 1
+gsettings set org.gnome.shell.extensions.forge quick-settings-enabled false
+gsettings set org.gnome.shell.extensions.forge auto-exit-tabbed false
+gsettings set org.gnome.shell.extensions.forge focus-border-size 2
+gsettings set org.gnome.shell.extensions.forge tiling-mode-enabled true
