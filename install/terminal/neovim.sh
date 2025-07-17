@@ -16,10 +16,3 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 cp -R ~/.local/share/omarell/config/nvim/* ~/.config/nvim/
 rm -rf ~/.config/nvim/.git
 echo "vim.opt.relativenumber = false" >>~/.config/nvim/lua/config/options.lua
-
-# Replace desktop launcher with one running inside Alacritty
-if [[ -d ~/.local/share/applications ]]; then
-  sudo rm -rf /usr/share/applications/nvim.desktop
-  sudo rm -rf /usr/local/share/applications/nvim.desktop
-  source ~/.local/share/omarell/applications/Neovim.sh
-fi
