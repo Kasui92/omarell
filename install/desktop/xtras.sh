@@ -13,7 +13,7 @@ fi
 # Copy and sync icon files
 mkdir -p ~/.local/share/icons/hicolor/48x48/apps/
 cp ~/.local/share/omarell/applications/icons/*.png ~/.local/share/icons/hicolor/48x48/apps/
-gtk-update-icon-cache ~/.local/share/icons/hicolor &>/dev/null
+gtk-update-icon-cache
 
 # Copy .desktop declarations
 mkdir -p ~/.local/share/applications
