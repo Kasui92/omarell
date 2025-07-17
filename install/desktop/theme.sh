@@ -13,7 +13,6 @@ ln -snf ~/.config/omarell/backgrounds/$OMARELL_FIRST_RUN_THEME ~/.config/omarell
 ln -snf $(find "$HOME/.config/omarell/current/backgrounds/" -type f | head -n 1) "$HOME/.config/omarell/current/background"
 
 # Set specific app links for current theme
-ln -snf ~/.config/omarell/current/theme/wofi.css ~/.config/wofi/style.css
 ln -snf ~/.config/omarell/current/theme/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
 mkdir -p ~/.config/btop/themes
 ln -snf ~/.config/omarell/current/theme/btop.theme ~/.config/btop/themes/current.theme
