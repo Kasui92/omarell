@@ -37,8 +37,8 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "@as []"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "@as []"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "@as []"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "@as []"
-gsettings set org.gnome.desktop.mutter.keybindings toggle-tiled-right "@as []"
-gsettings set org.gnome.desktop.mutter.keybindings toggle-tiled-left "@as []"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-right "@as []"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left "@as []"
 
 # Reserve slots for custom keybindings
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']"
