@@ -9,7 +9,7 @@ source ~/.local/share/omarell/install/check-version.sh
 
 # Ask for app choices
 echo -e "\nGet ready to make a few choices..."
-source ~/.local/share/omarell/install/terminal/required/app-gum.sh >/dev/null
+source ~/.local/share/omarell/install/terminal/required/gum.sh >/dev/null
 source ~/.local/share/omarell/install/first-run-choices.sh
 source ~/.local/share/omarell/install/identification.sh
 
