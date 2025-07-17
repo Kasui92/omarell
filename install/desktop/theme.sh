@@ -18,6 +18,9 @@ mkdir -p ~/.config/btop/themes
 ln -snf ~/.config/omarell/current/theme/btop.theme ~/.config/btop/themes/current.theme
 mkdir -p ~/.config/zellij/themes
 ln -snf ~/.config/omarell/current/theme/zellij.kdl ~/.config/zellij/themes/current.kdl
+mkdir -p ~/.config/forge/stylesheet/forge
+ln -snf ~/.config/omarell/current/theme/forge.css ~/.config/forge/stylesheet/forge/stylesheet.css
+
 
 # Touch alacritty config to pickup the changed theme
 touch "$HOME/.config/alacritty/alacritty.toml"
