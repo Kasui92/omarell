@@ -6,15 +6,12 @@
 }
 
 window {
-  margin: 0px;
-  border: 1px solid @border;
+  margin: 0;
   background-color: @base-rgba;
   opacity: 0.95;
 }
 
 window:focus {
-  border-radius: 14px;
-  border: 1px solid transparent;
   background-color: transparent;
 }
 
@@ -28,12 +25,12 @@ window:focus {
 #outer-box {
   padding: 20px;
   background-color: @base;
-  border: 2px solid @border;
+  border: 3px solid @border;
+  border-radius: 14px;
 }
 
 window:focus > #outer-box {
-  border-radius: 14px;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
 }
 
 #scroll {
