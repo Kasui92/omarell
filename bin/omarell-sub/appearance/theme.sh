@@ -5,10 +5,12 @@ if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
   # Set current theme
   ln -nsf "$HOME/.config/omarell/themes/$THEME" "$HOME/.config/omarell/current/theme"
 
+  # Trigger btop config reload
+  pkill -SIGUSR2 btop
+
   # Set desktop theme
   if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-    ln -snf ~/.config/omarell/backgrounds/$THEME ~/.config/omarell/current/backgrounds
-    ln -snf $(find "$HOME/.config/omarell/current/backgrounds/" -type f | head -n 1) "$HOME/.config/omarell/current/background"
+    ln -snf $(find "$HOME/.config/omarell/current/theme/backgrounds/" -type f | head -n 1) "$HOME/.config/omarell/current/background"
 
     # Touch alacritty config to pickup the changed theme
     touch "$HOME/.config/alacritty/alacritty.toml"
