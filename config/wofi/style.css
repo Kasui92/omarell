@@ -6,10 +6,13 @@
 }
 
 window {
-  margin: 0px;
-  padding: 20px;
+  margin: 0;
   background-color: @base-rgba;
   opacity: 0.95;
+}
+
+window:focus {
+  background-color: transparent;
 }
 
 #inner-box {
@@ -20,11 +23,14 @@ window {
 }
 
 #outer-box {
-  margin: 0;
   padding: 20px;
-  border: none;
   background-color: @base;
-  border: 2px solid @border;
+  border: 3px solid @border;
+  border-radius: 14px;
+}
+
+window:focus > #outer-box {
+  border: 3px solid transparent;
 }
 
 #scroll {
