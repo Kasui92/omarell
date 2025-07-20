@@ -8,20 +8,16 @@ for f in ~/.local/share/omarell/themes/*; do ln -s "$f" ~/.config/omarell/themes
 # Set initial theme
 mkdir -p ~/.config/omarell/current
 ln -snf ~/.config/omarell/themes/$OMARELL_FIRST_RUN_THEME ~/.config/omarell/current/theme
-source ~/.local/share/omarell/themes/$OMARELL_FIRST_RUN_THEME/backgrounds.sh
-ln -snf ~/.config/omarell/backgrounds/$OMARELL_FIRST_RUN_THEME ~/.config/omarell/current/backgrounds
-ln -snf $(find "$HOME/.config/omarell/current/backgrounds/" -type f | head -n 1) "$HOME/.config/omarell/current/background"
+ln -snf $(find "$HOME/.config/omarell/current/theme/backgrounds/" -type f | head -n 1) "$HOME/.config/omarell/current/background"
 
 # Set specific app links for current theme
 ln -snf ~/.config/omarell/current/theme/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
+
 mkdir -p ~/.config/btop/themes
 ln -snf ~/.config/omarell/current/theme/btop.theme ~/.config/btop/themes/current.theme
+
 mkdir -p ~/.config/forge/stylesheet/forge
 ln -snf ~/.config/omarell/current/theme/forge.css ~/.config/forge/stylesheet/forge/stylesheet.css
-
-
-# Touch alacritty config to pickup the changed theme
-touch "$HOME/.config/alacritty/alacritty.toml"
 
 # Apply gnome and GDM themes
 source ~/.config/omarell/current/theme/gnome.sh
