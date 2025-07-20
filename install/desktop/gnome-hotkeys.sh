@@ -7,20 +7,27 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys next "['<Shift>AudioP
 # Full-screen with title/navigation bar
 gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Shift>F11']"
 
-# Use 6 fixed workspaces instead of dynamic mode
-gsettings set org.gnome.mutter dynamic-workspaces false
-gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
+# Remove alt for pinned apps
+gsettings set org.gnome.shell.keybindings switch-to-application-1 "@as []"
+gsettings set org.gnome.shell.keybindings switch-to-application-2 "@as []"
+gsettings set org.gnome.shell.keybindings switch-to-application-3 "@as []"
+gsettings set org.gnome.shell.keybindings switch-to-application-4 "@as []"
+gsettings set org.gnome.shell.keybindings switch-to-application-5 "@as []"
+gsettings set org.gnome.shell.keybindings switch-to-application-6 "@as []"
+gsettings set org.gnome.shell.keybindings switch-to-application-7 "@as []"
+gsettings set org.gnome.shell.keybindings switch-to-application-8 "@as []"
+gsettings set org.gnome.shell.keybindings switch-to-application-9 "@as []"
 
-# Use alt for pinned apps
-gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Alt>1']"
-gsettings set org.gnome.shell.keybindings switch-to-application-2 "['<Alt>2']"
-gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Alt>3']"
-gsettings set org.gnome.shell.keybindings switch-to-application-4 "['<Alt>4']"
-gsettings set org.gnome.shell.keybindings switch-to-application-5 "['<Alt>5']"
-gsettings set org.gnome.shell.keybindings switch-to-application-6 "['<Alt>6']"
-gsettings set org.gnome.shell.keybindings switch-to-application-7 "['<Alt>7']"
-gsettings set org.gnome.shell.keybindings switch-to-application-8 "['<Alt>8']"
-gsettings set org.gnome.shell.keybindings switch-to-application-9 "['<Alt>9']"
+# Remove open new window shortcut
+gsettings set org.gnome.shell.keybindings open-new-window-application-1 "@as []"
+gsettings set org.gnome.shell.keybindings open-new-window-application-2 "@as []"
+gsettings set org.gnome.shell.keybindings open-new-window-application-3 "@as []"
+gsettings set org.gnome.shell.keybindings open-new-window-application-4 "@as []"
+gsettings set org.gnome.shell.keybindings open-new-window-application-5 "@as []"
+gsettings set org.gnome.shell.keybindings open-new-window-application-6 "@as []"
+gsettings set org.gnome.shell.keybindings open-new-window-application-7 "@as []"
+gsettings set org.gnome.shell.keybindings open-new-window-application-8 "@as []"
+gsettings set org.gnome.shell.keybindings open-new-window-application-9 "@as []"
 
 # Use super for workspaces
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
@@ -30,18 +37,31 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Super>4
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 "['<Super>5']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>6']"
 
+# Use super + shift for moving windows to workspaces
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "['<Super><Shift>1']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-2 "['<Super><Shift>2']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Super><Shift>3']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Super><Shift>4']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Super><Shift>5']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Shift>6']"
+
 # Remove gnome keybindings
+gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>m']"
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "@as []"
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "@as []"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "@as []"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "@as []"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "@as []"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "@as []"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "@as []"
+gsettings set org.gnome.desktop.wm.keybindings maximize "@as []"
+gsettings set org.gnome.desktop.wm.keybindings minimize "@as []"
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "@as []"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "@as []"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-left "@as []"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left  "@as []"
 
 # Reserve slots for custom keybindings
-gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
 
 # Set wofi to Super+Space
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Wofi'
@@ -53,15 +73,10 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command 'sh -c -- "flameshot gui"'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding '<Control>Print'
 
-# Start a new alacritty window (rather than just switch to the already open one)
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name 'New Alacritty Window'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command 'alacritty'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding '<Shift><Alt>2'
-
-# Start a new Default Browser window (rather than just switch to the already open one)
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ name 'New Browser Window'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ command "$(xdg-settings get default-web-browser | sed 's/.desktop//')"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ binding '<Shift><Alt>1'
+# Set flameshot (with the sh fix for starting under Wayland) on alternate print screen key
+# Applications
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>Return']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
 
 # Configure keybindings for Forge
 gsettings set org.gnome.shell.extensions.forge.keybindings focus-border-toggle '[]'
