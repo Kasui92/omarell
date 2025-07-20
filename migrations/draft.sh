@@ -1,3 +1,5 @@
+echo -e "\n\nInstalling Forge and configuring GNOME extensions...\n"
+
 # Uninstall Tactile
 gext uninstall tactile@lundal.io
 gext uninstall quick-settings-avatar@d-go
@@ -149,4 +151,25 @@ if command -v zellij &> /dev/null; then
 
   # Update Alacritty config to remove Zellij shell
   cp ~/.local/share/omarell/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+fi
+
+# Remove .inputrc
+echo -e "\n\nRemoving .inputrc...\n"
+if [ -f ~/.inputrc ]; then
+  rm ~/.inputrc
+fi
+
+# Remove downloaded backgrounds
+echo -e "\n\nRemoving downloaded backgrounds...\n"
+if [ -d ~/.config/omarell/backgrounds ]; then
+  rm -rf ~/.config/omarell/backgrounds
+fi
+
+# Use docker and firewall script
+echo -e "\n\nUsing docker and firewall script...\n"
+if [ -f ~/.local/share/omarell/scripts/docker.sh ]; then
+  source ~/.local/share/omarell/scripts/docker.sh
+fi
+if [ -f ~/.local/share/omarell/scripts/firewall.sh ]; then
+  source ~/.local/share/omarell/scripts/firewall.sh
 fi
