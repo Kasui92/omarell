@@ -1,11 +1,56 @@
-# Alt+F4 is very cumbersome
-gsettings set org.gnome.desktop.wm.keybindings close "['<Super>w']"
+# Uninstall Tactile
+gext uninstall tactile@lundal.io
+gext uninstall quick-settings-avatar@d-go
 
-# For keyboards that only have a start/stop button for music, like Logitech MX Keys Mini
-gsettings set org.gnome.settings-daemon.plugins.media-keys next "['<Shift>AudioPlay']"
+# Install Extensions
+gext install forge@jmmaranan.com
+gext install rounded-window-corners@fxgn
 
-# Full-screen with title/navigation bar
-gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Shift>F11']"
+sudo cp ~/.local/share/gnome-shell/extensions/forge@jmmaranan.com/schemas/org.gnome.shell.extensions.forge.gschema.xml /usr/share/glib-2.0/schemas/
+sudo cp ~/.local/share/gnome-shell/extensions/rounded-window-corners\@fxgn/schemas/org.gnome.shell.extensions.rounded-window-corners-reborn.gschema.xml /usr/share/glib-2.0/schemas/
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+# Configure Forge
+gsettings set org.gnome.shell.extensions.forge window-gap-size 5
+gsettings set org.gnome.shell.extensions.forge window-gap-size-increment 1
+gsettings set org.gnome.shell.extensions.forge quick-settings-enabled false
+gsettings set org.gnome.shell.extensions.forge auto-exit-tabbed false
+gsettings set org.gnome.shell.extensions.forge focus-border-size 2
+gsettings set org.gnome.shell.extensions.forge tiling-mode-enabled true
+
+# Configure Just Perfection
+gsettings set org.gnome.shell.extensions.just-perfection search false
+gsettings set org.gnome.shell.extensions.just-perfection dash false
+gsettings set org.gnome.shell.extensions.just-perfection dash-separator false
+gsettings set org.gnome.shell.extensions.just-perfection dash-app-running false
+gsettings set org.gnome.shell.extensions.just-perfection show-apps-button false
+gsettings set org.gnome.shell.extensions.just-perfection startup-status 1
+
+# Configure Rounded Window Corners
+gsettings set org.gnome.shell.extensions.rounded-window-corners-reborn border-width 0
+gsettings set org.gnome.shell.extensions.rounded-window-corners-reborn global-rounded-corner-settings "{'padding': <{'left': uint32 0, 'right': 0, 'top': 0, 'bottom': 0}>, 'keepRoundedCorners': <{'maximized': false, 'fullscreen': false}>, 'borderRadius': <uint32 14>, 'smoothing': <0.0>, 'borderColor': <(0.5, 0.5, 0.5, 1.0)>, 'enabled': <true>}"
+
+# Remove Space Bar Shortcut
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-move-to-workspace-shortcuts false
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts activate-empty-key "@as []"
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts activate-previous-key "@as []"
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts move-workspace-left "@as []"
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts move-workspace-right "@as []"
+
+# Remove gnome keybindings
+gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>m']"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "@as []"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "@as []"
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "@as []"
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "@as []"
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "@as []"
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "@as []"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "@as []"
+gsettings set org.gnome.desktop.wm.keybindings maximize "@as []"
+gsettings set org.gnome.desktop.wm.keybindings minimize "@as []"
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "@as []"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-right "@as []"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left  "@as []"
 
 # Remove alt for pinned apps
 gsettings set org.gnome.shell.keybindings switch-to-application-1 "@as []"
@@ -29,13 +74,8 @@ gsettings set org.gnome.shell.keybindings open-new-window-application-7 "@as []"
 gsettings set org.gnome.shell.keybindings open-new-window-application-8 "@as []"
 gsettings set org.gnome.shell.keybindings open-new-window-application-9 "@as []"
 
-# Use super for workspaces
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>2']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super>3']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Super>4']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 "['<Super>5']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>6']"
+# Unset favorite applications
+gsettings set org.gnome.shell favorite-apps "[]"
 
 # Use super + shift for moving windows to workspaces
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "['<Super><Shift>1']"
@@ -45,35 +85,9 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Super><Sh
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Super><Shift>5']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Shift>6']"
 
-# Remove gnome keybindings
-gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>m']"
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source "@as []"
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "@as []"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "@as []"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "@as []"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "@as []"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "@as []"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "@as []"
-gsettings set org.gnome.desktop.wm.keybindings maximize "@as []"
-gsettings set org.gnome.desktop.wm.keybindings minimize "@as []"
-gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "@as []"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-right "@as []"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-left  "@as []"
-
-# Reserve slots for custom keybindings
+# Reduce slots for custom keybindings
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
 
-# Set wofi to Super+Space
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Wofi'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'wofi-launcher'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Super>space'
-
-# Set flameshot (with the sh fix for starting under Wayland) on alternate print screen key
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name 'Flameshot'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command 'sh -c -- "flameshot gui"'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding '<Control>Print'
-
-# Set flameshot (with the sh fix for starting under Wayland) on alternate print screen key
 # Applications
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>Return']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
@@ -119,3 +133,20 @@ gsettings set org.gnome.shell.extensions.forge.keybindings window-resize-top-inc
 gsettings set org.gnome.shell.extensions.forge.keybindings window-resize-top-decrease '[]'
 gsettings set org.gnome.shell.extensions.forge.keybindings window-resize-bottom-increase '[]'
 gsettings set org.gnome.shell.extensions.forge.keybindings window-resize-bottom-decrease '[]'
+
+# Theme
+mkdir -p ~/.config/forge/stylesheet/forge
+ln -snf ~/.config/omarell/current/theme/forge.css ~/.config/forge/stylesheet/forge/stylesheet.css
+
+# Refresh Forge to apply changes
+gext disable forge@jmmaranan.com
+gext enable forge@jmmaranan.com
+
+# Remove Zellij
+if command -v zellij &> /dev/null; then
+  sudo rm -rf /usr/local/bin/zellij
+  rm -rf ~/.config/zellij
+
+  # Update Alacritty config to remove Zellij shell
+  cp ~/.local/share/omarell/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+fi

@@ -7,6 +7,10 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'CaskaydiaMono Ner
 # Reveal week numbers in the Gnome calendar
 gsettings set org.gnome.desktop.calendar show-weekdate true
 
+# Use 6 fixed workspaces instead of dynamic mode
+gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
+
 # Remove the Ubuntu logo from the Plymouth splash screen
 if [[ -f /usr/share/plymouth/ubuntu-logo.png ]]; then
   sudo mv /usr/share/plymouth/ubuntu-logo.png /usr/share/plymouth/ubuntu-logo.png.bak
