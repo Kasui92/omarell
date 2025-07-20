@@ -2,16 +2,12 @@
 mkdir -p ~/.config
 cp -RL ~/.local/share/omarell/config/* ~/.config/
 
+# Ensure application directory exists for update-desktop-database
+mkdir -p ~/.local/share/applications
+
 # Configure the bash shell using Omarell defaults
 [ -f "~/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak
 echo "source ~/.local/share/omarell/default/bash/rc" >~/.bashrc
-
-# Load the PATH for use later in the installers
-source ~/.local/share/omarell/default/bash/shell
-
-# Configure the inputrc using Omarell defaults
-[ -f "~/.inputrc" ] && mv ~/.inputrc ~/.inputrc.bak
-echo "\$include ~/.local/share/omarell/default/bash/inputrc" >~/.inputrc
 
 # Set common git aliases
 git config --global alias.co checkout
