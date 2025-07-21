@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo -e "\n\nInstalling Forge and configuring GNOME extensions...\n"
 
 # Uninstall Tactile

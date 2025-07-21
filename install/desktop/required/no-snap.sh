@@ -1,3 +1,5 @@
+#!/bin/bash
+
 remove_snaps() {
     snap_pkgs=$(snap list | awk 'NR>1 {print $1}')
 

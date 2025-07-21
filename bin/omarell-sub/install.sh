@@ -1,3 +1,5 @@
+#!/bin/bash
+
 CHOICES=(
   "Mainline Kernels    Install newer Linux kernels than Ubuntu defaults"
   "Discord             Communication platform for voice, video, and text messaging"

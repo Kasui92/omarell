@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This script sets the GDM background to the theme wallpaper
 # source: https://github.com/mendhak/ubuntu-change-login-background
 

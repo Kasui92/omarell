@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Copy over Omasway configs
 mkdir -p ~/.config
 cp -RL ~/.local/share/omarell/config/* ~/.config/

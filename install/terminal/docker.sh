@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Add the official Docker repo
 if ! command -v docker &>/dev/null; then
   sudo install -m 0755 -d /etc/apt/keyrings

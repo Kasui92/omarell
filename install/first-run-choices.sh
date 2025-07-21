@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Theme
 AVAILABLE_THEMES=(
   "Tokyo Night"
