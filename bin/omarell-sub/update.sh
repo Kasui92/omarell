@@ -1,3 +1,5 @@
+#!/bin/bash
+
 CHOICES=(
 	"Omarell       Update Omarell itself and run any migrations"
 	"System        Update all system packages and remove unused packages"

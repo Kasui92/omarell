@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd $HOME/.local/share/omarell
 last_updated_at=$(git log -1 --format=%cd --date=unix)
 git pull

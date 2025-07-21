@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Setup theme links
 if [ -d ~/.config/omarell/themes ]; then
   rm -rf ~/.config/omarell/themes

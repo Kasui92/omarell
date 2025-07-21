@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if ! command -v nvim &>/dev/null; then
   # Install Neovim

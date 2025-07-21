@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Optional Apps
 if [[ -v OMARELL_FIRST_RUN_OPTIONAL_APPS ]]; then
 	apps=$OMARELL_FIRST_RUN_OPTIONAL_APPS

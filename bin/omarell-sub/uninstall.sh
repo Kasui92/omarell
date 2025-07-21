@@ -1,3 +1,5 @@
+#!/bin/bash
+
 CHOICES=(
   "Docker            "
   "Mainline Kernels  "

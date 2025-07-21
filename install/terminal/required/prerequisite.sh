@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt install -y \
   build-essential pkg-config autoconf bison clang rustc cargo \
   imagemagick libmagickwand-dev \

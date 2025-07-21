@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Run required desktop installers
 for installer in ~/.local/share/omarell/install/desktop/required/*.sh; do
   echo -e "\nRunning required installer: $installer"

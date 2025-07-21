@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Set default XCompose that is triggered with CapsLock
 if [ -f ~/.XCompose ]; then
   rm ~/.XCompose

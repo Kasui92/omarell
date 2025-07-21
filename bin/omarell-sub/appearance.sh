@@ -1,3 +1,5 @@
+#!/bin/bash
+
 CHOICES=(
 	"Theme         Change the theme of your system"
 	"<< Back       "

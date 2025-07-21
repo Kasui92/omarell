@@ -1,5 +1,6 @@
-# This script checks if there is a new version of Omarell available
+#!/bin/bash
 
+# This script checks if there is a new version of Omarell available
 # Check if current git branch is main
 current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 if [ "$current_branch" != "main" ]; then
