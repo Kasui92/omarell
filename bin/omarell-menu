@@ -1,0 +1,95 @@
+#!/bin/bash
+
+OMARELL_PATH="$HOME/.local/share/omarell"
+
+OMARELL_VERSION=$(git -C $OMARELL_PATH describe --tags --abbrev=0 2>/dev/null)
+OMARELL_BRANCH=$(cd $OMARELL_PATH && git branch --show-current | grep -q "dev" && echo -e "\033[0;33m(dev)" || echo "")
+
+header_menu() {
+  clear
+  source $OMARELL_PATH/scripts/ascii.sh
+  echo "                                       $OMARELL_VERSION $OMARELL_BRANCH"
+  source $OMARELL_PATH/scripts/version-check.sh
+}
+
+main_menu() {
+  header_menu
+
+  local options=("Update" "Theme" "Apps" "Manual" "Exit")
+  choice=$(printf "%s\n" "${options[@]}" | gum choose --header "") || exit 0
+  case "$choice" in
+  Update) update_menu ;;
+  Theme) theme_menu ;;
+  Apps) apps_menu ;;
+  Manual) open_manual ;;
+  Exit) clear && exit 0 ;;
+  esac
+}
+
+update_menu() {
+  header_menu
+
+  local menu=("Omarell" "System" "Firmware" "Back")
+  local scripts=(
+    "omarell-update"
+    "omarell-update-system"
+    "omarell-update-firmware"
+    "main_menu"
+  )
+  local choice
+  choice=$(printf "%s\n" "${menu[@]}" | gum choose --header="Update") || main_menu
+  for i in "${!menu[@]}"; do
+    if [[ "${menu[$i]}" == "$choice" ]]; then
+      if [[ "$choice" == "Back" ]]; then
+        main_menu
+      else
+        source "$OMARELL_PATH/scripts/${scripts[$i]}.sh"
+        ack_command
+        main_menu
+      fi
+      break
+    fi
+  done
+}
+
+theme_menu() {
+  header_menu
+  source "$OMARELL_PATH/scripts/omarell-theme-menu.sh"
+  ack_command
+  main_menu
+}
+
+apps_menu() {
+  header_menu
+  local menu=("Install" "Uninstall" "Back")
+  local scripts=(
+    "omarell-apps-install-menu"
+    "omarell-apps-uninstall-menu"
+    "main_menu"
+  )
+  local choice
+  choice=$(printf "%s\n" "${menu[@]}" | gum choose --header="Apps") || main_menu
+  for i in "${!menu[@]}"; do
+    if [[ "${menu[$i]}" == "$choice" ]]; then
+      if [[ "$choice" == "Back" ]]; then
+        main_menu
+      else
+        source "$OMARELL_PATH/scripts/${scripts[$i]}.sh"
+        ack_command
+        main_menu
+      fi
+      break
+    fi
+  done
+}
+
+open_manual() {
+  setsid chromium --new-window --ozone-platform=wayland --app="https://github.com/Kasui92/omarell/wiki" >/dev/null 2>&1 &
+  clear
+}
+
+ack_command() {
+  gum spin --spinner "globe" --title "Done!" -- sleep 1
+}
+
+main_menu

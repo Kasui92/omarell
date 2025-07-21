@@ -1,0 +1,27 @@
+#!/bin/bash
+
+UNINSTALL_DIR="$HOME/.local/share/omarell/uninstall/"
+
+# Add to the list optional apps
+apps=()
+while IFS= read -r filename; do
+  display_name=$(echo "$filename" | sed -E 's/(^|-)([a-z])/\1\u\2/g; s/-/ /g')
+  apps+=("$display_name")
+done < <(
+  find "$UNINSTALL_DIR" -mindepth 1 -maxdepth 1 -type f -name "*.sh" -exec basename {} .sh \; | sort
+)
+apps+=("Back")
+
+# Get user choice
+choice=$(printf "%s\n" "${apps[@]}" | gum choose --header="Uninstall Apps" --height "$(( ${#apps[@]} + 2 ))") || main_menu
+
+# Check if user chose an app
+if [[ -n "$choice" ]] && [[ "$choice" != "Back" ]]; then
+  # Convert choice to lowercase and replace spaces with dashes
+  selected_app=$(echo "$choice" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+
+  # Set the selected app
+  if [[ -n "$selected_app" ]]; then
+    source "$HOME/.local/share/omarell/scripts/omarell-apps-uninstall.sh" "$selected_app"
+  fi
+fi

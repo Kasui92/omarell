@@ -167,6 +167,12 @@ if [ -d ~/.config/omarell/backgrounds ]; then
   rm -rf ~/.config/omarell/backgrounds
 fi
 
+# Remove unused links
+echo -e "\n\nRemoving unused links...\n"
+rm -f ~/.config/omarell/themes/set-gdm-theme.sh
+rm -f ~/.config/omarell/themes/set-gnome-extensions-theme.sh
+rm -f ~/.config/omarell/themes/set-gnome-theme.sh
+
 # Use docker and firewall script
 echo -e "\n\nUsing docker and firewall script...\n"
 if [ -f ~/.local/share/omarell/scripts/docker.sh ]; then
@@ -175,3 +181,10 @@ fi
 if [ -f ~/.local/share/omarell/scripts/firewall.sh ]; then
   source ~/.local/share/omarell/scripts/firewall.sh
 fi
+
+# Remove old Omarell desktop file
+echo -e "\nMigrating old Omarell desktop file...\n"
+if [ -f ~/.local/share/applications/Omarell.desktop ]; then
+  rm ~/.local/share/applications/Omarell.desktop
+fi
+cp ~/.local/share/omarell/applications/Omarell.desktop ~/.local/share/applications/Omarell.desktop
