@@ -2,9 +2,6 @@ CHOICES=(
 	"Omarell       Update Omarell itself and run any migrations"
 	"System        Update all system packages and remove unused packages"
 	"Firmware      Update firmware packages"
-	"LazyGit       TUI for Git"
-	"LazyDocker    TUI for Docker"
-	"Neovim        Text editor that runs in the terminal"
 	"<< Back       "
 )
 
@@ -20,7 +17,6 @@ else
 	"omarell") INSTALLER_FILE="$HOME/.local/share/omarell/bin/omarell-sub/update/migrate.sh" ;;
 	"system") INSTALLER_FILE="$HOME/.local/share/omarell/bin/omarell-sub/update/update-system.sh" ;;
 	"firmware") INSTALLER_FILE="$HOME/.local/share/omarell/bin/omarell-sub/update/update-firmware.sh" ;;
-	*) INSTALLER_FILE="$HOME/.local/share/omarell/install/terminal/app-$INSTALLER.sh" ;;
 	esac
 
 	source $INSTALLER_FILE && gum spin --spinner globe --title "Update completed!" -- sleep 3

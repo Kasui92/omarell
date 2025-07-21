@@ -32,6 +32,7 @@ else
   UNINSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
   case "$UNINSTALLER" in
+  "neovim") UNINSTALLER_FILE="$HOME/.local/share/omarell/uninstall/nvim.sh" ;;
   *) UNINSTALLER_FILE="$HOME/.local/share/omarell/uninstall/$UNINSTALLER.sh" ;;
   esac
 

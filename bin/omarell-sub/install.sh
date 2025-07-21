@@ -4,6 +4,7 @@ CHOICES=(
   "FlameShot           Screenshot tool with annotation"
   "Libreoffice         Free and open source office suite"
   "LocalSend           Send files to nearby devices"
+  "Neovim              Modern text editor with support for plugins and configurations"
   "Pinta               Simple and easy to use drawing program"
   "Spotify             Stream music from the world's most popular service"
   "Visual Studio Code  Source code editor with support for development operations"
@@ -21,6 +22,7 @@ else
   INSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
   case "$INSTALLER" in
+  "neovim") INSTALLER_FILE="$HOME/.local/share/omarell/install/terminal/nvim.sh" ;;
   *) INSTALLER_FILE="$HOME/.local/share/omarell/install/desktop/optional/app-$INSTALLER.sh" ;;
   esac
 
