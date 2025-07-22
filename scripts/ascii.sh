@@ -30,6 +30,9 @@ ________                               .__  .__
     color_index=$((i % ${#colors[@]}))
     echo -e "${colors[color_index]}${lines[i]}"
   done
+
+  # Reset color
+  echo -e '\033[0m'
 }
 
 print_ascii_art
