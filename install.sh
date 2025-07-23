@@ -4,10 +4,18 @@
 set -e
 
 # Give people a chance to retry running the installation
-trap 'echo -e "\nOmarell installation failed! You can retry by running: source ~/.local/share/omarell/install.sh"' ERR
+catch_errors() {
+  echo -e "\n\e[31mOmarell installation failed!\e[0m"
+  echo "You can retry by running: bash ~/.local/share/omarell/install.sh"
+}
+
+trap catch_errors ERR
 
 # Check the distribution name and version and abort if incompatible
 source ~/.local/share/omarell/install/check-version.sh
+
+# Configure identification
+source ~/.local/share/omarell/ascii.sh
 
 # Ask for app choices
 echo -e "\nGet ready to make a few choices..."

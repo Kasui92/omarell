@@ -7,9 +7,9 @@ OMARELL_BRANCH=$(cd $OMARELL_PATH && git branch --show-current | grep -q "dev" &
 
 header_menu() {
   clear
-  source $OMARELL_PATH/scripts/ascii.sh
+  source $OMARELL_PATH/ascii.sh
   echo "                                       $OMARELL_VERSION $OMARELL_BRANCH"
-  source $OMARELL_PATH/scripts/version-check.sh
+  source $OMARELL_PATH/scripts/omarell-version-check.sh
 }
 
 main_menu() {
