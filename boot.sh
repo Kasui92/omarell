@@ -33,11 +33,6 @@ for i in "${!lines[@]}"; do
 done
 echo -e "\033[0m" # Reset color
 
-echo -e "\n=> Omarell: basically Omakub with some fancy, totally optional (... and unrequested!) tweaks."
-echo -e "\n=> Just like its parent, it demands the purity of a fresh Ubuntu 24.04+ install... unless you enjoy debugging cryptic errors later!"
-echo
-echo -e "\nBegin installation (or abort with ctrl+c)..."
-
 sudo apt-get update >/dev/null
 sudo apt-get install -y git >/dev/null
 
