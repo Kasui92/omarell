@@ -25,14 +25,19 @@ ________                               .__  .__
   # Split the ASCII art into lines
   IFS=$'\n' read -rd '' -a lines <<<"$ascii_art"
 
-  # Print each line with the corresponding color
+  # Build the colored ASCII art in a variable
+  colored_ascii=""
   for i in "${!lines[@]}"; do
     color_index=$((i % ${#colors[@]}))
-    echo -e "${colors[color_index]}${lines[i]}"
+    colored_ascii+="${colors[color_index]}${lines[i]}\n"
   done
 
-  # Reset color
-  echo -e '\033[0m'
+  # Add color reset
+  colored_ascii+='\033[0m'
+
+  # Print the colored ASCII art
+  echo -e "\n$colored_ascii\n"
 }
 
+clear
 print_ascii_art
