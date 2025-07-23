@@ -188,3 +188,7 @@ if [ -f ~/.local/share/applications/Omarell.desktop ]; then
   rm ~/.local/share/applications/Omarell.desktop
 fi
 cp ~/.local/share/omarell/applications/Omarell.desktop ~/.local/share/applications/Omarell.desktop
+
+# Install sudoers rule for GDM background management
+sudo cp "$HOME/.local/share/omarell/default/gdm/sudoers" /etc/sudoers.d/gdm-wrapper 2>/dev/null
+sudo chmod 440 /etc/sudoers.d/gdm-wrapper 2>/dev/null

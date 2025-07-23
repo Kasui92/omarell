@@ -17,3 +17,7 @@ gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
 if [[ -f /usr/share/plymouth/ubuntu-logo.png ]]; then
   sudo mv /usr/share/plymouth/ubuntu-logo.png /usr/share/plymouth/ubuntu-logo.png.bak
 fi
+
+# Install sudoers rule for GDM background management
+sudo cp "$HOME/.local/share/omarell/default/gdm/sudoers" /etc/sudoers.d/gdm-wrapper 2>/dev/null
+sudo chmod 440 /etc/sudoers.d/gdm-wrapper 2>/dev/null
