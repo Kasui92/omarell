@@ -12,13 +12,5 @@ if [[ -v OMARELL_FIRST_RUN_OPTIONAL_APPS ]]; then
 fi
 
 # Apps
-# Copy and sync icon files
-mkdir -p ~/.local/share/icons/hicolor/48x48/apps/
-cp ~/.local/share/omarell/applications/icons/*.png ~/.local/share/icons/hicolor/48x48/apps/
-gtk-update-icon-cache
-
-# Copy .desktop declarations
-mkdir -p ~/.local/share/applications
-cp ~/.local/share/omarell/applications/*.desktop ~/.local/share/applications/
-
-update-desktop-database ~/.local/share/applications
+# Copy over Omarell applications
+source "$HOME/.local/share/omarell/bin/omarell-refresh-applications.sh" || true
