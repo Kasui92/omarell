@@ -4,7 +4,7 @@
 # Usage: omarell-theme-set <theme-name>
 
 if [[ -z "$1" ]]; then
-  echo "Usage: omarell-theme-set <theme-name>" >&2
+  echo "Usage: omarell theme set <theme-name>" >&2
   exit 1
 fi
 
@@ -38,7 +38,7 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   gsettings set org.gnome.desktop.background picture-options 'zoom'
 
   # Set GDM background
-  gum confirm "Do you want to set the theme wallpaper as login background?" && source ~/.local/share/omarell/scripts/omarell-refresh-gdm.sh > /dev/null 2>&1
+  source ~/.local/share/omarell/scripts/omarell-refresh-gdm.sh
 
   # Touch alacritty config to pickup the changed theme
   touch "$HOME/.config/alacritty/alacritty.toml"

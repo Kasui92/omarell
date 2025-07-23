@@ -1,17 +1,56 @@
 #!/bin/bash
 
-# This script sets the GDM background to the theme wallpaper
-# source: https://github.com/mendhak/ubuntu-change-login-background
+# This script sets the GDM background to the theme wallpaper with blur effect
 
-# blur the image
-blurredpath=/tmp/blurred.jpg
+# Secure wrapper function for GDM background operations
+gdm_wrapper() {
+    local blurred_file="$1"
+
+    # Validate input file
+    if [[ ! -f "$blurred_file" ]] || [[ ! "$blurred_file" =~ ^/tmp/omarell-blurred-[0-9]+\.jpg$ ]]; then
+        echo "Error: Invalid input file" >&2
+        return 1
+    fi
+
+    # Create directory
+    mkdir -p /usr/share/backgrounds/gdm || return 1
+
+    # Copy file
+    cp "$blurred_file" /usr/share/backgrounds/gdm/gdm-wallpaper || return 1
+
+    # Update GDM settings
+    machinectl shell gdm@ /bin/bash -c "gsettings set com.ubuntu.login-screen background-picture-uri 'file:///usr/share/backgrounds/gdm/gdm-wallpaper'; gsettings set com.ubuntu.login-screen background-size 'cover'" 2>/dev/null || return 1
+
+    return 0
+}
+
+# Check dependencies
+if ! command -v convert &> /dev/null; then
+    echo "Error: ImageMagick not found. Install with: sudo apt install imagemagick"
+    exit 1
+fi
+
 current_background="$(readlink -f "$HOME/.config/omarell/current/background")"
-convert $current_background -channel RGBA -blur 0x26 $blurredpath
+if [ ! -f "$current_background" ]; then
+    echo "Error: Background file not found"
+    exit 1
+fi
 
-# copy it to /usr/share/backgrounds
-sudo mkdir -p /usr/share/backgrounds/gdm
-sudo cp $blurredpath /usr/share/backgrounds/gdm/gdm-wallpaper
-# Tell GDM to use it as a wallpaper
-sudo machinectl shell gdm@ /bin/bash -c "gsettings set com.ubuntu.login-screen background-picture-uri 'file:///usr/share/backgrounds/gdm/gdm-wallpaper'; gsettings set com.ubuntu.login-screen background-size 'cover'"
-# Display it back, just for troubleshooting
-sudo machinectl shell gdm@ /bin/bash -c "gsettings get com.ubuntu.login-screen background-picture-uri; gsettings get com.ubuntu.login-screen background-size"
+# Create blurred background
+blurredpath=/tmp/omarell-blurred-$(date +%s).jpg
+convert "$current_background" -channel RGBA -blur 0x26 "$blurredpath" 2>/dev/null
+
+if [ ! -f "$blurredpath" ]; then
+    echo "Error: Failed to create blurred image"
+    exit 1
+fi
+
+# Update GDM background using secure wrapper function
+if ! sudo bash -c "$(declare -f gdm_wrapper); gdm_wrapper '$blurredpath'" 2>/dev/null; then
+    echo "Failed to update GDM background"
+    rm -f "$blurredpath"
+    exit 1
+fi
+
+# Clean up
+rm -f "$blurredpath"
