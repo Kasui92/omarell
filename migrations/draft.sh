@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\e[32m\Installing Forge and Rounded Window Corners extensions...\e[0m"
+echo -e "\e[32m\nInstalling Forge and Rounded Window Corners extensions...\e[0m"
 
 # Uninstall Tactile
 gext uninstall tactile@lundal.io
@@ -26,7 +26,7 @@ gsettings set org.gnome.shell.extensions.forge tiling-mode-enabled true
 gsettings set org.gnome.shell.extensions.rounded-window-corners-reborn border-width 0
 gsettings set org.gnome.shell.extensions.rounded-window-corners-reborn global-rounded-corner-settings "{'padding': <{'left': uint32 0, 'right': 0, 'top': 0, 'bottom': 0}>, 'keepRoundedCorners': <{'maximized': false, 'fullscreen': false}>, 'borderRadius': <uint32 14>, 'smoothing': <0.0>, 'borderColor': <(0.5, 0.5, 0.5, 1.0)>, 'enabled': <true>}"
 
-echo -e "\e[32m\Making sure to improve the user experience...\e[0m"
+echo -e "\e[32m\nMaking sure to improve the user experience...\e[0m"
 
 # Configure Just Perfection
 gsettings set org.gnome.shell.extensions.just-perfection search false
@@ -36,7 +36,7 @@ gsettings set org.gnome.shell.extensions.just-perfection dash-app-running false
 gsettings set org.gnome.shell.extensions.just-perfection show-apps-button false
 gsettings set org.gnome.shell.extensions.just-perfection startup-status 1
 
-echo -e "\e[32m\Removing unnecessary keybindings...\e[0m"
+echo -e "\e[32m\nRemoving unnecessary keybindings...\e[0m"
 
 # Remove Space Bar Shortcut
 gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-move-to-workspace-shortcuts false
@@ -87,7 +87,7 @@ gsettings set org.gnome.shell.keybindings open-new-window-application-9 "@as []"
 # Unset favorite applications
 gsettings set org.gnome.shell favorite-apps "[]"
 
-echo -e "\e[32m\Setting up custom keybindings...\e[0m"
+echo -e "\e[32m\nSetting up custom keybindings...\e[0m"
 
 # Use super + shift for moving windows to workspaces
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "['<Super><Shift>1']"
@@ -213,7 +213,7 @@ gsettings set org.gnome.shell.extensions.forge.keybindings window-resize-top-dec
 gsettings set org.gnome.shell.extensions.forge.keybindings window-resize-bottom-increase '[]'
 gsettings set org.gnome.shell.extensions.forge.keybindings window-resize-bottom-decrease '[]'
 
-echo -e "\e[32m\Setting up Forge theme...\e[0m"
+echo -e "\e[32m\nSetting up Forge theme...\e[0m"
 
 # Theme
 mkdir -p ~/.config/forge/stylesheet/forge
@@ -223,7 +223,7 @@ ln -snf ~/.config/omarell/current/theme/forge.css ~/.config/forge/stylesheet/for
 gext disable forge@jmmaranan.com
 gext enable forge@jmmaranan.com
 
-echo -e "\e[32m\Removing old Omarell configurations...\e[0m"
+echo -e "\e[32m\nRemoving old Omarell configurations...\e[0m"
 
 # Remove Zellij
 if command -v zellij &> /dev/null; then
@@ -235,25 +235,25 @@ if command -v zellij &> /dev/null; then
 fi
 
 # Remove .inputrc
-echo -e "\n\nRemoving .inputrc...\n"
+echo -e "\e[32m\nRemoving .inputrc...\e[0m"
 if [ -f ~/.inputrc ]; then
   rm ~/.inputrc
 fi
 
 # Remove downloaded backgrounds
-echo -e "\n\nRemoving downloaded backgrounds...\n"
+echo -e "\e[32m\nRemoving downloaded backgrounds...\e[0m"
 if [ -d ~/.config/omarell/backgrounds ]; then
   rm -rf ~/.config/omarell/backgrounds
 fi
 
 # Remove unused links
-echo -e "\n\nRemoving unused links...\n"
+echo -e "\e[32m\nRemoving unused links...\e[0m"
 rm -f ~/.config/omarell/themes/set-gdm-theme.sh
 rm -f ~/.config/omarell/themes/set-gnome-extensions-theme.sh
 rm -f ~/.config/omarell/themes/set-gnome-theme.sh
 
 # Use docker and firewall script
-echo -e "\e[32m\Using docker and firewall script...\e[0m"
+echo -e "\e[32m\nUsing docker and firewall script...\e[0m"
 if [ -f ~/.local/share/omarell/scripts/docker.sh ]; then
   source ~/.local/share/omarell/scripts/docker.sh
 fi
@@ -262,13 +262,13 @@ if [ -f ~/.local/share/omarell/scripts/firewall.sh ]; then
 fi
 
 # Remove old Omarell desktop file
-echo -e "\e[32m\Migrating old Omarell desktop file...\e[0m"
+echo -e "\e[32m\nMigrating old Omarell desktop file...\e[0m"
 if [ -f ~/.local/share/applications/Omarell.desktop ]; then
   rm ~/.local/share/applications/Omarell.desktop
 fi
 cp ~/.local/share/omarell/applications/Omarell.desktop ~/.local/share/applications/Omarell.desktop
 
-echo -e "\e[32m\Setting up GDM background management...\e[0m"
+echo -e "\e[32m\nSetting up GDM background management...\e[0m"
 
 # Install sudoers rule for GDM background management
 sudo cp "$HOME/.local/share/omarell/default/gdm/sudoers" /etc/sudoers.d/gdm-wrapper 2>/dev/null
@@ -278,13 +278,13 @@ sudo chmod 440 /etc/sudoers.d/gdm-wrapper 2>/dev/null
 sudo cp "$HOME/.local/share/omarell/config/wofi" "$HOME/.config/wofi" 2>/dev/null
 
 # Create symlink for Rose Pine theme
-echo -e "\e[32m\Creating symlink for Rose Pine theme...\e[0m"
+echo -e "\e[32m\nCreating symlink for Rose Pine theme...\e[0m"
 if [[ ! -L "~/.config/omarell/themes/rose-pine" ]]; then
   ln -snf ~/.local/share/omarell/themes/rose-pine ~/.config/omarell/themes/
 fi
 
 # Create symlink for Synthwave theme
-echo -e "\e[32m\Creating symlink for Synthwave84 theme...\e[0m"
+echo -e "\e[32m\nCreating symlink for Synthwave84 theme...\e[0m"
 if [[ ! -L "~/.config/omarell/themes/synthwave84" ]]; then
   ln -snf ~/.local/share/omarell/themes/synthwave84 ~/.config/omarell/themes/
 fi
