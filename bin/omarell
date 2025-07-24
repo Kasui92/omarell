@@ -12,6 +12,7 @@ help() {
   echo "    update         Update Omarell to the latest version"
   echo "    theme          Change and manage system themes"
   echo "    apps           Install, uninstall and manage applications"
+  echo "    version, -v    Show the current version of Omarell"
   echo "    help, -h       Show this help message"
   echo
   echo "For more information about a specific command, run:"
@@ -120,6 +121,11 @@ apps() {
   exit 1
 }
 
+version() {
+  source "$OMARELL_PATH/scripts/omarell-version"
+  exit 0
+}
+
 # Check the command and call the appropriate function
 case $1 in
   update)
@@ -128,6 +134,8 @@ case $1 in
     theme "${@:2}" ;;
   apps)
     apps "${@:2}" ;;
+  version|-v|--version)
+    version ;;
   help|-h|--help)
     help ;;
   *)

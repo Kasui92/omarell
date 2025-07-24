@@ -1,15 +1,14 @@
 #!/bin/bash
 
 OMARELL_PATH="$HOME/.local/share/omarell"
-
-OMARELL_VERSION=$(git -C $OMARELL_PATH describe --tags --abbrev=0 2>/dev/null)
-OMARELL_BRANCH=$(cd $OMARELL_PATH && git branch --show-current | grep -q "dev" && echo -e "\033[0;33m(dev)" || echo "")
+OMARELL_VERSION=$(source "$OMARELL_PATH/scripts/omarell-version" && echo "$OMARELL_VERSION")
+OMARELL_CHECK=$("$OMARELL_PATH/scripts/omarell-version" "check" && echo "$OMARELL_CHECK")
 
 header_menu() {
   clear
   source $OMARELL_PATH/ascii.sh
-  echo "                                       $OMARELL_VERSION $OMARELL_BRANCH"
-  source $OMARELL_PATH/scripts/omarell-version-check
+  echo -e "                                       $OMARELL_VERSION"
+  echo -e "$OMARELL_CHECK"
 }
 
 main_menu() {
