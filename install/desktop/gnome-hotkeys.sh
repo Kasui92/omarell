@@ -63,7 +63,27 @@ gsettings set org.gnome.mutter.keybindings toggle-tiled-right "@as []"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-left  "@as []"
 
 # Reserve slots for custom keybindings
-gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']"
+CUSTOM_KEYBINDINGS=(
+  "custom0"
+  "custom1"
+  "custom2"
+  "custom3"
+  "custom4"
+  "custom5"
+  "custom6"
+  "custom7"
+)
+
+# Build the custom-keybindings path array
+KEYBINDING_PATHS=""
+for binding in "${CUSTOM_KEYBINDINGS[@]}"; do
+  KEYBINDING_PATHS="${KEYBINDING_PATHS}'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/${binding}/', "
+done
+# Remove trailing comma and space
+KEYBINDING_PATHS="[${KEYBINDING_PATHS%, }]"
+
+# Set the custom keybindings
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "$KEYBINDING_PATHS"
 
 # Set wofi to Super+Space
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Wofi'
@@ -86,13 +106,29 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ binding '<Super><Control>space'
 
 # Open Gnome Terminal Super+Shift+Return
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ name 'Omarell Terminal'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ name 'Gnome Terminal'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ command 'gnome-terminal'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ binding '<Super><Shift>Return'
+
+# Open NeoVim Super+N
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ name 'NeoVim'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ command 'nvim'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ binding '<Super>N'
+
+# Open Activity Monitor Super+T
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/ name 'Activity Monitor'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/ command 'btop'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/ binding '<Super>T'
+
+# Open LazyDocker Super+D
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ name 'LazyDocker'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ command 'lazydocker'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ binding '<Super>D'
 
 # Applications
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>Return']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']"
 
 # Configure keybindings for Forge
 gsettings set org.gnome.shell.extensions.forge.keybindings focus-border-toggle '[]'
