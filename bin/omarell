@@ -1,0 +1,135 @@
+#!/bin/bash
+
+OMARELL_PATH="$HOME/.local/share/omarell"
+
+help() {
+  source "$OMARELL_PATH/scripts/ascii.sh"
+  echo
+  echo "USAGE:"
+  echo "    omarell [COMMAND] [OPTIONS]"
+  echo
+  echo "COMMANDS:"
+  echo "    update         Update Omarell to the latest version"
+  echo "    theme          Change and manage system themes"
+  echo "    apps           Install, uninstall and manage applications"
+  echo "    help, -h       Show this help message"
+  echo
+  echo "For more information about a specific command, run:"
+  echo "    omarell [COMMAND] --help"
+  echo
+}
+
+update() {
+  # Show help if --help is provided
+  if [ "$1" == "--help" ]; then
+    echo "USAGE:"
+    echo "    omarell update [OPTIONS]"
+    echo
+    echo "OPTIONS:"
+    echo "    --system       Update the entire system"
+    echo "    --firmware     Update the system firmware"
+    echo "    --help         Show this help message"
+    echo
+    echo "If no option is provided, it will update Omarell only."
+    echo
+    exit 0
+  fi
+
+  # Perform system update if --system is provided
+  if [ "$1" == "--system" ]; then
+    echo -e "\e[32m\nUpdating the entire system...\e[0m"
+    source "$OMARELL_PATH/scripts/omarell-update-system.sh"
+    exit 0
+  fi
+
+  # Perform firmware update if --firmware is provided
+  if [ "$1" == "--firmware" ]; then
+    echo -e "\e[32m\nUpdating firmware...\e[0m"
+    source "$OMARELL_PATH/scripts/omarell-update-firmware.sh"
+    exit 0
+  fi
+
+  # Default update action for Omarell
+  echo -e "\e[32m\nUpdating Omarell...\e[0m"
+  source "$OMARELL_PATH/scripts/omarell-update.sh"
+  exit 0
+}
+
+theme() {
+  if [ "$1" == "--help" ]; then
+    echo "USAGE:"
+    echo "    omarell theme [OPTIONS] [THEME_NAME]"
+    echo
+    echo "OPTIONS:"
+    echo "    --help         Show this help message"
+    echo
+    echo "If no theme name is provided, it will display the theme menu."
+    echo
+    exit 0
+  fi
+
+  if [ -n "$1" ]; then
+    source "$OMARELL_PATH/scripts/omarell-theme-set.sh" "$1"
+    exit 0
+  fi
+
+  source "$OMARELL_PATH/scripts/omarell-theme-menu.sh"
+  exit 1
+}
+
+apps() {
+  # Show help if --help is provided or no arguments are given
+  if [ -z "$1" ] || [ "$1" == "--help" ]; then
+    echo "USAGE:"
+    echo "    omarell apps [install|uninstall] [APP_NAME]"
+    echo "OPTIONS:"
+    echo "    install        Install an application"
+    echo "    uninstall      Uninstall an application"
+    echo "    --help         Show this help message"
+    echo
+    echo "If no APP_NAME is provided, it will display the application menu."
+    echo
+    exit 0
+  fi
+
+  # If install is specified, check if an argument is provided; otherwise, show the menu
+  if [ "$1" == "install" ]; then
+    if [ -z "$2" ]; then
+      source "$OMARELL_PATH/scripts/omarell-apps-install-menu.sh"
+      exit 0
+    fi
+
+    source "$OMARELL_PATH/scripts/omarell-apps-install.sh" "$2"
+    exit 0
+  fi
+
+  # If uninstall is specified, check if an argument is provided; otherwise, show the uninstall menu
+  if [ "$1" == "uninstall" ]; then
+    if [ -z "$2" ]; then
+      source "$OMARELL_PATH/scripts/omarell-apps-uninstall-menu.sh"
+      exit 0
+    fi
+
+    source "$OMARELL_PATH/scripts/omarell-apps-uninstall.sh" "$2"
+    exit 0
+  fi
+
+  # If no valid command is provided, show the help message
+  echo -e "\e[31mInvalid command: $1\e[0m"
+  echo "Use 'omarell apps --help' for usage information."
+  exit 1
+}
+
+# Check the command and call the appropriate function
+case $1 in
+  update)
+    update "${@:2}" ;;
+  theme)
+    theme "${@:2}" ;;
+  apps)
+    apps "${@:2}" ;;
+  help|-h|--help)
+    help ;;
+  *)
+    help ;;
+esac
