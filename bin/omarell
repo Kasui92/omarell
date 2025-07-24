@@ -3,7 +3,7 @@
 OMARELL_PATH="$HOME/.local/share/omarell"
 
 help() {
-  source "$OMARELL_PATH/scripts/ascii.sh"
+  source "$OMARELL_PATH/ascii.sh"
   echo
   echo "USAGE:"
   echo "    omarell [COMMAND] [OPTIONS]"
