@@ -19,7 +19,13 @@ mapfile -t themes < <(
 )
 
 # Get user choice
-choice=$(printf "%s\n" "${themes[@]}" | gum choose --header="Themes") || main_menu
+choice=$(printf "%s\n" "${themes[@]}" | gum choose --header="Themes") || {
+  if command -v main_menu &> /dev/null; then
+    main_menu
+  else
+    exit 0
+  fi
+}
 
 # Check if user chose a theme
 if [[ -n "$choice" ]]; then

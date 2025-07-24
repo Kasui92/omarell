@@ -13,7 +13,13 @@ done < <(
 apps+=("Back")
 
 # Get user choice
-choice=$(printf "%s\n" "${apps[@]}" | gum choose --header="Uninstall Apps" --height "$(( ${#apps[@]} + 2 ))") || main_menu
+choice=$(printf "%s\n" "${apps[@]}" | gum choose --header="Uninstall Apps" --height "$(( ${#apps[@]} + 2 ))") || {
+  if command -v main_menu &> /dev/null; then
+    main_menu
+  else
+    exit 0
+  fi
+}
 
 # Check if user chose an app
 if [[ -n "$choice" ]] && [[ "$choice" != "Back" ]]; then
