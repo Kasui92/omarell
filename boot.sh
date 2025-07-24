@@ -36,12 +36,12 @@ echo -e "\033[0m" # Reset color
 sudo apt-get update >/dev/null
 sudo apt-get install -y git >/dev/null
 
-echo -e "\nCloning Omarell..."
+echo -e "\e[32m\nCloning Omarell...\e[0m"
 rm -rf ~/.local/share/omarell
 git clone https://github.com/Kasui92/omarell.git ~/.local/share/omarell >/dev/null
 
 if [[ -n "$OMARELL_REF" ]]; then
-  echo -e "\eUsing branch: $OMARELL_REF"
+  echo -e "\e[32mUsing branch: $OMARELL_REF\e[0m"
 	cd ~/.local/share/omarell
 	git fetch origin "${OMARELL_REF}" && git checkout "${OMARELL_REF}"
 	cd -

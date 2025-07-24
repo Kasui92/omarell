@@ -18,7 +18,7 @@ source ~/.local/share/omarell/install/check-version.sh
 source ~/.local/share/omarell/ascii.sh
 
 # Ask for app choices
-echo -e "\nGet ready to make a few choices..."
+echo -e "\e[32m\nGet ready to make a few choices...\e[0m"
 source ~/.local/share/omarell/install/terminal/required/gum.sh >/dev/null
 source ~/.local/share/omarell/install/first-run-choices.sh
 source ~/.local/share/omarell/install/identification.sh
@@ -29,8 +29,7 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   gsettings set org.gnome.desktop.screensaver lock-enabled false
   gsettings set org.gnome.desktop.session idle-delay 0
 
-  echo
-  echo -e "\nInstalling terminal and desktop tools..."
+  echo -e "\e[32m\nInstalling terminal and desktop tools...\e[0m"
 
   # Install terminal tools
   source ~/.local/share/omarell/install/terminal.sh
@@ -42,10 +41,12 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   gsettings set org.gnome.desktop.screensaver lock-enabled true
   gsettings set org.gnome.desktop.session idle-delay 300
 
+  # Ensure locate is up to date now that everything has been installed
+  sudo updatedb
+
   # Reboot to pickup changes
   gum confirm "Now everything is built as it should be. Reboot and let's see!" && sudo reboot
 else
-  echo
-  echo -e "\nOnly installing terminal tools..."
+  echo -e "\n\e[32mOnly installing terminal tools...\e[0m"
   source ~/.local/share/omarell/install/terminal.sh
 fi
