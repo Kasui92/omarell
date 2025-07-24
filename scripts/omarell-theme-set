@@ -9,6 +9,7 @@ set_theme() {
     exit 1
   fi
 
+
   THEMES_DIR="$HOME/.config/omarell/themes/"
   CURRENT_THEME_DIR="$HOME/.config/omarell/current/theme"
 
@@ -46,4 +47,9 @@ set_theme() {
 
 export -f set_theme
 
-gum spin --title "Setting theme '$1'..." -- bash -c "set_theme \"$1\""
+# Check if script is being called directly
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  set_theme "$1"
+else
+  gum spin --title "Setting theme '$1'..." -- bash -c "set_theme \"$1\""
+fi
