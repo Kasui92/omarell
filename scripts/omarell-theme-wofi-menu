@@ -1,0 +1,37 @@
+#!/bin/bash
+
+THEMES_DIR="$HOME/.config/omarell/themes/"
+CURRENT_THEME_DIR="$HOME/.config/omarell/current/theme"
+CURRENT_THEME_NAME=$(basename "$(realpath "$CURRENT_THEME_DIR")")
+
+# Build themes list with pretty display names
+mapfile -t themes < <(
+  find "$THEMES_DIR" -mindepth 1 -maxdepth 1 \( -type d -o -type l \) | while read -r path; do
+    filename=$(basename "$path")
+    display_name=$(echo "$filename" | sed -E 's/(^|-)([a-z])/\1\u\2/g; s/-/ /g')
+
+    if [[ "$filename" == "$CURRENT_THEME_NAME" ]]; then
+      echo "<i>$display_name</i>"
+    else
+      echo "$display_name"
+    fi
+  done | sort
+)
+
+# Show Wofi menu (with markup support)
+selection=$(printf '%s\n' "${themes[@]}" | wofi \
+  --show dmenu \
+  --allow-markup \
+  --width 150 \
+  --height 400 \
+  -O alphabetical \
+  --style ~/.config/wofi/select.css 2>>/tmp/omarell.log)
+
+# Remove any Pango markup before converting back to filename
+clean_selection=$(echo "$selection" | sed -E 's/<[^>]+>//g')
+
+# Convert to lowercase and dash-separated: "Tokyo Night" -> "tokyo-night"
+selected_theme=$(echo "$clean_selection" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+
+# Apply the selected theme
+"$HOME/.local/share/omarell/scripts/omarell-theme-set" "$selected_theme"
