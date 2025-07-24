@@ -4,4 +4,4 @@ source ~/.local/share/omarell/default/bash/functions
 source ~/.local/share/omarell/default/bash/prompt
 source ~/.local/share/omarell/default/bash/init
 source ~/.local/share/omarell/default/bash/envs
-[ $- == *i* ]] && bind -f ~/.local/share/omarell/default/bash/inputrc
+[[ $- == *i* ]] && bind -f ~/.local/share/omarell/default/bash/inputrc
