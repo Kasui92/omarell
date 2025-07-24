@@ -212,3 +212,6 @@ cp ~/.local/share/omarell/applications/Omarell.desktop ~/.local/share/applicatio
 # Install sudoers rule for GDM background management
 sudo cp "$HOME/.local/share/omarell/default/gdm/sudoers" /etc/sudoers.d/gdm-wrapper 2>/dev/null
 sudo chmod 440 /etc/sudoers.d/gdm-wrapper 2>/dev/null
+
+# Update wofi config
+sudo cp "$HOME/.local/share/omarell/config/wofi" "$HOME/.config/wofi" 2>/dev/null
