@@ -38,20 +38,20 @@ update() {
   # Perform system update if --system is provided
   if [ "$1" == "--system" ]; then
     echo -e "\e[32m\nUpdating the entire system...\e[0m"
-    source "$OMARELL_PATH/scripts/omarell-update-system.sh"
+    source "$OMARELL_PATH/scripts/omarell-update-system"
     exit 0
   fi
 
   # Perform firmware update if --firmware is provided
   if [ "$1" == "--firmware" ]; then
     echo -e "\e[32m\nUpdating firmware...\e[0m"
-    source "$OMARELL_PATH/scripts/omarell-update-firmware.sh"
+    source "$OMARELL_PATH/scripts/omarell-update-firmware"
     exit 0
   fi
 
   # Default update action for Omarell
   echo -e "\e[32m\nUpdating Omarell...\e[0m"
-  source "$OMARELL_PATH/scripts/omarell-update.sh"
+  source "$OMARELL_PATH/scripts/omarell-update"
   exit 0
 }
 
@@ -69,11 +69,11 @@ theme() {
   fi
 
   if [ -n "$1" ]; then
-    source "$OMARELL_PATH/scripts/omarell-theme-set.sh" "$1"
+    source "$OMARELL_PATH/scripts/omarell-theme-set" "$1"
     exit 0
   fi
 
-  source "$OMARELL_PATH/scripts/omarell-theme-menu.sh"
+  source "$OMARELL_PATH/scripts/omarell-theme-menu"
   exit 1
 }
 
@@ -95,22 +95,22 @@ apps() {
   # If install is specified, check if an argument is provided; otherwise, show the menu
   if [ "$1" == "install" ]; then
     if [ -z "$2" ]; then
-      source "$OMARELL_PATH/scripts/omarell-apps-install-menu.sh"
+      source "$OMARELL_PATH/scripts/omarell-apps-install-menu"
       exit 0
     fi
 
-    source "$OMARELL_PATH/scripts/omarell-apps-install.sh" "$2"
+    source "$OMARELL_PATH/scripts/omarell-apps-install" "$2"
     exit 0
   fi
 
   # If uninstall is specified, check if an argument is provided; otherwise, show the uninstall menu
   if [ "$1" == "uninstall" ]; then
     if [ -z "$2" ]; then
-      source "$OMARELL_PATH/scripts/omarell-apps-uninstall-menu.sh"
+      source "$OMARELL_PATH/scripts/omarell-apps-uninstall-menu"
       exit 0
     fi
 
-    source "$OMARELL_PATH/scripts/omarell-apps-uninstall.sh" "$2"
+    source "$OMARELL_PATH/scripts/omarell-apps-uninstall" "$2"
     exit 0
   fi
 
