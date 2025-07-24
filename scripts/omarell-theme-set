@@ -14,7 +14,6 @@ set_theme() {
 
   THEME_NAME="$1"
   THEME_PATH="$THEMES_DIR/$THEME_NAME"
-  BACKGROUND_PATH="$HOME/.config/omarell/themes/$THEME_NAME/backgrounds"
 
   # Check if the theme entered exists
   if [[ ! -d "$THEME_PATH" ]]; then
@@ -27,19 +26,8 @@ set_theme() {
 
   # Set desktop theme
   if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-    ln -snf $(find "$HOME/.config/omarell/current/theme/backgrounds/" -type f | head -n 1) "$HOME/.config/omarell/current/background"
-
     # Apply GNOME themes
     source $HOME/.local/share/omarell/themes/$THEME_NAME/gnome.sh
-
-    # Set GNOME background
-    CURRENT_THEME_BACKGROUND="$(readlink -f "$HOME/.config/omarell/current/background")"
-    gsettings set org.gnome.desktop.background picture-uri $CURRENT_THEME_BACKGROUND
-    gsettings set org.gnome.desktop.background picture-uri-dark $CURRENT_THEME_BACKGROUND
-    gsettings set org.gnome.desktop.background picture-options 'zoom'
-
-    # Set GDM background
-    source ~/.local/share/omarell/scripts/omarell-refresh-gdm
 
     # Touch alacritty config to pickup the changed theme
     touch "$HOME/.config/alacritty/alacritty.toml"
@@ -47,6 +35,9 @@ set_theme() {
     # Restart components to apply new theme
     gext disable forge@jmmaranan.com > /dev/null 2>&1
     gext enable forge@jmmaranan.com > /dev/null 2>&1
+
+    # Set new background
+    "$HOME/.local/share/omarell/scripts/omarell-theme-bg-next"
   fi
 
   # Trigger btop config reload
