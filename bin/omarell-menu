@@ -9,7 +9,7 @@ header_menu() {
   clear
   source $OMARELL_PATH/ascii.sh
   echo "                                       $OMARELL_VERSION $OMARELL_BRANCH"
-  source $OMARELL_PATH/scripts/omarell-version-check.sh
+  source $OMARELL_PATH/scripts/omarell-version-check
 }
 
 main_menu() {
@@ -43,7 +43,7 @@ update_menu() {
       if [[ "$choice" == "Back" ]]; then
         main_menu
       else
-        source "$OMARELL_PATH/scripts/${scripts[$i]}.sh"
+        source "$OMARELL_PATH/scripts/${scripts[$i]}"
         ack_command
         main_menu
       fi
@@ -54,7 +54,7 @@ update_menu() {
 
 theme_menu() {
   header_menu
-  source "$OMARELL_PATH/scripts/omarell-theme-menu.sh"
+  source "$OMARELL_PATH/scripts/omarell-theme-menu"
   ack_command
   main_menu
 }
@@ -74,7 +74,7 @@ apps_menu() {
       if [[ "$choice" == "Back" ]]; then
         main_menu
       else
-        source "$OMARELL_PATH/scripts/${scripts[$i]}.sh"
+        source "$OMARELL_PATH/scripts/${scripts[$i]}"
         ack_command
         main_menu
       fi

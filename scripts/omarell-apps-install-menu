@@ -37,6 +37,6 @@ if [[ -n "$choice" ]] && [[ "$choice" != "Back" ]]; then
 
   # Set the selected app
   if [[ -n "$selected_app" ]]; then
-    source "$HOME/.local/share/omarell/scripts/omarell-apps-install.sh" "$selected_app"
+    source "$HOME/.local/share/omarell/scripts/omarell-apps-install" "$selected_app"
   fi
 fi

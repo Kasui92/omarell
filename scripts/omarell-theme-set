@@ -39,7 +39,7 @@ set_theme() {
     gsettings set org.gnome.desktop.background picture-options 'zoom'
 
     # Set GDM background
-    source ~/.local/share/omarell/scripts/omarell-refresh-gdm.sh
+    source ~/.local/share/omarell/scripts/omarell-refresh-gdm
 
     # Touch alacritty config to pickup the changed theme
     touch "$HOME/.config/alacritty/alacritty.toml"
