@@ -1,0 +1,5 @@
+@define-color selected-text  #ff00ff;
+@define-color text  #ffffff;
+@define-color base  #240037;
+@define-color base-rgba  rgba(36, 0, 55, 0.95);
+@define-color border  #8f00ff;

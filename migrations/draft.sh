@@ -263,3 +263,8 @@ sudo cp "$HOME/.local/share/omarell/config/wofi" "$HOME/.config/wofi" 2>/dev/nul
 if [[ ! -L "~/.config/omarell/themes/rose-pine" ]]; then
   ln -snf ~/.local/share/omarell/themes/rose-pine ~/.config/omarell/themes/
 fi
+
+# Create symlink for Synthwave theme
+if [[ ! -L "~/.config/omarell/themes/synthwave84" ]]; then
+  ln -snf ~/.local/share/omarell/themes/synthwave84 ~/.config/omarell/themes/
+fi
