@@ -1,15 +1,17 @@
 #!/bin/bash
 
 # Theme
-AVAILABLE_THEMES=(
-  "Tokyo Night"
-  "Catppuccin"
-  "Nord"
-  "Everforest"
-  "Gruvbox"
-  "Kanagawa"
+THEMES_DIR="$HOME/.config/omarell/themes/"
+# Build themes list with pretty display names
+mapfile -t AVAILABLE_THEMES < <(
+  find "$THEMES_DIR" -mindepth 1 -maxdepth 1 \( -type d -o -type l \) | while read -r path; do
+    filename=$(basename "$path")
+    display_name=$(echo "$filename" | sed -E 's/(^|-)([a-z])/\1\u\2/g; s/-/ /g')
+    echo "$display_name"
+  done | sort
 )
-DEFAULT_THEME="Tokyo Night"
+
+DEFAULT_THEME="${AVAILABLE_THEMES[0]}"
 OMARELL_FIRST_RUN_THEME=$(gum choose "${AVAILABLE_THEMES[@]}" --limit 1 --selected "$DEFAULT_THEME" --height 10 --header "Select your theme" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 if [[ -z "$OMARELL_FIRST_RUN_THEME" ]]; then
   OMARELL_FIRST_RUN_THEME="tokyo-night"
