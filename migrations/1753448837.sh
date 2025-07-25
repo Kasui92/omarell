@@ -29,6 +29,13 @@ gsettings set org.gnome.shell.extensions.rounded-window-corners-reborn custom-ro
 
 echo -e "\e[32m\nMaking sure to improve the user experience...\e[0m"
 
+# Remove settings
+gsettings set org.gnome.mutter workspaces-only-on-primary true
+
+# Configure Space Bar
+gsettings set org.gnome.shell.extensions.space-bar.behavior toggle-overview false
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-move-to-workspace-shortcuts false
+
 # Configure Just Perfection
 gsettings set org.gnome.shell.extensions.just-perfection search false
 gsettings set org.gnome.shell.extensions.just-perfection dash false
@@ -40,7 +47,6 @@ gsettings set org.gnome.shell.extensions.just-perfection startup-status 1
 echo -e "\e[32m\nRemoving unnecessary keybindings...\e[0m"
 
 # Remove Space Bar Shortcut
-gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-move-to-workspace-shortcuts false
 gsettings set org.gnome.shell.extensions.space-bar.shortcuts activate-empty-key "@as []"
 gsettings set org.gnome.shell.extensions.space-bar.shortcuts activate-previous-key "@as []"
 gsettings set org.gnome.shell.extensions.space-bar.shortcuts move-workspace-left "@as []"
@@ -280,7 +286,7 @@ sudo cp "$HOME/.local/share/omarell/default/gdm/sudoers" /etc/sudoers.d/gdm-wrap
 sudo chmod 440 /etc/sudoers.d/gdm-wrapper 2>/dev/null
 
 # Update wofi config
-sudo cp "$HOME/.local/share/omarell/config/wofi" "$HOME/.config/wofi" 2>/dev/null
+cp "$HOME/.local/share/omarell/config/wofi/" "$HOME/.config/wofi" 2>/dev/null
 
 echo -e "\e[32m\nSetting up Omarell themes...\e[0m"
 
