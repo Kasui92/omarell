@@ -6,7 +6,8 @@
 }
 
 window {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
   background-color: @base-rgba;
   opacity: 0.95;
 }
@@ -27,6 +28,7 @@ window:focus {
   background-color: @base;
   border: 3px solid @border;
   border-radius: 14px;
+  margin: -2px;
 }
 
 window:focus > #outer-box {
