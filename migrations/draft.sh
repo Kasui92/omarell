@@ -234,6 +234,10 @@ if command -v zellij &> /dev/null; then
   cp ~/.local/share/omarell/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 fi
 
+# Make alacritty default terminal emulator
+gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
+gsettings set org.gnome.desktop.default-applications.terminal exec-arg ''
+
 # Remove .inputrc
 echo -e "\e[32m\nRemoving .inputrc...\e[0m"
 if [ -f ~/.inputrc ]; then
@@ -314,3 +318,6 @@ gsettings set org.gnome.desktop.background picture-options 'zoom'
 
 # Set GDM background
 source ~/.local/share/omarell/scripts/omarell-refresh-gdm
+
+# Request to reboot
+gum confirm "Omarell setup complete! Please reboot your system to apply all changes!" && sudo reboot
