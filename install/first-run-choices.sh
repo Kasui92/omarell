@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Theme
-THEMES_DIR="$HOME/.config/omarell/themes/"
+THEMES_DIR="$HOME/.local/share/omarell/themes"
 # Build themes list with pretty display names
 mapfile -t AVAILABLE_THEMES < <(
   find "$THEMES_DIR" -mindepth 1 -maxdepth 1 \( -type d -o -type l \) | while read -r path; do
