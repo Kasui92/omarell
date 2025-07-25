@@ -7,4 +7,5 @@ sudo apt install -y alacritty
 alacritty migrate 2>/dev/null || true
 
 # Make alacritty default terminal emulator
-sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
+gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
+gsettings set org.gnome.desktop.default-applications.terminal exec-arg ''
