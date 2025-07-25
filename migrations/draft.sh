@@ -277,20 +277,40 @@ sudo chmod 440 /etc/sudoers.d/gdm-wrapper 2>/dev/null
 # Update wofi config
 sudo cp "$HOME/.local/share/omarell/config/wofi" "$HOME/.config/wofi" 2>/dev/null
 
-# Create symlink for Rose Pine theme
-echo -e "\e[32m\nCreating symlink for Rose Pine theme...\e[0m"
-if [[ ! -L "~/.config/omarell/themes/rose-pine" ]]; then
-  ln -snf ~/.local/share/omarell/themes/rose-pine ~/.config/omarell/themes/
-fi
+echo -e "\e[32m\nSetting up Omarell themes...\e[0m"
 
-# Create symlink for Catppuccin Latte theme
-echo -e "\e[32m\nCreating symlink for Catppuccin Latte theme...\e[0m"
-if [[ ! -L "~/.config/omarell/themes/catppuccin-latte" ]]; then
-  ln -snf ~/.local/share/omarell/themes/catppuccin-latte ~/.config/omarell/themes/
+# Setup theme links
+if [ -d ~/.config/omarell/themes ]; then
+  rm -rf ~/.config/omarell/themes
 fi
+mkdir -p ~/.config/omarell/themes
+for f in ~/.local/share/omarell/themes/*; do ln -s "$f" ~/.config/omarell/themes/; done
 
-# Create symlink for Synthwave theme
-echo -e "\e[32m\nCreating symlink for Synthwave84 theme...\e[0m"
-if [[ ! -L "~/.config/omarell/themes/synthwave84" ]]; then
-  ln -snf ~/.local/share/omarell/themes/synthwave84 ~/.config/omarell/themes/
-fi
+# Get the current theme name from the first run theme variable
+CURRENT_THEME_NAME=$(basename "$(realpath "$HOME/.config/omarell/current/theme")")
+
+# Set initial theme
+mkdir -p ~/.config/omarell/current
+ln -snf ~/.config/omarell/themes/$CURRENT_THEME_NAME ~/.config/omarell/current/theme
+ln -snf $(find "$HOME/.config/omarell/current/theme/backgrounds/" -type f | head -n 1) "$HOME/.config/omarell/current/background"
+
+# Set specific app links for current theme
+ln -snf ~/.config/omarell/current/theme/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
+
+mkdir -p ~/.config/btop/themes
+ln -snf ~/.config/omarell/current/theme/btop.theme ~/.config/btop/themes/current.theme
+
+mkdir -p ~/.config/forge/stylesheet/forge
+ln -snf ~/.config/omarell/current/theme/forge.css ~/.config/forge/stylesheet/forge/stylesheet.css
+
+# Apply GNOME theme
+source ~/.config/omarell/current/theme/gnome.sh
+
+# Set GNOME background
+CURRENT_THEME_BACKGROUND="$(readlink -f "$HOME/.config/omarell/current/background")"
+gsettings set org.gnome.desktop.background picture-uri $CURRENT_THEME_BACKGROUND
+gsettings set org.gnome.desktop.background picture-uri-dark $CURRENT_THEME_BACKGROUND
+gsettings set org.gnome.desktop.background picture-options 'zoom'
+
+# Set GDM background
+source ~/.local/share/omarell/scripts/omarell-refresh-gdm
