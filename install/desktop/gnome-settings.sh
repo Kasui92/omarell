@@ -11,6 +11,7 @@ gsettings set org.gnome.desktop.calendar show-weekdate true
 
 # Use 6 fixed workspaces instead of dynamic mode
 gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.mutter workspaces-only-on-primary true
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
 
 # Remove the Ubuntu logo from the Plymouth splash screen
