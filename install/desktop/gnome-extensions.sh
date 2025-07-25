@@ -94,3 +94,4 @@ gsettings set org.gnome.shell.extensions.forge tiling-mode-enabled true
 # Configure Rounded Window Corners
 gsettings set org.gnome.shell.extensions.rounded-window-corners-reborn border-width 0
 gsettings set org.gnome.shell.extensions.rounded-window-corners-reborn global-rounded-corner-settings "{'padding': <{'left': uint32 0, 'right': 0, 'top': 0, 'bottom': 0}>, 'keepRoundedCorners': <{'maximized': false, 'fullscreen': false}>, 'borderRadius': <uint32 14>, 'smoothing': <0.0>, 'borderColor': <(0.5, 0.5, 0.5, 1.0)>, 'enabled': <true>}"
+gsettings set org.gnome.shell.extensions.rounded-window-corners-reborn custom-rounded-corner-settings "{'Alacritty': <{'padding': <{'left': uint32 0, 'right': 0, 'top': 0, 'bottom': 0}>, 'keepRoundedCorners': <{'maximized': false, 'fullscreen': false}>, 'borderRadius': <uint32 14>, 'smoothing': <0.0>, 'borderColor': <(0.5, 0.5, 0.5, 1.0)>, 'enabled': <true>}>}"
