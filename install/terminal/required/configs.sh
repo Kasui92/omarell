@@ -11,6 +11,9 @@ mkdir -p ~/.local/share/applications
 [ -f "~/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak
 echo "source ~/.local/share/omarell/default/bash/rc" >~/.bashrc
 
+# Load the PATH for use later in the installers
+source ~/.local/share/omarell/default/bash/shell
+
 # Set common git aliases
 git config --global alias.co checkout
 git config --global alias.br branch
