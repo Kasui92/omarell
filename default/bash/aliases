@@ -31,6 +31,7 @@ alias d='docker'
 alias bat='batcat'
 alias lzg='lazygit'
 alias lzd='lazydocker'
+n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
 
 # Browser
 open() {

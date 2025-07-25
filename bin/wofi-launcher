@@ -4,4 +4,4 @@ if pgrep -x wofi > /dev/null; then
   pkill wofi
 fi
 
-exec /usr/bin/wofi --show drun --sort-order=alphabetical
+exec wofi --show drun --sort-order=alphabetical

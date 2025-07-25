@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Install desktop environment and utilities
 sudo apt install -y \
     ffmpeg \

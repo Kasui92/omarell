@@ -1,6 +1,11 @@
-# Copy over Omasway configs
+#!/bin/bash
+
+# Copy over Omarell configs
 mkdir -p ~/.config
-cp -R ~/.local/share/omarell/config/* ~/.config/
+cp -RL ~/.local/share/omarell/config/* ~/.config/
+
+# Ensure application directory exists for update-desktop-database
+mkdir -p ~/.local/share/applications
 
 # Configure the bash shell using Omarell defaults
 [ -f "~/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak
@@ -8,10 +13,6 @@ echo "source ~/.local/share/omarell/default/bash/rc" >~/.bashrc
 
 # Load the PATH for use later in the installers
 source ~/.local/share/omarell/default/bash/shell
-
-# Configure the inputrc using Omarell defaults
-[ -f "~/.inputrc" ] && mv ~/.inputrc ~/.inputrc.bak
-echo "\$include ~/.local/share/omarell/default/bash/inputrc" >~/.inputrc
 
 # Set common git aliases
 git config --global alias.co checkout
@@ -21,10 +22,10 @@ git config --global alias.st status
 git config --global pull.rebase true
 
 # Set identification from install inputs
-if [[ -n "${OMASWAY_USER_NAME//[[:space:]]/}" ]]; then
-  git config --global user.name "$OMASWAY_USER_NAME"
+if [[ -n "${OMARELL_USER_NAME//[[:space:]]/}" ]]; then
+  git config --global user.name "$OMARELL_USER_NAME"
 fi
 
-if [[ -n "${OMASWAY_USER_EMAIL//[[:space:]]/}" ]]; then
-  git config --global user.email "$OMASWAY_USER_EMAIL"
+if [[ -n "${OMARELL_USER_EMAIL//[[:space:]]/}" ]]; then
+  git config --global user.email "$OMARELL_USER_EMAIL"
 fi

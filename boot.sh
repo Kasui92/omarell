@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -o pipefail
 
 ascii_art='
@@ -31,20 +33,15 @@ for i in "${!lines[@]}"; do
 done
 echo -e "\033[0m" # Reset color
 
-echo -e "\n=> Omarell: basically Omakub with some fancy, totally optional (... and unrequested!) tweaks."
-echo -e "\n=> Just like its parent, it demands the purity of a fresh Ubuntu 24.04+ install... unless you enjoy debugging cryptic errors later!"
-echo
-echo -e "\nBegin installation (or abort with ctrl+c)..."
-
 sudo apt-get update >/dev/null
 sudo apt-get install -y git >/dev/null
 
-echo -e "\nCloning Omarell..."
+echo -e "\e[32m\nCloning Omarell...\e[0m"
 rm -rf ~/.local/share/omarell
 git clone https://github.com/Kasui92/omarell.git ~/.local/share/omarell >/dev/null
 
 if [[ -n "$OMARELL_REF" ]]; then
-  echo -e "\eUsing branch: $OMARELL_REF"
+  echo -e "\e[32mUsing branch: $OMARELL_REF\e[0m"
 	cd ~/.local/share/omarell
 	git fetch origin "${OMARELL_REF}" && git checkout "${OMARELL_REF}"
 	cd -

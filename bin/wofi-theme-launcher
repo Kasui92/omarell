@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if pgrep -x wofi > /dev/null; then
+  pkill wofi
+fi
+
+"$HOME/.local/share/omarell/scripts/omarell-theme-wofi-menu"
