@@ -14,9 +14,6 @@ trap catch_errors ERR
 # Check the distribution name and version and abort if incompatible
 source ~/.local/share/omarell/install/check-version.sh
 
-# Configure identification
-source ~/.local/share/omarell/ascii.sh
-
 # Ask for app choices
 echo -e "\e[32m\nGet ready to make a few choices...\e[0m"
 source ~/.local/share/omarell/install/terminal/required/gum.sh >/dev/null
