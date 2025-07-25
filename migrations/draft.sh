@@ -283,6 +283,12 @@ if [[ ! -L "~/.config/omarell/themes/rose-pine" ]]; then
   ln -snf ~/.local/share/omarell/themes/rose-pine ~/.config/omarell/themes/
 fi
 
+# Create symlink for Catppuccin Latte theme
+echo -e "\e[32m\nCreating symlink for Catppuccin Latte theme...\e[0m"
+if [[ ! -L "~/.config/omarell/themes/catppuccin-latte" ]]; then
+  ln -snf ~/.local/share/omarell/themes/catppuccin-latte ~/.config/omarell/themes/
+fi
+
 # Create symlink for Synthwave theme
 echo -e "\e[32m\nCreating symlink for Synthwave84 theme...\e[0m"
 if [[ ! -L "~/.config/omarell/themes/synthwave84" ]]; then
