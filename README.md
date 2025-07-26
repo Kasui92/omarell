@@ -17,13 +17,13 @@ In the spirit of its namesake, Omarell takes the base Omakub system—which tran
 To install Omarell, simply run the following command in your terminal:
 
 ```bash
-curl -sSL https://omakasui.lucapattocchio.dev/omarell | bash
+curl -sSL https://omakasui.org/omarell | bash
 ```
 
 You can also install Omarell in its "development" version to experiment and/or contribute, but you accept all the risks involved (and a few coffees won't always be enough). This is the command, for the brave:
 
 ```bash
-curl -sSL https://omakasui.lucapattocchio.dev/omarell-dev | bash
+curl -sSL https://omakasui.org/omarell-dev | bash
 ```
 
 ## Key Features
