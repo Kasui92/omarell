@@ -8,7 +8,7 @@ cp -RL ~/.local/share/omarell/config/* ~/.config/
 mkdir -p ~/.local/share/applications
 
 # Configure the bash shell using Omarell defaults
-[ -f "~/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak
+[ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.bak
 echo "source ~/.local/share/omarell/default/bash/rc" >~/.bashrc
 
 # Load the PATH for use later in the installers
