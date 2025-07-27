@@ -192,10 +192,10 @@ gsettings set org.gnome.shell.extensions.forge.keybindings window-swap-left "['<
 gsettings set org.gnome.shell.extensions.forge.keybindings window-swap-right "['<Shift><Super>Right']"
 gsettings set org.gnome.shell.extensions.forge.keybindings window-swap-up "['<Shift><Super>Up']"
 gsettings set org.gnome.shell.extensions.forge.keybindings window-swap-down "['<Shift><Super>Down']"
-gsettings set org.gnome.shell.extensions.forge.keybindings window-move-left '[]'
-gsettings set org.gnome.shell.extensions.forge.keybindings window-move-right '[]'
-gsettings set org.gnome.shell.extensions.forge.keybindings window-move-up '[]'
-gsettings set org.gnome.shell.extensions.forge.keybindings window-move-down '[]'
+gsettings set org.gnome.shell.extensions.forge.keybindings window-move-left "['<Control><Super>Left']"
+gsettings set org.gnome.shell.extensions.forge.keybindings window-move-right "['<Control><Super>Right']"
+gsettings set org.gnome.shell.extensions.forge.keybindings window-move-up "['<Control><Super>Up']"
+gsettings set org.gnome.shell.extensions.forge.keybindings window-move-down "['<Control><Super>Down']"
 gsettings set org.gnome.shell.extensions.forge.keybindings window-focus-left "['<Super>Left']"
 gsettings set org.gnome.shell.extensions.forge.keybindings window-focus-right "['<Super>Right']"
 gsettings set org.gnome.shell.extensions.forge.keybindings window-focus-up "['<Super>Up']"
