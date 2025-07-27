@@ -8,6 +8,8 @@ gtk-update-icon-cache ~/.local/share/icons/hicolor &>/dev/null
 # Copy .desktop declarations
 mkdir -p ~/.local/share/applications
 cp ~/.local/share/omarell/applications/*.desktop ~/.local/share/applications/
-cp ~/.local/share/omarell/applications/hidden/*.desktop ~/.local/share/applications/
+if [ -d ~/.local/share/omarell/applications/hidden ]; then
+  cp ~/.local/share/omarell/applications/hidden/*.desktop ~/.local/share/applications/
+fi
 
 update-desktop-database ~/.local/share/applications
