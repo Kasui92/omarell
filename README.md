@@ -4,13 +4,11 @@
 
 <h1 align="center">Omarell</h1>
 
-## What is Omarell?
-
 Omarell is a personalized fork of [Omakub](https://omakub.org), the one-liner tool that turns a fresh Ubuntu install into a modern development environment. It builds on Omakub with targeted tweaks for a more streamlined and opinionated Linux setup.
 
 The name comes from umarell, the Italian archetype of a retiree watching construction sites with a critical eye. Likewise, Omarell keeps tabs on the evolving [Omarchy project](https://omarchy.org), selectively adopting useful changes while staying grounded on a stable, proven base.
 
-# Installation
+## Installation
 
 To install Omarell, simply run the following command in your terminal:
 
