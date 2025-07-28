@@ -129,8 +129,11 @@ web2app-remove() {
   rm "$ICON_PATH"
 }
 
-# Ensure that external keyboards that use an fn key has the F keys as the default
-alias fix_fkeys='echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode'
+# Ensure changes to ~/.XCompose are immediately available
+refresh-xcompose() {
+  pkill fcitx5
+  fcitx5 >/dev/null 2>&1 &
+}
 
 # SSH key management
 function ssh-key-put() {

@@ -4,12 +4,12 @@
 mkdir -p ~/.config
 cp -RL ~/.local/share/omarell/config/* ~/.config/
 
-# Ensure application directory exists for update-desktop-database
-mkdir -p ~/.local/share/applications
-
 # Configure the bash shell using Omarell defaults
 [ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.bak
-echo "source ~/.local/share/omarell/default/bash/rc" >~/.bashrc
+cp ~/.local/share/omarell/default/bashrc ~/.bashrc
+
+# Ensure application directory exists for update-desktop-database
+mkdir -p ~/.local/share/applications
 
 # Load the PATH for use later in the installers
 source ~/.local/share/omarell/default/bash/shell
