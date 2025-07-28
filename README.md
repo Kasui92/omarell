@@ -4,8 +4,6 @@
 
 <h1 align="center">Omarell</h1>
 
-Omarell is a customized fork of [Omakub](https://omakub.org) that offers additional personalizations for an even more refined Linux experience.
-
 ## What is Omarell?
 
 Omarell is a personalized fork of [Omakub](https://omakub.org), the one-liner tool that turns a fresh Ubuntu install into a modern development environment. It builds on Omakub with targeted tweaks for a more streamlined and opinionated Linux setup.
@@ -40,7 +38,7 @@ curl -sSL https://omakasui.org/omarell-dev | bash
 
 For complete documentation of the core features, visit the [official Omakub manual](https://manuals.omamix.org/1/read).
 
-For Omarell-specific features, consult the [WIKI](https://github.com/Kasui92/omarell/wiki).
+For Omarell-specific features, consult the [Omarell manual](https://manuals.omakasui.org/omarell).
 
 ## License
 
