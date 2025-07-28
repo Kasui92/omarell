@@ -8,9 +8,9 @@ Omarell is a customized fork of [Omakub](https://omakub.org) that offers additio
 
 ## What is Omarell?
 
-The name "Omarell" is derived from the Italian term "umarell" (often spelled "omarell" in some dialects), which refers to retired elderly men who stand watching construction sites, often with their hands clasped behind their backs, offering unsolicited advice to workers. It's a popular cultural reference in Italy that embodies curious observation and gentle improvement suggestions.
+Omarell is a personalized fork of [Omakub](https://omakub.org), the one-liner tool that turns a fresh Ubuntu install into a modern development environment. It builds on Omakub with targeted tweaks for a more streamlined and opinionated Linux setup.
 
-In the spirit of its namesake, Omarell takes the base Omakub system—which transforms a fresh Ubuntu installation into a fully-configured, modern development environment with a single command—and adds its own improvements and extra customizations, watching over and enhancing the original work.
+The name comes from umarell, the Italian archetype of a retiree watching construction sites with a critical eye. Likewise, Omarell keeps tabs on the evolving [Omarchy project](https://omarchy.org), selectively adopting useful changes while staying grounded on a stable, proven base.
 
 # Installation
 
@@ -28,10 +28,12 @@ curl -sSL https://omakasui.org/omarell-dev | bash
 
 ## Key Features
 
-- **All Omakub benefits**: the base is Omakub and that remains, with a few more updates and a few less default apps
+- **All Omakub benefits...**: the base is Omakub and that remains, solid and proven
+- **...with Omarchy approach**: With the philosophy and vibes of Omarchy, in its themes and in the way of managing the desktop.
 - **Lightweight base installation**: minimal core setup without suggested applications (most are optional) and initial theme selection
 - **Updated menu system**: reorganized, cleaned up, and enhanced system menus for better organization and usability
-- **Enhanced GNOME customizations**: additional desktop tweaks and interesting enhancements, like GDM background sync and consistency fixes
+- **A CLI for terminal people**: it's still based on the Menu, but without the effort of interaction. Clean and simple.
+- **Enhanced GNOME customizations**: additional desktop tweaks and interesting enhancements, like GDM background sync, Forge Extension for a WM desktop and consistency fixes
 - **No Snaps!**: removed snap and replaced all applications with Flatpak or from sources
 
 ## Documentation
