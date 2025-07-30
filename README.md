@@ -8,22 +8,14 @@ Omarell is a personalized fork of [Omakub](https://omakub.org), the one-liner to
 
 The name comes from umarell, the Italian archetype of a retiree watching construction sites with a critical eye. Likewise, Omarell keeps tabs on the evolving [Omarchy project](https://omarchy.org), selectively adopting useful changes while staying grounded on a stable, proven base.
 
-
 [Omarell](https://github.com/user-attachments/assets/d3eaf4d6-bb14-4553-8250-29bd90c3d8cc)
-
 
 ## Installation
 
 To install Omarell, simply run the following command in your terminal:
 
 ```bash
-curl -sSL https://omakasui.org/omarell | bash
-```
-
-You can also install Omarell in its "development" version to experiment and/or contribute, but you accept all the risks involved (and a few coffees won't always be enough). This is the command, for the brave:
-
-```bash
-curl -sSL https://omakasui.org/omarell-dev | bash
+eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/legacy/boot.sh)"
 ```
 
 ## Key Features
