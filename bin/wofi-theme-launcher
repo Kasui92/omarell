@@ -4,4 +4,4 @@ if pgrep -x wofi > /dev/null; then
   pkill wofi
 fi
 
-"$HOME/.local/share/omarell/scripts/omarell-theme-wofi-menu"
+"$HOME/.local/share/omarell/bin/scripts/omarell-theme-wofi-menu"

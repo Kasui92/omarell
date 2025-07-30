@@ -1,8 +1,8 @@
 #!/bin/bash
 
 OMARELL_PATH="$HOME/.local/share/omarell"
-OMARELL_VERSION=$(source "$OMARELL_PATH/scripts/omarell-version" && echo "$OMARELL_VERSION")
-OMARELL_CHECK=$("$OMARELL_PATH/scripts/omarell-version" "check" && echo "$OMARELL_CHECK")
+OMARELL_VERSION=$(source "$OMARELL_PATH/bin/scripts/omarell-version" && echo "$OMARELL_VERSION")
+OMARELL_CHECK=$("$OMARELL_PATH/bin/scripts/omarell-version" "check" && echo "$OMARELL_CHECK")
 
 header_menu() {
   clear
@@ -42,7 +42,7 @@ update_menu() {
       if [[ "$choice" == "Back" ]]; then
         main_menu
       else
-        source "$OMARELL_PATH/scripts/${scripts[$i]}"
+        source "$OMARELL_PATH/bin/scripts/${scripts[$i]}"
         ack_command
         main_menu
       fi
@@ -53,7 +53,7 @@ update_menu() {
 
 theme_menu() {
   header_menu
-  source "$OMARELL_PATH/scripts/omarell-theme-menu"
+  source "$OMARELL_PATH/bin/scripts/omarell-theme-menu"
   ack_command
   main_menu
 }
@@ -73,7 +73,7 @@ apps_menu() {
       if [[ "$choice" == "Back" ]]; then
         main_menu
       else
-        source "$OMARELL_PATH/scripts/${scripts[$i]}"
+        source "$OMARELL_PATH/bin/scripts/${scripts[$i]}"
         ack_command
         main_menu
       fi

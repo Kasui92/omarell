@@ -38,7 +38,7 @@ set_theme() {
     gext enable forge@jmmaranan.com > /dev/null 2>&1
 
     # Set new background
-    "$HOME/.local/share/omarell/scripts/omarell-theme-bg-next"
+    "$HOME/.local/share/omarell/bin/scripts/omarell-theme-bg-next"
   fi
 
   # Trigger btop config reload
