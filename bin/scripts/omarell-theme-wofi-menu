@@ -34,4 +34,4 @@ clean_selection=$(echo "$selection" | sed -E 's/<[^>]+>//g')
 selected_theme=$(echo "$clean_selection" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 
 # Apply the selected theme
-"$HOME/.local/share/omarell/scripts/omarell-theme-set" "$selected_theme"
+"$HOME/.local/share/omarell/bin/scripts/omarell-theme-set" "$selected_theme"
