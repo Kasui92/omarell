@@ -17,11 +17,11 @@ check_new_version() {
   cd $OMARELL_PATH && git rev-parse --is-inside-work-tree &>/dev/null || return 0
 
   # Try to fetch the latest release tag from GitHub API (with a timeout of 3 seconds)
-  timeout 3 curl -s --head "${repo_url}/releases/latest" &>/dev/null || return 0
+  timeout 3 curl -s --head "${repo_url}/releases" &>/dev/null || return 0
 
-  # Get the latest release tag
+  # Get the latest release tag from the legacy branch
   local last_release_tag
-  last_release_tag=$(curl -s "${repo_url}/releases/latest" | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4)
+  last_release_tag=$(curl -s "${repo_url}/releases" | grep -A 10 '"target_commitish": "legacy"' | grep -o '"tag_name": "[^"]*' | head -1 | cut -d'"' -f4)
 
   # Use the global OMARELL_VERSION variable for local version
   local local_version_tag="$OMARELL_VERSION"
