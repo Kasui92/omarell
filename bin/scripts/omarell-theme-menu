@@ -34,6 +34,6 @@ if [[ -n "$choice" ]]; then
 
   # Set the selected theme
   if [[ -n "$selected_theme" ]]; then
-    source "$HOME/.local/share/omarell/scripts/omarell-theme-set" "$selected_theme"
+    source "$HOME/.local/share/omarell/bin/scripts/omarell-theme-set" "$selected_theme"
   fi
 fi

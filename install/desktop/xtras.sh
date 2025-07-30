@@ -29,4 +29,4 @@ fi
 
 # Apps
 # Copy over Omarell applications
-source "$HOME/.local/share/omarell/scripts/omarell-refresh-applications" || true
+source "$HOME/.local/share/omarell/bin/scripts/omarell-refresh-applications" || true

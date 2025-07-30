@@ -106,7 +106,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
 # Set background rotation to Super+Control+Space
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ name 'Omarell Background Next'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ command 'sh -c -- "$HOME/.local/share/omarell/scripts/omarell-theme-bg-next"'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ command 'sh -c -- "$HOME/.local/share/omarell/bin/scripts/omarell-theme-bg-next"'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ binding '<Super><Control>space'
 
 # Open Gnome Terminal Super+Shift+Return

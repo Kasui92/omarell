@@ -28,6 +28,6 @@ if [[ -n "$choice" ]] && [[ "$choice" != "Back" ]]; then
 
   # Set the selected app
   if [[ -n "$selected_app" ]]; then
-    source "$HOME/.local/share/omarell/scripts/omarell-apps-uninstall" "$selected_app"
+    source "$HOME/.local/share/omarell/bin/scripts/omarell-apps-uninstall" "$selected_app"
   fi
 fi
