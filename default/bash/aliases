@@ -27,6 +27,7 @@ alias ....='cd ../../..'
 # Tools
 alias g='git'
 alias d='docker'
+alias gl='glab'
 alias bat='batcat'
 alias lzg='lazygit'
 alias lzd='lazydocker'
