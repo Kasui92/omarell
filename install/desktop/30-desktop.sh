@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# Install desktop environment and utilities
-sudo apt install -y \
-    ffmpeg \
-    gnome-sushi gnome-tweak-tool \
-    wl-clipboard \
-    systemd-container
+# Install essential desktop tools
+sudo apt install -y --no-install-recommends \
+  brightnessctl playerctl pipewire wireplumber libspa-0.2-bluetooth \
+  bluez bluez-tools rfkill alsa-utils acpi acpid \
+  gnome-tweak-tool gnome-shell-extensions gnome-shell-extension-prefs \
+  gnome-software gnome-software-plugin-flatpak \
+  nautilus gnome-sushi ffmpegthumbnailer \
+  gnome-screenshot gnome-disk-utility \
+  gnome-font-viewer gnome-calculator \
+  gnome-keyring wl-clipboard \
+  evince mpv imv \
+  wofi
 
 # Adding alacritty to nautilus contextual menu requires the python wrapper for the libraries
 sudo apt install -y python3-nautilus

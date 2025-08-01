@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Remove Snap packages if they exist
 remove_snaps() {
     snap_pkgs=$(snap list | awk 'NR>1 {print $1}')
 
@@ -28,3 +29,8 @@ if command -v snap >/dev/null 2>&1; then
 
     sudo apt-mark hold snapd >/dev/null 2>&1
 fi
+
+# Install Flatpak and GNOME Software plugin for Flatpak
+sudo apt install -y flatpak
+sudo apt install -y gnome-software-plugin-flatpak
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
