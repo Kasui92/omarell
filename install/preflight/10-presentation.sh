@@ -11,5 +11,5 @@ if ! command -v gum &> /dev/null; then
 fi
 
 # Install pipx and terminaltexteffects
-sudo apt-get install -y pipx python3-pip
+sudo apt install -y pipx python3-pip
 pipx install terminaltexteffects
