@@ -3,8 +3,7 @@
 # Don't exit immediately on error - we want to handle errors gracefully
 # set -e
 
-#OMARELL_INSTALL=~/.local/share/omarell/install
-OMARELL_INSTALL=~/Workspace/resources/omakasui/omarell-dev/install
+OMARELL_INSTALL=~/.local/share/omarell/install
 
 # Give people a chance to retry running the installation
 catch_errors() {
