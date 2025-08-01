@@ -9,3 +9,7 @@ if ! command -v gum &> /dev/null; then
   rm gum.deb
   cd -
 fi
+
+# Install pipx and terminaltexteffects
+sudo apt-get install -y pipx python3-pip
+pipx install terminaltexteffects

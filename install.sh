@@ -1,49 +1,72 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status
-set -e
+# Don't exit immediately on error - we want to handle errors gracefully
+# set -e
+
+#OMARELL_INSTALL=~/.local/share/omarell/install
+OMARELL_INSTALL=~/Workspace/resources/omakasui/omarell-dev/install
 
 # Give people a chance to retry running the installation
 catch_errors() {
-  echo -e "\n\e[31mOmarell installation failed!\e[0m"
+  echo -e "\n\e[Omarell installation failed!\e[0m"
   echo "You can retry by running: bash ~/.local/share/omarell/install.sh"
 }
 
 trap catch_errors ERR
 
-# Check the distribution name and version and abort if incompatible
-source ~/.local/share/omarell/install/check-version.sh
+show_logo() {
+  clear
+  echo -e "\n\e[1;36m$(cat ~/Workspace/resources/omakasui/omarell-dev/logo.txt)\e[0m"
+  echo
+}
 
-# Ask for app choices
-echo -e "\e[32m\nGet ready to make a few choices...\e[0m"
-source ~/.local/share/omarell/install/terminal/required/gum.sh >/dev/null
-source ~/.local/share/omarell/install/first-run-choices.sh
-source ~/.local/share/omarell/install/identification.sh
+show_subtext() {
+  echo "$1" | tte --frame-rate ${3:-640} ${2:-wipe}
+  echo
+}
 
-# Desktop software and tweaks will only be installed if we're running Gnome
-if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-  # Ensure computer doesn't go to sleep or lock while installing
-  gsettings set org.gnome.desktop.screensaver lock-enabled false
-  gsettings set org.gnome.desktop.session idle-delay 0
+# Install prerequisites
+for installer in $OMARELL_INSTALL/install/preflight/*.sh; do
+  source "$installer"
+done
 
-  echo -e "\e[32m\nInstalling terminal and desktop tools...\e[0m"
+# Configuration
+show_logo
+show_subtext "Let's install Omarell! [1/5]"
+for installer in $OMARELL_INSTALL/install/config/*.sh; do
+  source "$installer"
+done
 
-  # Install terminal tools
-  source ~/.local/share/omarell/install/terminal.sh
+# Terminal
+show_logo
+show_subtext "Installing terminal tools [2/5]"
+for installer in $OMARELL_INSTALL/install/terminal/*.sh; do
+  source "$installer"
+done
 
-  # Install desktop tools and tweaks
-  source ~/.local/share/omarell/install/desktop.sh
+# Desktop
+show_logo
+show_subtext "Installing desktop tools [3/5]"
+for installer in $OMARELL_INSTALL/install/desktop/*.sh; do
+  source "$installer"
+done
 
-  # Revert to normal idle and lock settings
-  gsettings set org.gnome.desktop.screensaver lock-enabled true
-  gsettings set org.gnome.desktop.session idle-delay 300
+# Apps
+show_logo
+show_subtext "Installing default applications [4/5]"
+for installer in $OMARELL_INSTALL/install/apps/*.sh; do
+  source "$installer"
+done
 
-  # Ensure locate is up to date now that everything has been installed
-  sudo updatedb
+# Updates
+show_logo
+show_subtext "Updating system packages [5/5]"
+sudo updatedb
+sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y
+sudo apt autoremove -y && sudo apt clean
 
-  # Reboot to pickup changes
-  gum confirm "Now everything is built as it should be. Reboot and let's see!" && sudo reboot
-else
-  echo -e "\n\e[32mOnly installing terminal tools...\e[0m"
-  source ~/.local/share/omarell/install/terminal.sh
-fi
+# Reboot
+show_logo
+show_subtext "You're done! So we'll be rebooting now..."
+sleep 2
+reboot
