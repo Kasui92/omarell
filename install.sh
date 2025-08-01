@@ -25,35 +25,35 @@ show_subtext() {
 }
 
 # Install prerequisites
-for installer in $OMARELL_INSTALL/install/preflight/*.sh; do
+for installer in $OMARELL_INSTALL/preflight/*.sh; do
   source "$installer"
 done
 
 # Configuration
 show_logo
 show_subtext "Let's install Omarell! [1/5]"
-for installer in $OMARELL_INSTALL/install/config/*.sh; do
+for installer in $OMARELL_INSTALL/config/*.sh; do
   source "$installer"
 done
 
 # Terminal
 show_logo
 show_subtext "Installing terminal tools [2/5]"
-for installer in $OMARELL_INSTALL/install/terminal/*.sh; do
+for installer in $OMARELL_INSTALL/terminal/*.sh; do
   source "$installer"
 done
 
 # Desktop
 show_logo
 show_subtext "Installing desktop tools [3/5]"
-for installer in $OMARELL_INSTALL/install/desktop/*.sh; do
+for installer in $OMARELL_INSTALL/desktop/*.sh; do
   source "$installer"
 done
 
 # Apps
 show_logo
 show_subtext "Installing default applications [4/5]"
-for installer in $OMARELL_INSTALL/install/apps/*.sh; do
+for installer in $OMARELL_INSTALL/apps/*.sh; do
   source "$installer"
 done
 
