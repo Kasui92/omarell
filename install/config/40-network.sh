@@ -1,28 +1,33 @@
 #!/bin/bash
 
-sudo apt install -y network-manager dbus
+# Install and configure NetworkManager
+sudo apt install -y network-manager
 
-# Ensure netplan is installed
-if ! command -v netplan &>/dev/null; then
-  sudo apt install -y netplan.io
-fi
+# Backup existing config
+sudo mkdir -p /etc/netplan/backup
+sudo cp /etc/netplan/*.yaml /etc/netplan/backup/ 2>/dev/null
 
-# Disable systemd-networkd and systemd-resolved if they are running
-sudo systemctl disable --now systemd-networkd
-sudo systemctl disable --now systemd-resolved
+# Disable conflicting services
+sudo systemctl disable --now systemd-networkd 2>/dev/null
 
-# Ensure NetworkManager is enabled and running
-sudo systemctl enable --now NetworkManager
-
-# Create a basic netplan configuration
-# This will be used by NetworkManager to manage the network
-# and will be overridden by the user later if needed
-sudo cat <<EOF > /etc/netplan/01-network-manager-all.yaml
+# Configure netplan for NetworkManager
+sudo tee /etc/netplan/01-network-manager-all.yaml >/dev/null <<EOF
 network:
   version: 2
   renderer: NetworkManager
+  ethernets:
+    all-eth:
+      match:
+        name: "e*"
+      dhcp4: true
+  wifis:
+    all-wifi:
+      match:
+        name: "w*"
+      dhcp4: true
+      access-points: {}
 EOF
 
-# Apply the netplan configuration
-sudo netplan generate
+sudo chmod 600 /etc/netplan/01-network-manager-all.yaml
 sudo netplan apply
+sudo systemctl enable --now NetworkManager
