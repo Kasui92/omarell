@@ -9,7 +9,7 @@ fi
 . /etc/os-release
 
 # Check if running on Ubuntu 24.04 (Only LTS version supported)
-if [[ "$ID" != "ubuntu" ]] || [[ $(echo "$VERSION_ID = 24.04" | bc) != 1 ]]; then
+if [[ "$ID" != "ubuntu" ]] || [[ $(echo "$VERSION_ID == 24.04" | bc) != 1 ]]; then
   echo "$(tput setaf 1)Error: OS requirement not met"
   echo "You are currently running: $ID $VERSION_ID"
   echo "OS required: Ubuntu 24.04"
