@@ -15,7 +15,7 @@ trap catch_errors ERR
 
 show_logo() {
   clear
-  echo -e "\n\e[1;36m$(cat ~/Workspace/resources/omakasui/omarell-dev/logo.txt)\e[0m"
+  echo -e "\n\e[1;36m$(cat ~/.local/share/omarell/logo.txt)\e[0m"
   echo
 }
 
