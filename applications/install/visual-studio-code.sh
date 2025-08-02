@@ -9,6 +9,3 @@ cd -
 
 sudo apt update -y
 sudo apt install -y code
-
-# Install default supported themes
-code --install-extension enkia.tokyo-night
