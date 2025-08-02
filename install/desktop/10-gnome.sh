@@ -13,6 +13,7 @@ gnome_packages=(
   adwaita-icon-theme
   xdg-user-dirs
   dbus-x11
+  ibus
   fonts-dejavu-core
 )
 
