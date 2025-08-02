@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Omarell First Boot Setup
+Comment=Complete Omarell desktop configuration on first login
+Exec=alacritty --title="Omarell First Boot Setup" -e bash -c "bash ~/.local/share/omarell/bin/scripts/omarell-first-boot"
+Icon=utilities-terminal
+Terminal=false
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Phase=Applications
+StartupNotify=false
+NoDisplay=true

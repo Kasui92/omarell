@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Reset Omarell First Boot
+# Use this only if you need to reset the first boot flag
+
+FIRST_BOOT_FLAG="$HOME/.local/state/omarell/first-boot-done"
+
+if [ -f "$FIRST_BOOT_FLAG" ]; then
+    rm "$FIRST_BOOT_FLAG"
+    echo "First boot flag reset. Next login will trigger first boot setup."
+else
+    echo "First boot flag was not set."
+fi

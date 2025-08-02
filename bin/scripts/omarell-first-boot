@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Omarell First Boot Setup
+FIRST_BOOT_FLAG="$HOME/.local/state/omarell/first-boot-done"
+OMARELL_AUTOSTART="$HOME/.local/share/omarell/install/autostart"
+OMARELL_LOGO="$HOME/.local/share/omarell/logo.txt"
+AUTOSTART_FILE="$HOME/.config/autostart/omarell-first-boot.desktop"
+
+# Check if already completed
+if [ -f "$FIRST_BOOT_FLAG" ]; then
+    exit 0
+fi
+
+# Show logo
+clear
+if [ -f "$OMARELL_LOGO" ]; then
+    echo -e "\n\e[1;36m$(cat "$OMARELL_LOGO")\e[0m"
+fi
+echo
+
+# Welcome message
+echo -e "\e[1;32m Welcome to Omarell! 🚀\e[0m"
+echo
+echo "Completing final desktop configuration..."
+echo "This will only take a moment."
+echo
+
+# Run autostart scripts
+if [ -d "$OMARELL_AUTOSTART" ]; then
+    for script in "$OMARELL_AUTOSTART"/*.sh; do
+        if [ -f "$script" ]; then
+            echo "Running $(basename "$script")..."
+            source "$script" 2>&1
+        fi
+    done
+fi
+
+# Mark as completed and cleanup
+mkdir -p "$(dirname "$FIRST_BOOT_FLAG")"
+touch "$FIRST_BOOT_FLAG"
+[ -f "$AUTOSTART_FILE" ] && rm "$AUTOSTART_FILE"
+
+echo
+echo -e "\e[1;32m✓ Setup completed!\e[0m"
+echo "Logging out to apply all changes..."
+sleep 2
+
+# Logout
+gnome-session-quit --logout --no-prompt
