@@ -5,7 +5,6 @@ sudo apt install -y --no-install-recommends \
   gnome-session gnome-shell gnome-control-center gnome-settings-daemon \
   gdm3 \
   mutter xwayland \
-  fonts-ubuntu fonts-dejavu-core \
   libglib2.0-bin dbus-x11
 
 # Use Wayland by default
