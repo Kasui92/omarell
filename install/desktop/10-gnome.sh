@@ -26,18 +26,27 @@ sudo systemctl disable gdm3
 if [ ! -f /etc/systemd/system/omarell-enable-gdm.service ]; then
   cat << 'EOF' | sudo tee /etc/systemd/system/omarell-enable-gdm.service
 [Unit]
-Description=Abilita GDM al primo boot post installazione
+Description=Enable GDM3 on next boot
 After=multi-user.target
+Before=graphical.target
 
 [Service]
 Type=oneshot
 ExecStart=/bin/bash -c '
-  echo "[omarell] Abilitazione GDM post reboot..."
-  systemctl enable gdm3
-  rm -f /etc/systemd/system/omarell-enable-gdm.service
-  systemctl daemon-reexec
+  echo "[Omarell] Enabling GDM3 on next reboot..."
+  if ! systemctl is-enabled gdm3 >/dev/null 2>&1; then
+    systemctl enable gdm3
+    echo "[Omarell] GDM3 enabled successfully"
+  else
+    echo "[Omarell] GDM3 is already enabled"
+  fi
 '
-RemainAfterExit=no
+ExecStartPost=/bin/bash -c '
+  systemctl disable omarell-enable-gdm.service
+  rm -f /etc/systemd/system/omarell-enable-gdm.service
+  systemctl daemon-reload
+'
+RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
@@ -45,6 +54,7 @@ EOF
 fi
 
 sudo systemctl enable omarell-enable-gdm.service
+sudo systemctl daemon-reload
 
 # Remove X11 packages if not needed
 sudo apt remove -y xserver-xorg* xserver-xorg* x11-* xinit xinput x11-common || true
