@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export PATH="$PATH:$HOME/.local/bin"
+
 # Gum is used for the Omarell commands for tailoring Omarell after the initial install
 if ! command -v gum &> /dev/null; then
   cd /tmp
