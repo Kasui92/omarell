@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install Neovim
-source "~/.local/share/omarell/applications/install/nvim.sh"
+source ~/.local/share/omarell/applications/install/nvim.sh
 
 # Install Fastfetch
 sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
