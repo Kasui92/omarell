@@ -4,7 +4,8 @@
 sudo apt install -y network-manager
 
 # Create a service to switch from systemd-networkd to NetworkManager
-cat << 'EOF' > /etc/systemd/system/omarell-network-switch.service
+if [ ! -f /etc/systemd/system/omarell-network-switch.service ]; then
+  cat <<EOF | sudo tee /etc/systemd/system/omarell-network-switch.service
 [Unit]
 Description=Migrate from systemd-networkd to NetworkManager
 After=network.target
@@ -29,6 +30,7 @@ RemainAfterExit=no
 [Install]
 WantedBy=multi-user.target
 EOF
+fi
 
 # Enable the service to run on the next boot
 systemctl enable omarell-network-switch.service
