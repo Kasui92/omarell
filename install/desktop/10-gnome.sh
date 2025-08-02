@@ -2,10 +2,19 @@
 
 # Install GNOME desktop environment
 sudo apt install -y --no-install-recommends \
-  gnome-session gnome-shell gnome-control-center gnome-settings-daemon \
+  gnome-session \
+  gnome-shell \
+  gnome-control-center \
+  gnome-settings-daemon \
+  gnome-keyring \
+  adwaita-icon-theme \
+  gsettings-desktop-schemas \
   gdm3 \
-  mutter xwayland \
-  libglib2.0-bin dbus-x11
+  mutter \
+  xwayland \
+  libglib2.0-bin \
+  xdg-user-dirs \
+  dbus-x11
 
 # Use Wayland by default
 sudo sed -i 's/^#WaylandEnable=false/WaylandEnable=true/' /etc/gdm3/custom.conf
