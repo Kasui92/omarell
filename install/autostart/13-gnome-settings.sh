@@ -14,10 +14,9 @@ gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.mutter workspaces-only-on-primary true
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
 
-# Remove the Ubuntu logo from the Plymouth splash screen
-if [[ -f /usr/share/plymouth/ubuntu-logo.png ]]; then
-  sudo mv /usr/share/plymouth/ubuntu-logo.png /usr/share/plymouth/ubuntu-logo.png.bak
-fi
+# Make alacritty default terminal emulator
+gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
+gsettings set org.gnome.desktop.default-applications.terminal exec-arg ''
 
 # Install sudoers rule for GDM background management
 sudo cp "$HOME/.local/share/omarell/default/gdm/sudoers" /etc/sudoers.d/gdm-wrapper 2>/dev/null

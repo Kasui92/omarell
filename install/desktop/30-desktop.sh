@@ -1,17 +1,49 @@
 #!/bin/bash
 
-# Install essential desktop tools
+# Audio and Bluetooth
 sudo apt install -y --no-install-recommends \
-  brightnessctl playerctl pipewire wireplumber libspa-0.2-bluetooth \
-  bluez bluez-tools rfkill alsa-utils acpi acpid \
-  gnome-tweak-tool gnome-shell-extensions gnome-shell-extension-prefs \
-  gnome-software gnome-software-plugin-flatpak \
-  nautilus gnome-sushi ffmpegthumbnailer \
-  gnome-screenshot gnome-disk-utility \
-  gnome-font-viewer gnome-calculator \
-  gnome-keyring wl-clipboard \
-  evince mpv imv \
-  wofi
+    alsa-utils \
+    bluez \
+    bluez-tools \
+    pipewire \
+    wireplumber \
+    libspa-0.2-bluetooth
+
+# System utilities
+sudo apt install -y --no-install-recommends \
+    acpi \
+    acpid \
+    brightnessctl \
+    playerctl \
+    rfkill \
+    wl-clipboard
+
+# GNOME desktop and tools
+sudo apt install -y --no-install-recommends \
+    gnome-calculator \
+    gnome-disk-utility \
+    gnome-font-viewer \
+    gnome-keyring \
+    gnome-screenshot \
+    gnome-shell-extension-prefs \
+    gnome-shell-extensions \
+    gnome-software \
+    gnome-software-plugin-flatpak \
+    gnome-sushi \
+    gnome-tweak-tool \
+    systemd-container
+
+# File management and media
+sudo apt install -y --no-install-recommends \
+    evince \
+    ffmpegthumbnailer \
+    imv \
+    mpv \
+    nautilus
+
+# Application launcher
+sudo apt install -y --no-install-recommends \
+    wofi
 
 # Adding alacritty to nautilus contextual menu requires the python wrapper for the libraries
 sudo apt install -y python3-nautilus

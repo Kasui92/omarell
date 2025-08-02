@@ -1,7 +1,6 @@
 #!/bin/bash
 
-sudo apt install -y gnome-shell-extension-manager
-  gir1.2-gtop-2.0 gir1.2-clutter-1.0
+sudo apt install -y gnome-shell-extension-manager gir1.2-gtop-2.0 gir1.2-clutter-1.0
 pipx install gnome-extensions-cli --system-site-packages
 
 # Pause to assure user is ready to accept confirmations
@@ -18,6 +17,7 @@ gext install AlphabeticalAppGrid@stuarthayhurst
 gext install gnome-ui-tune@itstime.tech
 gext install quick-settings-tweaks@qwreey
 gext install rounded-window-corners@fxgn
+
 # Compile gsettings schemas in order to be able to set them
 sudo cp ~/.local/share/gnome-shell/extensions/forge@jmmaranan.com/schemas/org.gnome.shell.extensions.forge.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/just-perfection-desktop\@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml /usr/share/glib-2.0/schemas/
