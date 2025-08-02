@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Don't exit immediately on error - we want to handle errors gracefully
-# set -e
+# Exit immediately if a command exits with a non-zero status
+set -e
 
 OMARELL_INSTALL=~/.local/share/omarell/install
 
