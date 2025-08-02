@@ -11,6 +11,9 @@ gnome_packages=(
   gnome-keyring
   gsettings-desktop-schemas
   adwaita-icon-theme
+  yaru-theme-gtk
+  yaru-theme-icon
+  yaru-theme-gnome-shell
   xdg-user-dirs
   dbus-x11
   ibus
