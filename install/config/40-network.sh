@@ -33,4 +33,4 @@ EOF
 fi
 
 # Enable the service to run on the next boot
-systemctl enable omarell-network-switch.service
+sudo systemctl enable omarell-network-switch.service
