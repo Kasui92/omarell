@@ -56,6 +56,12 @@ fi
 sudo systemctl enable omarell-enable-gdm.service
 sudo systemctl daemon-reload
 
+# Disable getty@tty1.service only if not already disabled
+if ! systemctl is-enabled getty@tty1.service | grep -q disabled; then
+  sudo systemctl disable getty@tty1.service
+fi
+
+
 # Remove X11 packages if not needed
 sudo apt remove -y xserver-xorg* xserver-xorg* x11-* xinit xinput x11-common || true
 sudo apt autoremove -y
