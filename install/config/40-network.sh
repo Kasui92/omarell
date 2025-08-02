@@ -10,14 +10,14 @@ sudo systemctl disable systemd-networkd.service systemd-networkd-wait-online.ser
 NETPLAN_FILE="/etc/netplan/50-cloud-init.yaml"
 if [ -f "$NETPLAN_FILE" ]; then
   # Update existing file to use NetworkManager as renderer
-  if grep -q "renderer:" "$NETPLAN_FILE"; then
-    sed -i 's/renderer: .*/renderer: NetworkManager/' "$NETPLAN_FILE"
+  if sudo grep -q "renderer:" "$NETPLAN_FILE"; then
+    sudo sed -i 's/renderer: .*/renderer: NetworkManager/' "$NETPLAN_FILE"
   else
-    sed -i '/version: 2/a \  renderer: NetworkManager' "$NETPLAN_FILE"
+    sudo sed -i '/version: 2/a \  renderer: NetworkManager' "$NETPLAN_FILE"
   fi
 else
   # Create a minimal netplan config if none exists
-  cat <<EOF > "$NETPLAN_FILE"
+  cat <<EOF | sudo tee "$NETPLAN_FILE"
 network:
   version: 2
   renderer: NetworkManager
