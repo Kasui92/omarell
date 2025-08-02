@@ -4,27 +4,20 @@ sudo apt install -y gnome-shell-extension-manager
   gir1.2-gtop-2.0 gir1.2-clutter-1.0
 pipx install gnome-extensions-cli --system-site-packages
 
-# Turn off default Ubuntu extensions
-gnome-extensions disable tiling-assistant@ubuntu.com
-gnome-extensions disable ubuntu-appindicators@ubuntu.com
-gnome-extensions disable ubuntu-dock@ubuntu.com
-gnome-extensions disable ding@rastersoft.com
-
 # Pause to assure user is ready to accept confirmations
 gum confirm "To install Gnome extensions, you need to accept some confirmations. Ready?"
 
 # Install new extensions
-gext install --filesystem forge@jmmaranan.com
-gext install --filesystem just-perfection-desktop@just-perfection
-gext install --filesystem blur-my-shell@aunetx
-gext install --filesystem space-bar@luchrioh
-gext install --filesystem undecorate@sun.wxg@gmail.com
-gext install --filesystem tophat@fflewddur.github.io
-gext install --filesystem AlphabeticalAppGrid@stuarthayhurst
-gext install --filesystem gnome-ui-tune@itstime.tech
-gext install --filesystem quick-settings-tweaks@qwreey
-gext install --filesystem rounded-window-corners@fxgn
-
+gext install forge@jmmaranan.com
+gext install just-perfection-desktop@just-perfection
+gext install blur-my-shell@aunetx
+gext install space-bar@luchrioh
+gext install undecorate@sun.wxg@gmail.com
+gext install tophat@fflewddur.github.io
+gext install AlphabeticalAppGrid@stuarthayhurst
+gext install gnome-ui-tune@itstime.tech
+gext install quick-settings-tweaks@qwreey
+gext install rounded-window-corners@fxgn
 # Compile gsettings schemas in order to be able to set them
 sudo cp ~/.local/share/gnome-shell/extensions/forge@jmmaranan.com/schemas/org.gnome.shell.extensions.forge.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/just-perfection-desktop\@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml /usr/share/glib-2.0/schemas/
