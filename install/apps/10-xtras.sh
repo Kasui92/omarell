@@ -2,11 +2,11 @@
 
 # Optional Apps
 if [ -z "$OMARELL_BARE" ]; then
-	source "~/.local/share/omarell/applications/install/firefox.sh"
-	source "~/.local/share/omarell/applications/install/chromium.sh"
-	source "~/.local/share/omarell/applications/install/flameshot.sh"
-	source "~/.local/share/omarell/applications/install/pinta.sh"
-	source "~/.local/share/omarell/applications/install/localsend.sh"
+	source ~/.local/share/omarell/applications/install/firefox.sh
+	source ~/.local/share/omarell/applications/install/chromium.sh
+	source ~/.local/share/omarell/applications/install/flameshot.sh
+	source ~/.local/share/omarell/applications/install/pinta.sh
+	source ~/.local/share/omarell/applications/install/localsend.sh
 fi
 
 # Remove Btop entry for one that runs in alacritty
@@ -26,4 +26,4 @@ sudo rm -rf /usr/local/share/applications/nvim.desktop
 sudo rm -rf /usr/local/share/applications/vim.desktop
 
 # Apps
-source "~/.local/share/omarell/bin/scripts/omarell-refresh-applications" || true
+source ~/.local/share/omarell/bin/scripts/omarell-refresh-applications || true
