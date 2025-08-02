@@ -22,7 +22,8 @@ remove_snaps() {
 if command -v snap >/dev/null 2>&1; then
     remove_snaps >/dev/null
 
-    sudo apt autoremove --purge snapd gnome-software-plugin-snap -y >/dev/null 2>&1 || echo -e "\nFailed to remove snapd and gnome-software-plugin-snap. Please remove them manually.\n"
+    # Remove snapd and gnome-software-plugin-snap without autoremove to avoid removing GNOME packages
+    sudo apt remove --purge snapd gnome-software-plugin-snap -y >/dev/null 2>&1 || echo -e "\nFailed to remove snapd and gnome-software-plugin-snap. Please remove them manually.\n"
     sudo apt clean
     sudo rm -rf /var/cache/snapd/ /var/lib/snapd/ /var/snap/ /snap /etc/snap >/dev/null 2>&1
     rm -rf ~/snap >/dev/null 2>&1
