@@ -6,13 +6,23 @@ sudo apt install -y network-manager dbus
 # Disable systemd-networkd services
 sudo systemctl disable systemd-networkd.service systemd-networkd-wait-online.service
 
-# Create a basic netplan configuration file
-cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak
-cat <<EOF | sudo tee /etc/netplan/50-cloud-init.yaml
+# Add NetworkManager configuration to netplan
+NETPLAN_FILE="/etc/netplan/50-cloud-init.yaml"
+if [ -f "$NETPLAN_FILE" ]; then
+  # Update existing file to use NetworkManager as renderer
+  if grep -q "renderer:" "$NETPLAN_FILE"; then
+    sed -i 's/renderer: .*/renderer: NetworkManager/' "$NETPLAN_FILE"
+  else
+    sed -i '/version: 2/a \  renderer: NetworkManager' "$NETPLAN_FILE"
+  fi
+else
+  # Create a minimal netplan config if none exists
+  cat <<EOF > "$NETPLAN_FILE"
 network:
   version: 2
   renderer: NetworkManager
 EOF
+fi
 
 # Enable NetworkManager service
 sudo systemctl enable NetworkManager
