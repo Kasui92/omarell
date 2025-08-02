@@ -23,12 +23,10 @@ sudo apt install -y --no-install-recommends \
     gnome-calculator \
     gnome-disk-utility \
     gnome-font-viewer \
-    gnome-keyring \
     gnome-screenshot \
     gnome-shell-extension-prefs \
     gnome-shell-extensions \
     gnome-software \
-    gnome-software-plugin-flatpak \
     gnome-sushi \
     gnome-tweak-tool \
     systemd-container

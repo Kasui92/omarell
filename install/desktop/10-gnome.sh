@@ -8,7 +8,6 @@ gnome_packages=(
   mutter
   gnome-settings-daemon
   gnome-control-center
-  gnome-backgrounds
   gnome-keyring
   gsettings-desktop-schemas
   adwaita-icon-theme
