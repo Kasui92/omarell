@@ -63,6 +63,8 @@ show_subtext "Updating system packages [5/5]"
 sudo updatedb
 sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y
 sudo apt autoremove -y && sudo apt clean
+# Apply netplan configuration
+sudo netplan apply
 
 # Reboot
 show_logo
