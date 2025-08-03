@@ -33,5 +33,4 @@ fi
 
 # Install Flatpak and GNOME Software plugin for Flatpak
 sudo apt install -y flatpak
-sudo apt install -y gnome-software-plugin-flatpak
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo

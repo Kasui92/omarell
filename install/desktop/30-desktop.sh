@@ -20,13 +20,9 @@ sudo apt install -y --no-install-recommends \
 
 # GNOME desktop and tools
 sudo apt install -y --no-install-recommends \
-    gnome-calculator \
-    gnome-disk-utility \
-    gnome-font-viewer \
     gnome-screenshot \
     gnome-shell-extension-prefs \
     gnome-shell-extensions \
-    gnome-software \
     gnome-sushi \
     gnome-tweak-tool \
     systemd-container

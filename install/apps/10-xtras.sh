@@ -1,7 +1,16 @@
 #!/bin/bash
 
-# Optional Apps
+# Apps
 if [ -z "$OMARELL_BARE" ]; then
+	# Install GNOME utilities
+	sudo apt install -y \
+		gnome-calculator \
+    gnome-disk-utility \
+    gnome-font-viewer \
+		gnome-software \
+		gnome-software-plugin-flatpak
+
+	# Install additional applications
 	apps=(
 		"Flameshot"
 		"Pinta"
@@ -18,5 +27,5 @@ if [ -z "$OMARELL_BARE" ]; then
 	done
 fi
 
-# Apps
+# Refresh applications .desktop files
 source ~/.local/share/omarell/bin/scripts/omarell-refresh-applications || true
