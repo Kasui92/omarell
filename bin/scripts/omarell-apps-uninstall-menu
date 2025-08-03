@@ -1,6 +1,6 @@
 #!/bin/bash
 
-UNINSTALL_DIR="$HOME/.local/share/omarell/uninstall/"
+UNINSTALL_DIR="$HOME/.local/share/omarell/applications/uninstall/"
 
 # Add to the list optional apps
 apps=()

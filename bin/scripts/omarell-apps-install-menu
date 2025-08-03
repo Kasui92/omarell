@@ -1,12 +1,9 @@
 #!/bin/bash
 
-INSTALL_DIR="$HOME/.local/share/omarell/install/desktop/optional/"
+INSTALL_DIR="$HOME/.local/share/omarell/applications/install/"
 
 # Initialize defaults apps
-apps=(
-  "Docker"
-  "NeoVim"
-)
+apps=()
 
 # Add to the list optional apps
 while IFS= read -r display_name; do

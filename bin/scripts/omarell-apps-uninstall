@@ -9,7 +9,7 @@ if [[ -z "$1" ]]; then
 fi
 
 APP_NAME="$1"
-APP_UNINSTALL_DIR="$HOME/.local/share/omarell/uninstall"
+APP_UNINSTALL_DIR="$HOME/.local/share/omarell/applications/uninstall"
 
 # Check if the uninstall directory exists
 if [[ ! -d "$APP_UNINSTALL_DIR" ]]; then

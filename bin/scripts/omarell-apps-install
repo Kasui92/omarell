@@ -14,24 +14,23 @@ REQUIRED_APPS=(
 )
 
 APP_NAME="$1"
-APP_OPTIONAL_DIR="$HOME/.local/share/omarell/install/desktop/optional"
+APP_DIR="$HOME/.local/share/omarell/applications/install"
 
-# Check if the optional directory exists
-if [[ ! -d "$APP_OPTIONAL_DIR" ]]; then
-  echo "Error: Optional directory $APP_OPTIONAL_DIR does not exist." >&2
+# Check if the application directory exists
+if [[ ! -d "$APP_DIR" ]]; then
+  echo "Error: Application directory $APP_DIR does not exist." >&2
   exit 1
 fi
 
-# If APP_OPTIONAL_PATH exists, source it to install the app
-if [[ -f "$APP_OPTIONAL_DIR/$APP_NAME.sh" ]]; then
-  source "$APP_OPTIONAL_DIR/$APP_NAME.sh"
+# If APP_DIR exists, source it to install the app
+if [[ -f "$APP_DIR/$APP_NAME.sh" ]]; then
+  source "$APP_DIR/$APP_NAME.sh"
 # If the app is required, then install it using scripts
 elif [[ " ${REQUIRED_APPS[@]} " =~ " ${APP_NAME} " ]]; then
   case "$APP_NAME" in
-    "neovim") source "$HOME/.local/share/omarell/install/terminal/nvim.sh";;
     *)
-      if [[ -f "$HOME/.local/share/omarell/install/terminal/$APP_NAME.sh" ]]; then
-        source "$HOME/.local/share/omarell/install/terminal/$APP_NAME.sh"
+      if [[ -f "$HOME/.local/share/omarell/applications/install/$APP_NAME.sh" ]]; then
+        source "$HOME/.local/share/omarell/applications/install/$APP_NAME.sh"
       else
         echo "Error: No installation script found for $APP_NAME." >&2
         exit 1
