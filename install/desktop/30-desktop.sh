@@ -111,3 +111,7 @@ class OpenTerminalExtension(GObject.GObject, Nautilus.MenuProvider):
             item,
         ]
 TECHNICALLYNOTACONFIGSOHEREDOCCEDITIS
+
+# Install Browsers
+source ~/.local/share/omarell/applications/install/firefox.sh
+source ~/.local/share/omarell/applications/install/chromium.sh
