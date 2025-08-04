@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=IBus Daemon
+Exec=ibus-daemon -drx
+X-GNOME-Autostart-enabled=true
