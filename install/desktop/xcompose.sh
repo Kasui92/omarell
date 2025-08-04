@@ -13,5 +13,5 @@ include "%H/.local/share/omarell/default/xcompose"
 <Multi_key> <space> <e> : "$OMARELL_USER_EMAIL"
 EOF
 
-ibus restart
-gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
+# XCompose Refresh
+source ~/.local/share/omarell/bin/scripts/omarell-restart-xcompose
