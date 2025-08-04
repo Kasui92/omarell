@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=Omarell
+Description=Omarell splash screen.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/omarell
+ScriptFile=/usr/share/plymouth/themes/omarell/omarell.script
+ConsoleLogBackgroundColor=0x1a1b26
