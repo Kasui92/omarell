@@ -19,7 +19,7 @@ mapfile -t themes < <(
 )
 
 # Get user choice
-choice=$(printf "%s\n" "${themes[@]}" | gum choose --header="Themes") || {
+choice=$(printf "%s\n" "${themes[@]}" | gum choose --header="Themes" --height $((${#themes[@]} + 2))) || {
   if command -v main_menu &> /dev/null; then
     main_menu
   else
