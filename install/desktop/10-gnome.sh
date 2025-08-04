@@ -15,6 +15,7 @@ gnome_packages=(
   yaru-theme-icon
   yaru-theme-gnome-shell
   xdg-user-dirs
+  dbus
   dbus-x11
   ibus
   fonts-dejavu-core
