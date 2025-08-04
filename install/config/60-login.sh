@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt install -y plymouth
+sudo apt install -y plymouth plymouth-themes
 
 # ==============================================================================
 # PLYMOUTH SETUP
