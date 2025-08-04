@@ -36,7 +36,7 @@ if [[ -n "${OMARELL_USER_EMAIL//[[:space:]]/}" ]]; then
   git config --global user.email "$OMARELL_USER_EMAIL"
 fi
 
-# Set default XCompose that is triggered with CapsLock
+# Set XCompose
 if [ -f ~/.XCompose ]; then
   rm ~/.XCompose
 fi
