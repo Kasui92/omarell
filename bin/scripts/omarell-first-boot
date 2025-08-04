@@ -2,8 +2,7 @@
 
 # Omarell First Boot Setup
 FIRST_BOOT_FLAG="$HOME/.local/state/omarell/first-boot-done"
-OMARELL_AUTOSTART="$HOME/.local/share/omarell/install/autostart"
-OMARELL_LOGO="$HOME/.local/share/omarell/logo.txt"
+OMARELL_INITRUN="$HOME/.local/share/omarell/install/initrun"
 AUTOSTART_FILE="$HOME/.config/autostart/omarell-first-boot.desktop"
 
 # Check if already completed
@@ -14,7 +13,7 @@ fi
 # Show logo
 clear
 if [ -f "$OMARELL_LOGO" ]; then
-    echo -e "\n\e[1;36m$(cat "$OMARELL_LOGO")\e[0m"
+    echo -e "\n\e[1;36m$(cat ~/.local/share/omarell/logo.txt)\e[0m"
 fi
 echo
 
@@ -25,9 +24,9 @@ echo "Completing final desktop configuration..."
 echo "This will only take a moment."
 echo
 
-# Run autostart scripts
-if [ -d "$OMARELL_AUTOSTART" ]; then
-    for script in "$OMARELL_AUTOSTART"/*.sh; do
+# Run init scripts
+if [ -d "$OMARELL_INITRUN" ]; then
+    for script in "$OMARELL_INITRUN"/*.sh; do
         if [ -f "$script" ]; then
             echo "Running $(basename "$script")..."
             source "$script" 2>&1
