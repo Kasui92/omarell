@@ -14,11 +14,12 @@ header_menu() {
 main_menu() {
   header_menu
 
-  local options=("Update" "Theme" "Apps" "Manual" "Exit")
+  local options=("Update" "Theme" "Font" "Apps" "Manual" "Exit")
   choice=$(printf "%s\n" "${options[@]}" | gum choose --header "") || exit 0
   case "$choice" in
   Update) update_menu ;;
   Theme) theme_menu ;;
+  Font) font_menu ;;
   Apps) apps_menu ;;
   Manual) open_manual ;;
   Exit) clear && exit 0 ;;
@@ -54,6 +55,13 @@ update_menu() {
 theme_menu() {
   header_menu
   source "$OMARELL_PATH/bin/scripts/omarell-theme-menu"
+  ack_command
+  main_menu
+}
+
+font_menu() {
+  header_menu
+  source "$OMARELL_PATH/bin/scripts/omarell-font-menu"
   ack_command
   main_menu
 }
