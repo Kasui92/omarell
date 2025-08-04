@@ -12,6 +12,8 @@ help() {
   echo "    update         Update Omarell to the latest version"
   echo "    theme          Change and manage system themes"
   echo "    apps           Install, uninstall and manage applications"
+  echo "    refresh        Refresh specific components of Omarell"
+  echo "    restart        Restart specific components of Omarell"
   echo "    version, -v    Show the current version of Omarell"
   echo "    help, -h       Show this help message"
   echo
