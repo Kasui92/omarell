@@ -10,25 +10,15 @@ The name comes from umarell, the Italian archetype of a retiree watching constru
 
 [Omarell](https://github.com/user-attachments/assets/d3eaf4d6-bb14-4553-8250-29bd90c3d8cc)
 
-## ⚠️ Warning
+> [!WARNING]
+> Omarell is currently undergoing a major rewrite.
+> The upcoming version 2.0 (in development) is based on **Ubuntu Server** and targets users who want a minimal, clean, and highly customizable Gnome setup. The `dev` branch is where active development is happening for v2. The `main` branch currently reflects the latest v1.x state, but it is **no longer the reference** for that version and will soon be updated.
 
-Omarell is currently undergoing a major rewrite.
-
-The upcoming version 2.0 (in development) is based on **Ubuntu Server** and targets users who want a minimal, clean, and highly customizable Gnome setup.
-
-The `dev` branch is where active development is happening for v2.
-
-The `main` branch currently reflects the latest v1.x state, but it is **no longer the reference** for that version and will soon be updated.
-
-If you're looking for the stable Ubuntu Desktop-based version (v1.x), you can find it in the [`legacy`](https://github.com/KAsui92/omarell/tree/legacy) branch.
-
-### Still want to use the old version?
-
-Run:
-
-```bash
-eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/legacy/boot.sh)"
-```
+> [!NOTE]
+> ### Still want to use the old version?
+> If you're looking for the stable Ubuntu Desktop-based version (v1.x), you can find it in the [`legacy`](https://github.com/KAsui92/omarell/tree/legacy) branch.
+> 
+> Run: `eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/legacy/boot.sh)"`
 
 ## Installation
 
