@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# XCompose configuration
-ibus restart
-gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
+# XCompose Refresh
+source ~/.local/share/omarell/bin/scripts/omarell-restart-xcompose
+
 
