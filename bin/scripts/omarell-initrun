@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Omarell First Boot Setup
-FIRST_BOOT_FLAG="$HOME/.local/state/omarell/first-boot-done"
+INITRUN_FLAG="$HOME/.local/state/omarell/initrun-done"
 OMARELL_INITRUN="$HOME/.local/share/omarell/install/initrun"
-AUTOSTART_FILE="$HOME/.config/autostart/omarell-first-boot.desktop"
+AUTOSTART_FILE="$HOME/.config/autostart/omarell-initrun.desktop"
 
 # Check if already completed
-if [ -f "$FIRST_BOOT_FLAG" ]; then
+if [ -f "$INITRUN_FLAG" ]; then
     exit 0
 fi
 
@@ -35,8 +35,8 @@ if [ -d "$OMARELL_INITRUN" ]; then
 fi
 
 # Mark as completed and cleanup
-mkdir -p "$(dirname "$FIRST_BOOT_FLAG")"
-touch "$FIRST_BOOT_FLAG"
+mkdir -p "$(dirname "$INITRUN_FLAG")"
+touch "$INITRUN_FLAG"
 [ -f "$AUTOSTART_FILE" ] && rm "$AUTOSTART_FILE"
 
 echo

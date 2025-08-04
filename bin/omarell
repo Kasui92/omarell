@@ -160,7 +160,7 @@ restart() {
     echo "USAGE:"
     echo "    omarell restart [COMMAND]"
     echo "COMMAND:"
-    echo "    first-boot     Restart first boot setup (apply for next login)"
+    echo "    initrun        Restart initialization (apply for next login)"
     echo "    xcompose       Restart XCompose"
     echo "    --help         Show this help message"
     echo
