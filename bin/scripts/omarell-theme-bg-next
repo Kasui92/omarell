@@ -46,7 +46,4 @@ else
   gsettings set org.gnome.desktop.background picture-uri $CURRENT_BACKGROUND_LINK
   gsettings set org.gnome.desktop.background picture-uri-dark $CURRENT_BACKGROUND_LINK
   gsettings set org.gnome.desktop.background picture-options 'zoom'
-
-  # Set GDM background
-  source ~/.local/share/omarell/bin/scripts/omarell-refresh-gdm
 fi

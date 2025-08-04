@@ -1,56 +1,74 @@
 #!/bin/bash
 
-# This script sets the GDM background to the theme wallpaper with blur effect
+# This script sets the GDM background
+# If passed --theme, it will use the current theme's background
+# Otherwise, it will use the default gdm background
 
 # Secure wrapper function for GDM background operations
 gdm_wrapper() {
-    local blurred_file="$1"
+    local file="$1"
 
-    # Validate input file
-    if [[ ! -f "$blurred_file" ]] || [[ ! "$blurred_file" =~ ^/tmp/omarell-blurred-[0-9]+\.jpg$ ]]; then
-        echo "Error: Invalid input file" >&2
-        return 1
+    if [[ -n "$file" ]]; then
+        # Validate input file
+        if [[ ! -f "$file" ]] || [[ ! "$file" =~ ^/tmp/omarell-blurred-[0-9]+\.jpg$ ]]; then
+            echo "Error: Invalid input file" >&2
+            return 1
+        fi
+
+        # Create directory
+        mkdir -p /usr/share/backgrounds/gdm || return 1
+
+        # Copy file
+        cp "$file" /usr/share/backgrounds/gdm/gdm-wallpaper || return 1
+
+        # Update GDM settings with background image
+        machinectl shell gdm@ /bin/bash -c "gsettings set com.ubuntu.login-screen background-picture-uri 'file:///usr/share/backgrounds/gdm/gdm-wallpaper'; gsettings set com.ubuntu.login-screen background-size 'cover'" 2>/dev/null || return 1
+    else
+        # Remove background image and set solid color
+        machinectl shell gdm@ /bin/bash -c "gsettings reset com.ubuntu.login-screen background-picture-uri; gsettings reset com.ubuntu.login-screen background-size; gsettings set com.ubuntu.login-screen background-color '#656995'" 2>/dev/null || return 1
+
+        # Clean up wallpaper file if it exists
+        rm -f /usr/share/backgrounds/gdm/gdm-wallpaper 2>/dev/null
     fi
-
-    # Create directory
-    mkdir -p /usr/share/backgrounds/gdm || return 1
-
-    # Copy file
-    cp "$blurred_file" /usr/share/backgrounds/gdm/gdm-wallpaper || return 1
-
-    # Update GDM settings
-    machinectl shell gdm@ /bin/bash -c "gsettings set com.ubuntu.login-screen background-picture-uri 'file:///usr/share/backgrounds/gdm/gdm-wallpaper'; gsettings set com.ubuntu.login-screen background-size 'cover'" 2>/dev/null || return 1
 
     return 0
 }
 
-# Check dependencies
-if ! command -v convert &> /dev/null; then
-    echo "Error: ImageMagick not found. Install with: sudo apt install imagemagick"
-    exit 1
-fi
+# Check if the theme argument is provided
+if [[ "$1" == "--theme" ]]; then
+    # Check dependencies
+    if ! command -v convert &> /dev/null; then
+        echo "Error: ImageMagick not found. Install with: sudo apt install imagemagick"
+        exit 1
+    fi
 
-current_background="$(readlink -f "$HOME/.config/omarell/current/background")"
-if [ ! -f "$current_background" ]; then
-    echo "Error: Background file not found"
-    exit 1
-fi
+    current_background="$(readlink -f "$HOME/.config/omarell/current/background")"
+    if [ ! -f "$current_background" ]; then
+        echo "Error: Background file not found"
+        exit 1
+    fi
 
-# Create blurred background
-blurredpath=/tmp/omarell-blurred-$(date +%s).jpg
-convert "$current_background" -channel RGBA -blur 0x26 "$blurredpath" 2>/dev/null
+    # Create blurred background
+    blurredpath=/tmp/omarell-blurred-$(date +%s).jpg
+    convert "$current_background" -channel RGBA -blur 0x26 "$blurredpath" 2>/dev/null
+    if [ ! -f "$blurredpath" ]; then
+        echo "Error: Failed to create blurred image"
+        exit 1
+    fi
 
-if [ ! -f "$blurredpath" ]; then
-    echo "Error: Failed to create blurred image"
-    exit 1
-fi
+    # Update GDM background using secure wrapper function
+    if ! sudo bash -c "$(declare -f gdm_wrapper); gdm_wrapper '$blurredpath'" 2>/dev/null; then
+        echo "Failed to update GDM background"
+        rm -f "$blurredpath"
+        exit 1
+    fi
 
-# Update GDM background using secure wrapper function
-if ! sudo bash -c "$(declare -f gdm_wrapper); gdm_wrapper '$blurredpath'" 2>/dev/null; then
-    echo "Failed to update GDM background"
+    # Clean up
     rm -f "$blurredpath"
-    exit 1
+else
+    # Update GDM background using secure wrapper function
+    if ! sudo bash -c "$(declare -f gdm_wrapper); gdm_wrapper" 2>/dev/null; then
+        echo "Failed to update GDM background"
+        exit 1
+    fi
 fi
-
-# Clean up
-rm -f "$blurredpath"

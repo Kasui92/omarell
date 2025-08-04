@@ -24,8 +24,7 @@ sudo apt install -y --no-install-recommends \
     gnome-shell-extension-prefs \
     gnome-shell-extensions \
     gnome-sushi \
-    gnome-tweak-tool \
-    systemd-container
+    gnome-tweak-tool
 
 # File management and media
 sudo apt install -y --no-install-recommends \

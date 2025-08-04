@@ -29,3 +29,6 @@ gsettings set org.gnome.desktop.default-applications.terminal exec-arg ''
 # Install sudoers rule for GDM background management
 sudo cp "$HOME/.local/share/omarell/default/gdm/sudoers" /etc/sudoers.d/gdm-wrapper 2>/dev/null
 sudo chmod 440 /etc/sudoers.d/gdm-wrapper 2>/dev/null
+
+# Set GDM background (default)
+source ~/.local/share/omarell/bin/scripts/omarell-refresh-gdm
