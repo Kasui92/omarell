@@ -9,6 +9,9 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys next "['<Shift>AudioP
 # Full-screen with title/navigation bar
 gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Shift>F11']"
 
+# Set Caps Lock as Compose key
+gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
+
 # Remove alt for pinned apps
 gsettings set org.gnome.shell.keybindings switch-to-application-1 "@as []"
 gsettings set org.gnome.shell.keybindings switch-to-application-2 "@as []"
