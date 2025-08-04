@@ -109,9 +109,22 @@ else
   echo ""
 fi
 
-if [ "$(plymouth-set-default-theme)" != "omarell" ]; then
-  sudo cp -r "$HOME/.local/share/omarell/default/plymouth" /usr/share/plymouth/themes/omarell/
-  sudo plymouth-set-default-theme -R omarell
+# Install and configure Omarell Plymouth theme
+THEME_SOURCE_DIR="$(dirname "$(dirname "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)")")/default/plymouth"
+
+if [ -d "$THEME_SOURCE_DIR" ]; then
+  sudo mkdir -p /usr/share/plymouth/themes/omarell/
+  sudo cp -r "$THEME_SOURCE_DIR"/* /usr/share/plymouth/themes/omarell/
+
+  # Check if the theme is already set
+  current_theme=$(readlink /etc/alternatives/default.plymouth 2>/dev/null)
+  if [[ "$current_theme" != *"omarell"* ]]; then
+    # Install the theme as an alternative
+    sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/omarell/omarell.plymouth 100
+
+    # Set it as the default
+    sudo update-alternatives --set default.plymouth /usr/share/plymouth/themes/omarell/omarell.plymouth
+  fi
 fi
 
 if [ ! -f /etc/systemd/system/plymouth-quit.service.d/wait-for-graphical.conf ]; then
