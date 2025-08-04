@@ -1,7 +1,7 @@
 # Omarell Plymouth Theme Script - Boot loading only
 
-Window.SetBackgroundTopColor(0.26, 0.27, 0.38);
-Window.SetBackgroundBottomColor(0.26, 0.27, 0.27);
+Window.SetBackgroundTopColor(0.101, 0.105, 0.149);
+Window.SetBackgroundBottomColor(0.101, 0.105, 0.149);
 
 logo.image = Image("logo.png");
 logo.sprite = Sprite(logo.image);
