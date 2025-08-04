@@ -57,14 +57,12 @@ for installer in $OMARELL_INSTALL/apps/*.sh; do
   source "$installer"
 done
 
-# Updates
+# Final cleanup
 show_logo
-show_subtext "Updating system packages [5/5]"
-sudo updatedb
-sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y
-sudo apt autoremove -y && sudo apt clean
-# Apply netplan configuration
-sudo netplan apply
+show_subtext "Updating system packages & network [5/5]"
+for installer in $OMARELL_INSTALL/postflight/*.sh; do
+  source "$installer"
+done
 
 # Reboot
 show_logo
