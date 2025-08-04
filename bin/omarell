@@ -131,7 +131,8 @@ refresh() {
     echo "COMMAND:"
     echo "    applications   Refresh application .desktop files"
     echo "    config         Refresh configuration files"
-    echo "    gdm            Refresh GDM background (use current)"
+    echo "    gdm            Refresh GDM background (use default)"
+    echo "      --theme      Refresh GDM background (use current theme)"
     echo "    --help         Show this help message"
     echo
     echo "This command is used to refresh specific components of Omarell."
