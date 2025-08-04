@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OMARELL_THEME_COLOR="purple"
+OMARELL_THEME_COLOR="blue"
 
 # Set GNOME theme
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
@@ -10,4 +10,4 @@ gsettings set org.gnome.desktop.interface icon-theme "Yaru-$OMARELL_THEME_COLOR"
 gsettings set org.gnome.desktop.interface accent-color "$OMARELL_THEME_COLOR" 2>/dev/null || true
 
 # Set GNOME extensions theme
-gsettings set org.gnome.shell.extensions.tophat meter-fg-color "#924d8b"
+gsettings set org.gnome.shell.extensions.tophat meter-fg-color "#33ccff"
