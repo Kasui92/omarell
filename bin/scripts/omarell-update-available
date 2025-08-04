@@ -1,0 +1,11 @@
+#!/bin/bash
+
+OMARELL_PATH="$HOME/.local/share/omarell"
+latest_tag=$(git -C $OMARELL_PATH ls-remote --tags origin | grep -v "{}" | awk '{print $2}' | sed 's#refs/tags/##' | sort -V | tail -n 1)
+current_tag=$(git -C $OMARELL_PATH describe --tags $(git -C $OMARELL_PATH rev-list --tags --max-count=1))
+
+if [[ "$current_tag" != "$latest_tag" ]]; then
+  echo -e "\nA new version of Omarell is available!\n"
+fi
+
+exit 0

@@ -2,13 +2,13 @@
 
 OMARELL_PATH="$HOME/.local/share/omarell"
 OMARELL_VERSION=$(source "$OMARELL_PATH/bin/scripts/omarell-version" && echo "$OMARELL_VERSION")
-OMARELL_CHECK=$("$OMARELL_PATH/bin/scripts/omarell-version" "check" && echo "$OMARELL_CHECK")
+OMARELL_UPDATE_AVAILABLE=$(source "$OMARELL_PATH/bin/scripts/omarell-update-available" && echo "$OMARELL_UPDATE_AVAILABLE")
 
 header_menu() {
   clear
   source $OMARELL_PATH/ascii.sh
   echo -e "                                       $OMARELL_VERSION"
-  echo -e "$OMARELL_CHECK"
+  echo -e "$OMARELL_UPDATE_AVAILABLE"
 }
 
 main_menu() {
