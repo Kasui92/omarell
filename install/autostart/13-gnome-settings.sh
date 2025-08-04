@@ -9,10 +9,18 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'CaskaydiaMono Ner
 # Reveal week numbers in the Gnome calendar
 gsettings set org.gnome.desktop.calendar show-weekdate true
 
+# Turn off auto brightness
+gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
+
+# Turn on night light
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 2500
+
 # Use 6 fixed workspaces instead of dynamic mode
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.mutter workspaces-only-on-primary true
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 # Make alacritty default terminal emulator
 gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
