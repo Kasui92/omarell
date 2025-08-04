@@ -121,6 +121,67 @@ apps() {
   exit 1
 }
 
+refresh() {
+  # Show help if --help is provided
+  if [ "$1" == "--help" ]; then
+    echo "USAGE:"
+    echo "    omarell refresh [COMMAND]"
+    echo "COMMAND:"
+    echo "    applications   Refresh application .desktop files"
+    echo "    config         Refresh configuration files"
+    echo "    gdm            Refresh GDM background (use current)"
+    echo "    --help         Show this help message"
+    echo
+    echo "This command is used to refresh specific components of Omarell."
+    echo
+    exit 0
+  fi
+
+  # Check if a specific command is provided and source the corresponding script
+  if [ -n "$1" ]; then
+    script_path="$OMARELL_PATH/bin/scripts/omarell-refresh-$1"
+    if [ -f "$script_path" ]; then
+      source "$script_path" "${@:2}"
+      exit 0
+    fi
+  fi
+
+  # If no valid command is provided, show the help message
+  echo -e "\e[31mInvalid command: $1\e[0m"
+  echo "Use 'omarell refresh --help' for usage information."
+  exit 1
+}
+
+restart() {
+  # Show help if --help is provided
+  if [ "$1" == "--help" ]; then
+    echo "USAGE:"
+    echo "    omarell restart [COMMAND]"
+    echo "COMMAND:"
+    echo "    first-boot     Restart first boot setup (apply for next login)"
+    echo "    xcompose       Restart XCompose"
+    echo "    --help         Show this help message"
+    echo
+    echo "This command is used to restart specific components of Omarell."
+    echo
+    exit 0
+  fi
+
+  # Check if a specific command is provided and source the corresponding script
+  if [ -n "$1" ]; then
+    script_path="$OMARELL_PATH/bin/scripts/omarell-restart-$1"
+    if [ -f "$script_path" ]; then
+      source "$script_path"
+      exit 0
+    fi
+  fi
+
+  # If no valid command is provided, show the help message
+  echo -e "\e[31mInvalid command: $1\e[0m"
+  echo "Use 'omarell restart --help' for usage information."
+  exit 1
+}
+
 version() {
   source "$OMARELL_PATH/bin/scripts/omarell-version"
   exit 0
@@ -134,6 +195,10 @@ case $1 in
     theme "${@:2}" ;;
   apps)
     apps "${@:2}" ;;
+  refresh)
+    refresh "${@:2}" ;;
+  restart)
+    restart "${@:2}" ;;
   version|-v|--version)
     version ;;
   help|-h|--help)
