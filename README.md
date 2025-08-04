@@ -12,10 +12,13 @@ The name comes from umarell, the Italian archetype of a retiree watching constru
 
 ## Installation
 
+> [!NOTE]
+> This is the `legacy` version, based on Ubuntu Desktop and running after an Ubuntu 24.04+ installation.
+
 To install Omarell, simply run the following command in your terminal:
 
 ```bash
-eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/legacy/boot.sh)"
+wget -qO- https://omakasui.org/omarell-legacy | bash
 ```
 
 ## Key Features
