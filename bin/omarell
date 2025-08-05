@@ -133,6 +133,7 @@ refresh() {
     echo "    config         Refresh configuration files"
     echo "    gdm            Refresh GDM background (use default)"
     echo "      --theme      Refresh GDM background (use current theme)"
+    echo "    plymouth       Refresh Plymouth theme"
     echo "    --help         Show this help message"
     echo
     echo "This command is used to refresh specific components of Omarell."
