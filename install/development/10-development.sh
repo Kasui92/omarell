@@ -1,8 +1,16 @@
 #!/bin/bash
 
+# Development Libraries and Tools
+packages=(
+  bison
+  clang
+  rustc
+  cargo
+  golang-go
+)
+
 # Install development libraries and tools
-sudo apt install -y \
-  git bison clang rustc cargo golang-go
+sudo apt install -y "${packages[@]}"
 
 # Install mise for managing multiple versions of languages. See https://mise.jdx.dev/
 if ! command -v mise &>/dev/null; then

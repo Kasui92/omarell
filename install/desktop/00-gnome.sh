@@ -2,22 +2,23 @@
 
 # List of packages to install for GNOME desktop environment
 packages=(
-  gnome-shell
-  gnome-session
-  mutter
-  gnome-settings-daemon
-  gnome-control-center
-  gnome-keyring
-  gsettings-desktop-schemas
   adwaita-icon-theme
-  yaru-theme-gtk
-  yaru-theme-icon
-  yaru-theme-gnome-shell
-  xdg-user-dirs
   dbus
   dbus-x11
+  gir1.2-gtop-2.0
+  gir1.2-clutter-1.0
+  gnome-control-center
+  gnome-keyring
+  gnome-session
+  gnome-settings-daemon
+  gnome-shell
+  gsettings-desktop-schemas
   ibus
-  fonts-dejavu-core
+  mutter
+  xdg-user-dirs
+  yaru-theme-gnome-shell
+  yaru-theme-gtk
+  yaru-theme-icon
 )
 
 # Install GNOME desktop environment

@@ -6,9 +6,7 @@ if [ -z "$OMARELL_BARE" ]; then
 	sudo apt install -y \
 		gnome-calculator \
     gnome-disk-utility \
-    gnome-font-viewer \
-		gnome-software \
-		gnome-software-plugin-flatpak
+    gnome-font-viewer
 
 	# Install additional applications
 	apps=(

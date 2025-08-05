@@ -38,8 +38,8 @@ done
 
 # Terminal
 show_logo
-show_subtext "Installing terminal tools [2/5]"
-for installer in $OMARELL_INSTALL/terminal/*.sh; do
+show_subtext "Installing development tools [2/5]"
+for installer in $OMARELL_INSTALL/development/*.sh; do
   source "$installer"
 done
 
@@ -59,8 +59,8 @@ done
 
 # Final cleanup
 show_logo
-show_subtext "Updating system packages & network [5/5]"
-for installer in $OMARELL_INSTALL/postflight/*.sh; do
+show_subtext "Preparing system and cleaning up [5/5]"
+for installer in $OMARELL_INSTALL/landing/*.sh; do
   source "$installer"
 done
 

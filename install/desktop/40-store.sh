@@ -31,6 +31,6 @@ if command -v snap >/dev/null 2>&1; then
     sudo apt-mark hold snapd >/dev/null 2>&1
 fi
 
-# Install Flatpak and GNOME Software plugin for Flatpak
+# Install Flatpak
 sudo apt install -y flatpak
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo

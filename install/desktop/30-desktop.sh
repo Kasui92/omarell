@@ -1,28 +1,10 @@
 #!/bin/bash
 
-# Audio and Bluetooth
-sudo apt install -y --no-install-recommends \
-    alsa-utils \
-    bluez \
-    bluez-tools \
-    pipewire \
-    wireplumber \
-    libspa-0.2-bluetooth
-
-# System utilities
-sudo apt install -y --no-install-recommends \
-    acpi \
-    acpid \
-    brightnessctl \
-    playerctl \
-    rfkill \
-    wl-clipboard
-
 # GNOME desktop and tools
 sudo apt install -y --no-install-recommends \
     gnome-screenshot \
+    gnome-shell-extension-manager \
     gnome-shell-extension-prefs \
-    gnome-shell-extensions \
     gnome-sushi \
     gnome-tweak-tool
 
@@ -106,6 +88,9 @@ class OpenTerminalExtension(GObject.GObject, Nautilus.MenuProvider):
             item,
         ]
 TECHNICALLYNOTACONFIGSOHEREDOCCEDITIS
+
+# Install Gnome extensions CLI
+pipx install gnome-extensions-cli --system-site-packages
 
 # Install Browsers
 source ~/.local/share/omarell/applications/install/firefox.sh

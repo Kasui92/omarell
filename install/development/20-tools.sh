@@ -3,11 +3,6 @@
 # Install Neovim
 source ~/.local/share/omarell/applications/install/nvim.sh
 
-# Install Fastfetch
-sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
-sudo apt update -y
-sudo apt install -y fastfetch
-
 # Install LazyGit
 if ! command -v lazygit &>/dev/null; then
   cd /tmp

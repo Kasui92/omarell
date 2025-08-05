@@ -3,7 +3,7 @@
 mkdir -p ~/.local/share/fonts
 
 sudo apt install -y --no-install-recommends \
-  fonts-ubuntu fonts-dejavu-core fonts-noto-color-emoji
+  fonts-ubuntu fonts-dejavu-core fonts-noto-color-emoji fonts-liberation2
 
 cd /tmp
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
