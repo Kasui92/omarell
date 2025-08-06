@@ -46,6 +46,7 @@ packages=(
   software-properties-common
   tar
   tldr
+  tlp
   unzip
   wget
   wireplumber
