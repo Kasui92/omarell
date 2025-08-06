@@ -4,7 +4,6 @@
 sudo apt install -y --no-install-recommends \
     gnome-screenshot \
     gnome-shell-extension-manager \
-    gnome-shell-extension-prefs \
     gnome-sushi \
     gnome-tweak-tool
 
