@@ -19,6 +19,13 @@ sudo sed -i 's/^#WaylandEnable=false/WaylandEnable=true/' /etc/gdm3/custom.conf
 sudo systemctl enable gdm3
 
 # ==============================================================================
+# GDM DISABLE XORG AND CLASSIC (Force to use Wayland)
+# ==============================================================================
+
+sudo rm -f /usr/share/xsessions/gnome.desktop
+sudo rm -f /usr/share/xsessions/gnome-xorg.desktop
+
+# ==============================================================================
 # GDM OMARELL LOGO SETUP
 # ==============================================================================
 
