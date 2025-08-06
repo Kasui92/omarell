@@ -42,10 +42,10 @@ sudo tee -a /etc/gdm3/greeter.dconf-defaults > /dev/null <<'EOF'
 [org/gnome/login-screen]
 logo='/usr/share/pixmaps/omarell/gdm-logo.png'
 
-[org/gnome/desktop/background]
-picture-uri='/usr/share/pixmaps/omarell/gdm-background.png'
-picture-uri-dark='/usr/share/pixmaps/omarell/gdm-background.png'
-picture-options='zoom'
+[com/ubuntu/login-screen]
+background-picture-uri='/usr/share/pixmaps/omarell/gdm-background.png'
+background-picture-uri-dark='/usr/share/pixmaps/omarell/gdm-background.png'
+background-size='zoom'
 EOF
 
 # Update dconf database
