@@ -10,17 +10,13 @@ The name comes from umarell, the Italian archetype of a retiree watching constru
 
 [Omarell](https://github.com/user-attachments/assets/d3eaf4d6-bb14-4553-8250-29bd90c3d8cc)
 
-> [!WARNING]
-> Omarell is currently undergoing a major rewrite.
-> The upcoming version 2.0 (in development) is based on **Ubuntu Server** and targets users who want a minimal, clean, and highly customizable Gnome setup. The `dev` branch is where active development is happening for v2. The `main` branch currently reflects the latest v1.x state, but it is **no longer the reference** for that version and will soon be updated.
-
-> [!NOTE]
-> ### Still want to use the old version?
-> If you're looking for the stable Ubuntu Desktop-based version (v1.x), you can find it in the [`legacy`](https://github.com/KAsui92/omarell/tree/legacy) branch.
-> 
-> Run: `eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/legacy/boot.sh)"`
-
 ## Installation
+
+Omarell is designed to transform a fresh **Ubuntu Server LTS** installation into a complete development environment. Make sure you have:
+
+- A fresh Ubuntu Server LTS installation (24.04)
+- A stable internet connection (the setup downloads packages and extensions)
+- At least 30 minutes for the complete installation process
 
 To install Omarell, simply run the following command in your terminal:
 
@@ -34,21 +30,28 @@ You can also install Omarell in its "development" version to experiment and/or c
 curl -sSL https://omakasui.org/omarell-dev | bash
 ```
 
+> [!NOTE]
+>
+> ### Still want to use the old version?
+>
+> If you're looking for the stable Ubuntu Desktop-based version (v1.x), you can find it in the [`legacy`](https://github.com/KAsui92/omarell/tree/legacy) branch.
+>
+> Run: `eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/legacy/boot.sh)"`
+
 ## Key Features
 
-- **All Omakub benefits...**: the base is Omakub and that remains, solid and proven
-- **...with Omarchy approach**: With the philosophy and vibes of Omarchy, in its themes and in the way of managing the desktop.
-- **Lightweight base installation**: minimal core setup without suggested applications (most are optional) and initial theme selection
-- **Updated menu system**: reorganized, cleaned up, and enhanced system menus for better organization and usability
-- **A CLI for terminal people**: it's still based on the Menu, but without the effort of interaction. Clean and simple.
-- **Enhanced GNOME customizations**: additional desktop tweaks and interesting enhancements, like GDM background sync, Forge Extension for a WM desktop and consistency fixes
-- **No Snaps!**: removed snap and replaced all applications with Flatpak or from sources
+- **Built on Ubuntu Server**: A lean and stable LTS foundation, stripped of superfluous services and packages.
+- **Minimal yet GNOME-powered**: Only the essential GNOME components, with Wayland as the default session and no unnecessary bloat.
+- **No Snaps. Ever.**: Snap is completely removed. Applications are sourced from Flatpak or directly from trusted packages.
+- **Smart window management**: Pre-configured tiling with Forge extension, 6 workspaces, and keyboard-driven workflow optimizations.
+- **Silent post-install magic**: The setup continues automatically after reboot—fully hands-off, zero interaction required.
+- **Umarell spirit, Omakub roots**: Forked from Omakub, driven by the same passion for usability, but with the hands-on curiosity and practical eye of an Umarell.
 
 ## Documentation
 
-For complete documentation of the core features, visit the [official Omakub manual](https://manuals.omamix.org/1/read).
-
 For Omarell-specific features, consult the [Omarell manual](https://manuals.omakasui.org/omarell).
+
+To learn about the project it comes from and the key features it has inherited, visit the [official Omakub manual](https://manuals.omamix.org/1/read).
 
 ## License
 
