@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Show logo
+clear
+cat ~/.local/share/omarell/logo.txt
+
+# Get the latest while trying to preserve any modifications
+omarell_path=~/.local/share/omarell
+git -C $omarell_path pull --autostash
+git -C $omarell_path diff --check || git -C $omarell_path reset --merge
+
+# Run migrations
+"$HOME/.local/share/omarell/bin/omarell-migrate"

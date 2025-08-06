@@ -1,0 +1,9 @@
+#!/bin/bash
+
+OMARELL_PATH="$HOME/.local/share/omarell"
+OMARELL_VERSION=$(git -C $OMARELL_PATH describe --tags --abbrev=0 2>/dev/null)
+OMARELL_BRANCH=$(cd $OMARELL_PATH && git branch --show-current | grep -q "dev" && echo -e "\033[0;33m(dev)" || echo "")
+
+echo -e "$OMARELL_VERSION $OMARELL_BRANCH"
+
+exit 0

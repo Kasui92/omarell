@@ -1,24 +1,25 @@
 #!/bin/bash
 
 OMARELL_PATH="$HOME/.local/share/omarell"
-OMARELL_VERSION=$(source "$OMARELL_PATH/scripts/omarell-version" && echo "$OMARELL_VERSION")
-OMARELL_CHECK=$("$OMARELL_PATH/scripts/omarell-version" "check" && echo "$OMARELL_CHECK")
+OMARELL_VERSION=$(source "$OMARELL_PATH/bin/scripts/omarell-version" && echo "$OMARELL_VERSION")
+OMARELL_UPDATE_AVAILABLE=$(source "$OMARELL_PATH/bin/scripts/omarell-update-available" && echo "$OMARELL_UPDATE_AVAILABLE")
 
 header_menu() {
   clear
-  source $OMARELL_PATH/ascii.sh
-  echo -e "                                       $OMARELL_VERSION"
-  echo -e "$OMARELL_CHECK"
+  echo -e "\n\e[1;36m$(cat ~/.local/share/omarell/logo.txt)\e[0m"
+  echo -e "                                                     $OMARELL_VERSION"
+  echo -e "$OMARELL_UPDATE_AVAILABLE"
 }
 
 main_menu() {
   header_menu
 
-  local options=("Update" "Theme" "Apps" "Manual" "Exit")
+  local options=("Update" "Theme" "Font" "Apps" "Manual" "Exit")
   choice=$(printf "%s\n" "${options[@]}" | gum choose --header "") || exit 0
   case "$choice" in
   Update) update_menu ;;
   Theme) theme_menu ;;
+  Font) font_menu ;;
   Apps) apps_menu ;;
   Manual) open_manual ;;
   Exit) clear && exit 0 ;;
@@ -42,7 +43,7 @@ update_menu() {
       if [[ "$choice" == "Back" ]]; then
         main_menu
       else
-        source "$OMARELL_PATH/scripts/${scripts[$i]}"
+        source "$OMARELL_PATH/bin/scripts/${scripts[$i]}"
         ack_command
         main_menu
       fi
@@ -53,7 +54,14 @@ update_menu() {
 
 theme_menu() {
   header_menu
-  source "$OMARELL_PATH/scripts/omarell-theme-menu"
+  source "$OMARELL_PATH/bin/scripts/omarell-theme-menu"
+  ack_command
+  main_menu
+}
+
+font_menu() {
+  header_menu
+  source "$OMARELL_PATH/bin/scripts/omarell-font-menu"
   ack_command
   main_menu
 }
@@ -73,7 +81,7 @@ apps_menu() {
       if [[ "$choice" == "Back" ]]; then
         main_menu
       else
-        source "$OMARELL_PATH/scripts/${scripts[$i]}"
+        source "$OMARELL_PATH/bin/scripts/${scripts[$i]}"
         ack_command
         main_menu
       fi
