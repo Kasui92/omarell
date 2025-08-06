@@ -122,7 +122,13 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas/ 2>/dev/null || echo "Erro
 
 # Apply dconf settings
 if [ -f ~/.local/share/omarell/default/dconf/omarell-gnome.ini ]; then
-  dconf load / < ~/.local/share/omarell/default/dconf/omarell-gnome.ini 2>/dev/null || true
+  # Replace placeholder with actual background URL
+  temp_dconf_file=$(mktemp /tmp/omarell-gnome.XXXXXX.ini)
+  cp ~/.local/share/omarell/default/dconf/omarell-gnome.ini "$temp_dconf_file"
+  sed -i "s|{{OMARELL_BACKGROUND_URL}}|file://$HOME/.config/omarell/current/background|g" "$temp_dconf_file"
+  # Load dconf settings
+  dconf load / < "$temp_dconf_file" 2>/dev/null || echo "Error: Failed to load dconf settings from $temp_dconf_file"
+  rm -f "$temp_dconf_file"
 else
   echo "Error: dconf settings file not found at ~/.local/share/omarell/default/dconf/omarell-gnome.ini"
   exit 1

@@ -24,19 +24,28 @@ sudo systemctl enable gdm3
 
 # Get the directory where this script is located
 OMARELL_GDM_LOGO="$HOME/.local/share/omarell/default/gdm/logo.png"
+OMARELL_GDM_BACKGROUND="$HOME/.local/share/omarell/default/gdm/background.png"
 
-# Copy Omarell logo to system directory
+# Copy Omarell logo and background to system directory
 sudo mkdir -p /usr/share/pixmaps/omarell/
 if [ -f "$OMARELL_GDM_LOGO" ]; then
   sudo cp "$OMARELL_GDM_LOGO" /usr/share/pixmaps/omarell/gdm-logo.png
 fi
+if [ -f "$OMARELL_GDM_BACKGROUND" ]; then
+  sudo cp "$OMARELL_GDM_BACKGROUND" /usr/share/pixmaps/omarell/gdm-background.png
+fi
 
-# Add logo setting to GDM configuration
+# Add logo and background settings to GDM configuration
 sudo tee -a /etc/gdm3/greeter.dconf-defaults > /dev/null <<'EOF'
 
-# Omarell GDM Logo
+# Omarell GDM Configuration
 [org/gnome/login-screen]
 logo='/usr/share/pixmaps/omarell/gdm-logo.png'
+
+[org/gnome/desktop/background]
+picture-uri='/usr/share/pixmaps/omarell/gdm-background.png'
+picture-uri-dark='/usr/share/pixmaps/omarell/gdm-background.png'
+picture-options='zoom'
 EOF
 
 # Update dconf database
