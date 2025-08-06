@@ -26,6 +26,8 @@ packages=(
   gnupg
   imagemagick
   jq
+  libappindicator3-1
+  libayatana-appindicator3-1
   libmagickwand-dev
   libnotify-bin
   libnotify-dev
