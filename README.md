@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Kasui92/omarell/refs/heads/main/applications/icons/Omarell.png" alt="Omarell Logo" height="200" width="200">
+  <img src="https://omakasui.org/assets/images/omarell-logo.png" alt="Omarell Logo" height="200" width="200">
 </p>
 
 <h1 align="center">Omarell</h1>
