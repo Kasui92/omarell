@@ -38,11 +38,10 @@ extensions=(
   "space-bar@luchrioh:62828"
   "undecorate@sun.wxg@gmail.com:62481"
   "tophat@fflewddur.github.io:63975"
-  "AlphabeticalAppGrid@stuarthayhurst:62008"
-  "gnome-ui-tune@itstime.tech:62908"
   "quick-settings-tweaks@qwreey:62240"
   "rounded-window-corners@fxgn:62210"
   "user-theme@gnome-shell-extensions.gcampax.github.com:61748"
+  "touchpad-gesture-customization@coooolapps.com:64590"
 )
 
 # Install extensions manually by downloading from extensions.gnome.org
