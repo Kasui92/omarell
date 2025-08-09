@@ -14,12 +14,8 @@ gdm_wrapper() {
         return 1
     fi
 
-    # Additional validation for blurred temp files
-    if [[ "$file" =~ ^/tmp/omarell-blurred-.*\.jpg$ ]]; then
-        # This is a temporary blurred file - allow it
-        :
-    elif [[ "$file" =~ \.local/share/omarell/default/gdm/background\.png$ ]]; then
-        # This is the default background - allow it
+    # This is the default background - allow it
+    if [[ "$file" =~ \.local/share/omarell/default/gdm/background\.png$ ]]; then
         :
     else
         echo "Error: File path not allowed: $file" >&2
@@ -38,42 +34,9 @@ gdm_wrapper() {
     return 0
 }
 
-# Check if the theme argument is provided
-if [[ "$1" == "--theme" ]]; then
-    # Check dependencies
-    if ! command -v convert &> /dev/null; then
-        echo "Error: ImageMagick not found. Install with: sudo apt install imagemagick"
-        exit 1
-    fi
-
-    current_background="$(readlink -f "$HOME/.config/omarell/current/background")"
-    if [ ! -f "$current_background" ]; then
-        echo "Error: Background file not found"
-        exit 1
-    fi
-
-    # Create blurred background
-    blurredpath=/tmp/omarell-blurred-$(date +%s).jpg
-    convert "$current_background" -channel RGBA -blur 0x26 "$blurredpath" 2>/dev/null
-    if [ ! -f "$blurredpath" ]; then
-        echo "Error: Failed to create blurred image"
-        exit 1
-    fi
-
-    # Update GDM background using secure wrapper function
-    if ! sudo bash -c "$(declare -f gdm_wrapper); gdm_wrapper \"$blurredpath\"" 2>/dev/null; then
-        echo "Failed to update GDM background"
-        rm -f "$blurredpath"
-        exit 1
-    fi
-
-    # Clean up
-    rm -f "$blurredpath"
-else
-    # Update GDM background using secure wrapper function
-    defaultpath="$HOME/.local/share/omarell/default/gdm/background.png"
-    if ! sudo bash -c "$(declare -f gdm_wrapper); gdm_wrapper \"$defaultpath\"" 2>/dev/null; then
-        echo "Failed to update GDM background"
-        exit 1
-    fi
+# Update GDM background using secure wrapper function
+defaultpath="$HOME/.local/share/omarell/default/gdm/background.png"
+if ! sudo bash -c "$(declare -f gdm_wrapper); gdm_wrapper \"$defaultpath\"" 2>/dev/null; then
+    echo "Failed to update GDM background"
+    exit 1
 fi
