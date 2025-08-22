@@ -132,7 +132,6 @@ refresh() {
     echo "    applications   Refresh application .desktop files"
     echo "    config         Refresh configuration files"
     echo "    gdm            Refresh GDM background (use default)"
-    echo "      --theme      Refresh GDM background (use current theme)"
     echo "    plymouth       Refresh Plymouth theme"
     echo "    --help         Show this help message"
     echo

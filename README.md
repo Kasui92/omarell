@@ -21,31 +21,22 @@ Omarell is designed to transform a fresh **Ubuntu Server LTS** installation into
 To install Omarell, simply run the following command in your terminal:
 
 ```bash
-curl -sSL https://omakasui.org/omarell | bash
+curl -fsSL https://omakasui.org/omarell | bash
 ```
 
 You can also install Omarell in its "development" version to experiment and/or contribute, but you accept all the risks involved (and a few coffees won't always be enough). This is the command, for the brave:
 
 ```bash
-curl -sSL https://omakasui.org/omarell-dev | bash
+curl -fsSL https://omakasui.org/omarell-dev | bash
 ```
 
 > [!NOTE]
 >
 > ### Still want to use the old version?
 >
-> If you're looking for the stable Ubuntu Desktop-based version (v1.x), you can find it in the [`legacy`](https://github.com/KAsui92/omarell/tree/legacy) branch.
+> If you're looking for the stable Ubuntu Desktop-based version (v1.x), you can find it in the [`legacy`](https://github.com/Kasui92/omarell/tree/legacy) branch.
 >
-> Run: `eval "$(wget -qO- https://raw.githubusercontent.com/Kasui92/omarell/legacy/boot.sh)"`
-
-## Key Features
-
-- **Built on Ubuntu Server**: A lean and stable LTS foundation, stripped of superfluous services and packages.
-- **Minimal yet GNOME-powered**: Only the essential GNOME components, with Wayland as the default session and no unnecessary bloat.
-- **No Snaps. Ever.**: Snap is completely removed. Applications are sourced from Flatpak or directly from trusted packages.
-- **Smart window management**: Pre-configured tiling with Forge extension, 6 workspaces, and keyboard-driven workflow optimizations.
-- **Silent post-install magic**: The setup continues automatically after reboot—fully hands-off, zero interaction required.
-- **Umarell spirit, Omakub roots**: Forked from Omakub, driven by the same passion for usability, but with the hands-on curiosity and practical eye of an Umarell.
+> Run: `curl -fsSL https://omakasui.org/omarell-legacy | bash`
 
 ## Documentation
 

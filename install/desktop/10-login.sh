@@ -42,18 +42,14 @@ if [ -f "$OMARELL_GDM_BACKGROUND" ]; then
   sudo cp "$OMARELL_GDM_BACKGROUND" /usr/share/pixmaps/omarell/gdm-background.png
 fi
 
-# Add logo and background settings to GDM configuration
-sudo tee -a /etc/gdm3/greeter.dconf-defaults > /dev/null <<'EOF'
-
-# Omarell GDM Configuration
-[org/gnome/login-screen]
-logo='/usr/share/pixmaps/omarell/gdm-logo.png'
-
-[com/ubuntu/login-screen]
-background-picture-uri='/usr/share/pixmaps/omarell/gdm-background.png'
-background-picture-uri-dark='/usr/share/pixmaps/omarell/gdm-background.png'
-background-size='zoom'
-EOF
+# Copy Omarell GDM greeter configuration
+OMARELL_GDM_CONFIG="$HOME/.local/share/omarell/default/gdm/greeter.dconf-defaults"
+if [ -f "$OMARELL_GDM_CONFIG" ]; then
+  sudo cp "$OMARELL_GDM_CONFIG" /etc/gdm3/greeter.dconf-defaults
+  echo "GDM configuration applied successfully"
+else
+  echo "Warning: GDM configuration file not found"
+fi
 
 # Update dconf database
 sudo dconf update
