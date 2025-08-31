@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OMAKUB_THEME_COLOR="red"
+OMAKUB_THEME_COLOR="blue"
 
 # Set GNOME theme
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OMAKUB_THEME_COLOR="sage"
+OMAKUB_THEME_COLOR="olive"
 
 # Set GNOME theme
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
