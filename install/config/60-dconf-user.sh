@@ -2,6 +2,7 @@
 
 # ==============================================================================
 # GNOME USER SETTINGS AND EXTENSIONS CONFIGURATION
+# TODO: use a more robust method for pulling latest extension versions
 # ==============================================================================
 
 # Check if curl and unzip are available
