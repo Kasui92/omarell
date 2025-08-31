@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if pgrep -x wofi > /dev/null; then
-  pkill wofi
-fi
-
-exec /usr/bin/wofi --show drun --sort-order=alphabetical

@@ -1,1 +1,0 @@
-gsettings set org.gnome.shell.extensions.quick-settings-avatar avatar-position 1

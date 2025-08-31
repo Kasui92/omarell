@@ -1,44 +1,38 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Kasui92/omarell/refs/heads/main/applications/icons/Omarell.png" alt="Omarell Logo" height="200" width="200">
+  <img src="https://omakasui.org/assets/images/omarell-logo.png" alt="Omarell Logo" height="200" width="200">
 </p>
 
 <h1 align="center">Omarell</h1>
 
-Omarell is a customized fork of [Omakub](https://omakub.org) that offers additional personalizations for an even more refined Linux experience.
+Omarell is a personalized fork of [Omakub](https://omakub.org), the one-liner tool that turns a fresh Ubuntu install into a modern development environment. It builds on Omakub with targeted tweaks for a more streamlined and opinionated Linux setup.
 
-## What is Omarell?
+The name comes from umarell, the Italian archetype of a retiree watching construction sites with a critical eye. Likewise, Omarell keeps tabs on the evolving [Omarchy project](https://omarchy.org), selectively adopting useful changes while staying grounded on a stable, proven base.
 
-The name "Omarell" is derived from the Italian term "umarell" (often spelled "omarell" in some dialects), which refers to retired elderly men who stand watching construction sites, often with their hands clasped behind their backs, offering unsolicited advice to workers. It's a popular cultural reference in Italy that embodies curious observation and gentle improvement suggestions.
+## Installation
 
-In the spirit of its namesake, Omarell takes the base Omakub system—which transforms a fresh Ubuntu installation into a fully-configured, modern development environment with a single command—and adds its own improvements and extra customizations, watching over and enhancing the original work.
+Omarell is designed to transform a fresh **Ubuntu Server LTS** installation into a complete development environment. Make sure you have:
 
-# Installation
+- A fresh Ubuntu Server LTS installation (24.04)
+- A stable internet connection (the setup downloads packages and extensions)
+- At least 30 minutes for the complete installation process
 
 To install Omarell, simply run the following command in your terminal:
 
 ```bash
-curl -sSL https://omakasui.lucapattocchio.dev/omarell | bash
+curl -fsSL https://omakasui.org/omarell | bash
 ```
 
-You can also install Omarell in its "development" version to experiment and/or contribute, but you accept all the risks involved (and a few coffees won't always be enough). This is the command, for the brave:
+You can also install Omakub in its "development" version to experiment and/or contribute, but you accept all the risks involved (and a few coffees won't always be enough). This is the command, for the brave:
 
 ```bash
-curl -sSL https://omakasui.lucapattocchio.dev/omarell-dev | bash
+curl -fsSL https://omakasui.org/omarell-dev | bash
 ```
-
-## Key Features
-
-- **All Omakub benefits**: the base is Omakub and that remains, with a few more updates and a few less default apps
-- **Lightweight base installation**: minimal core setup without suggested applications (most are optional) and initial theme selection
-- **Updated menu system**: reorganized, cleaned up, and enhanced system menus for better organization and usability
-- **Enhanced GNOME customizations**: additional desktop tweaks and interesting enhancements, like GDM background sync and consistency fixes
-- **No Snaps!**: removed snap and replaced all applications with Flatpak or from sources
 
 ## Documentation
 
-For complete documentation of the core features, visit the [official Omakub manual](https://manuals.omamix.org/1/read).
+For Omarell-specific features, consult the [Omarell manual](https://manuals.omakasui.org/omarell).
 
-For Omarell-specific features, consult the [WIKI](https://github.com/Kasui92/omarell/wiki).
+To learn about the project it comes from and the key features it has inherited, visit the [official Omakub manual](https://manuals.omamix.org/1/read).
 
 ## License
 
@@ -48,4 +42,4 @@ Omarell is released under the [MIT License](https://opensource.org/licenses/MIT)
 
 As a fork of Omakub, Omarell welcomes contributions that extend existing functionality without compromising compatibility with the base project.
 
-If you want to contribute to Omakub core features, visit the [official Omakub repository](https://github.com/basecamp/omakub).
+If you want to contribute to Omakub core features, visit the [official repository](https://github.com/basecamp/omakub).

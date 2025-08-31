@@ -7,8 +7,8 @@
 
 window {
   margin: 0px;
-  padding: 20px;
-  background-color: @base-rgba;
+  padding: 0px;
+  background-color: transparent;
   opacity: 0.95;
 }
 
@@ -20,11 +20,10 @@ window {
 }
 
 #outer-box {
-  margin: 0;
   padding: 20px;
-  border: none;
   background-color: @base;
   border: 2px solid @border;
+  border-radius: 14px;
 }
 
 #scroll {
@@ -71,4 +70,4 @@ window {
   -gtk-icon-transform: scale(0.7);
 }
 
-@import ".config/omarell/current/theme/wofi.css";
+@import ".config/omakub/current/theme/wofi.css";

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-source $HOME/.local/share/omarell/bin/omarell-sub/header.sh
-source $HOME/.local/share/omarell/bin/omarell-sub/helper.sh
-source $HOME/.local/share/omarell/bin/omarell-sub/menu.sh
