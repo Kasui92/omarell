@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cmd="$*"
-alacritty --class Omakub -e bash -c "source ~/.bashrc; omakub-show-logo; $cmd; omakub-show-done"
+alacritty --class Omakub -e bash -c -l "omakub-show-logo; $cmd; omakub-show-done"
