@@ -33,7 +33,7 @@ fi
 # Format: "extension_uuid:version_tag"
 extensions=(
   "tactile@lundal.io:62623"
-  "just-perfection-desktop@just-perfection:61921"
+  "just-perfection-desktop@just-perfection:64879"
   "blur-my-shell@aunetx:62504"
   "space-bar@luchrioh:62828"
   "undecorate@sun.wxg@gmail.com:62481"
