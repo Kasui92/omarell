@@ -54,7 +54,7 @@ packages=(
   gnome-shell
   gnome-shell-extension-manager
   gnome-sushi
-  gnome-tweak
+  gnome-tweak-tool
   gnupg
   golang-go
   gsettings-desktop-schemas
