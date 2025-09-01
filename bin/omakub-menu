@@ -151,8 +151,9 @@ show_update_menu() {
 }
 
 show_update_config_menu() {
-  case $(menu "Use default config" "  Starship\n󰍂  GDM\n󱣴  Plymouth\n󰌧  Wofi" "--width 350") in
+  case $(menu "Use default config" "  Starship\n  Gnome\n󰍂  GDM\n󱣴  Plymouth\n󰌧  Wofi" "--width 250") in
   *Starship*) present_terminal omakub-refresh-config starship.toml ;;
+  *Gnome*) present_terminal omakub-refresh-gnome ;;
   *GDM*) present_terminal omakub-refresh-gdm ;;
   *Plymouth*) present_terminal omakub-refresh-plymouth ;;
   *Wofi*) present_terminal omakub-refresh-wofi ;;
