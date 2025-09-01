@@ -6,7 +6,7 @@ DESKTOP_DIR="$HOME/.local/share/applications/"
 if [ "$#" -eq 0 ]; then
   # Find all web apps
   while IFS= read -r -d '' file; do
-    if grep -q '^Exec=.*omakub webapp launch.*' "$file"; then
+    if grep -q '^Exec=.*omakub-launch-webapp.*' "$file"; then
       WEB_APPS+=("$(basename "${file%.desktop}")")
     fi
   done < <(find "$DESKTOP_DIR" -name '*.desktop' -print0)
@@ -37,5 +37,6 @@ fi
 for APP_NAME in "${APP_NAMES[@]}"; do
   rm -f "$DESKTOP_DIR/$APP_NAME.desktop"
   rm -f "$ICON_DIR/$APP_NAME.png"
+  rm -f "$HOME/.config/omakub/webapp/$APP_NAME"
   echo "Removed $APP_NAME"
 done
