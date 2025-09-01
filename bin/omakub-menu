@@ -57,7 +57,6 @@ show_learn_menu() {
   esac
 }
 
-# TODO: missing font-size
 show_style_menu() {
   case $(menu "Style" "󰸌  Theme\n  Font\n  Background" "--width 250 --height 250") in
   *Theme*) show_theme_menu ;;
@@ -77,6 +76,14 @@ show_theme_menu() {
 }
 
 show_font_menu() {
+  case $(menu "Font" "  Family\n󰧴  Size" "--width 200 --height 200") in
+  *Family*) show_font_family_menu ;;
+  *Size*) present_terminal omakub-font-size-set ;;
+  *) show_main_menu ;;
+  esac
+}
+
+show_font_family_menu() {
   font=$(menu "Font" "$(omakub-font-list)" "--width 350" "$(omakub-font-current)")
   if [[ "$font" == "CNCLD" || -z "$font" ]]; then
     show_main_menu
