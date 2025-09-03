@@ -17,36 +17,58 @@ show_subtext() {
 export PATH="$HOME/.local/share/omakub/bin:$PATH"
 OMAKUB_INSTALL=~/.local/share/omakub/install
 
-# Install prerequisites
-for installer in $OMAKUB_INSTALL/preflight/*.sh; do
-  source "$installer"
-done
+# Preparation
+source $OMAKUB_INSTALL/preflight/trap-errors.sh
+source $OMAKUB_INSTALL/preflight/guard.sh
+source $OMAKUB_INSTALL/preflight/migrations.sh
+source $OMAKUB_INSTALL/preflight/presentation.sh
+source $OMAKUB_INSTALL/preflight/identification.sh
+source $OMAKUB_INSTALL/preflight/timezone.sh
 
-# Packages
+# Packaging
 show_logo
-show_subtext "Installing packages [1/3]"
-for installer in $OMAKUB_INSTALL/packages/*.sh; do
-  source "$installer"
-done
+show_subtext "Installing packages [1/4]"
+source $OMAKUB_INSTALL/packages.sh
+source $OMAKUB_INSTALL/packaging/remove-snap.sh
+source $OMAKUB_INSTALL/packaging/fonts.sh
+source $OMAKUB_INSTALL/packaging/nvim.sh
+source $OMAKUB_INSTALL/packaging/tools.sh
+source $OMAKUB_INSTALL/packaging/apps.sh
+source $OMAKUB_INSTALL/packaging/webapps.sh
+source $OMAKUB_INSTALL/packaging/tuis.sh
 
 # Configuration
 show_logo
-show_subtext "Apply Omakub configuration! [2/3]"
-for installer in $OMAKUB_INSTALL/config/*.sh; do
-  source "$installer"
-done
+show_subtext "Apply Omakub configuration! [2/4]"
+source $OMAKUB_INSTALL/config/config.sh
+source $OMAKUB_INSTALL/config/theme.sh
+source $OMAKUB_INSTALL/config/git.sh
+source $OMAKUB_INSTALL/config/xcompose.sh
+source $OMAKUB_INSTALL/config/mimetypes.sh
+source $OMAKUB_INSTALL/config/alacritty.sh
+source $OMAKUB_INSTALL/config/firewall.sh
+source $OMAKUB_INSTALL/config/hardware/fix-fkeys.sh
+source $OMAKUB_INSTALL/config/hardware/framework-text-scaling.sh
+source $OMAKUB_INSTALL/config/hardware/printer.sh
+source $OMAKUB_INSTALL/config/gnome/extensions-cli.sh
+source $OMAKUB_INSTALL/config/gnome/dconf-user.sh
 
-
-# Final cleanup
+# Login
 show_logo
-show_subtext "Preparing system and cleaning up [3/3]"
-for installer in $OMAKUB_INSTALL/landing/*.sh; do
-  source "$installer"
-done
+show_subtext "Configuring login settings! [3/4]"
+source $OMAKUB_INSTALL/login/plymouth.sh
+source $OMAKUB_INSTALL/login/gdm3.sh
+source $OMAKUB_INSTALL/login/alt-bootloaders.sh
+
+# Landing
+show_logo
+show_subtext "Preparing system and cleaning up [4/4]"
+source $OMAKUB_INSTALL/landing/cleanup.sh
+source $OMAKUB_INSTALL/landing/network.sh
 
 # Reboot
 show_logo
 show_subtext "You're done! So we'll be rebooting now..."
 
-sleep 2
+sleep 5
 reboot

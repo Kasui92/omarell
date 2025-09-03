@@ -57,6 +57,7 @@ packages=(
   gnome-tweak-tool
   gnupg
   golang-go
+  gpg
   gsettings-desktop-schemas
   ibus
   imagemagick

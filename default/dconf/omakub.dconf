@@ -21,7 +21,7 @@ name='Utilities'
 translate=true
 
 [org/gnome/desktop/app-folders/folders/Xtra]
-apps=['org.gnome.font-viewer.desktop', 'gnome-language-selector.desktop', 'info.desktop', 'yelp.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.eog.desktop']
+apps=['gnome-language-selector.desktop', 'info.desktop', 'yelp.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.eog.desktop']
 name='Xtra'
 
 [org/gnome/desktop/app-folders/folders/YaST]
@@ -131,6 +131,9 @@ ambient-enabled=false
 [org/gnome/shell]
 enabled-extensions=['tactile@lundal.io', 'just-perfection-desktop@just-perfection', 'blur-my-shell@aunetx', 'space-bar@luchrioh', 'undecorate@sun.wxg@gmail.com', 'tophat@fflewddur.github.io', 'quick-settings-tweaks@qwreey', 'gnome-ui-tune@itstime.tech', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'AlphabeticalAppGrid@stuarthayhurst']
 favorite-apps=['firefox.desktop', 'Alacritty.desktop', 'code.desktop', 'spotify.desktop', 'Activity.desktop', 'Docker.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Nautilus.desktop', 'omakub.desktop']
+
+[org/gnome/shell/app-switcher]
+current-workspace-only=true
 
 [org/gnome/shell/extensions/alphabetical-app-grid]
 folder-order-position='end'

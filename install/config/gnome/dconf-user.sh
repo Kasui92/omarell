@@ -121,15 +121,15 @@ dconf write /org/gnome/shell/enabled-extensions "$enabled_extensions_string" 2>/
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/ 2>/dev/null || echo "Error: Failed to compile schemas"
 
 # Apply dconf settings
-if [ -f ~/.local/share/omakub/default/dconf/omakub-gnome.ini ]; then
+if [ -f ~/.local/share/omakub/default/dconf/omakub.dconf ]; then
   # Replace placeholder with actual background URL
   temp_dconf_file=$(mktemp /tmp/omakub-gnome.XXXXXX.ini)
-  cp ~/.local/share/omakub/default/dconf/omakub-gnome.ini "$temp_dconf_file"
+  cp ~/.local/share/omakub/default/dconf/omakub.dconf "$temp_dconf_file"
   sed -i "s|{{OMAKUB_BACKGROUND_URL}}|file://$HOME/.config/omakub/current/background|g" "$temp_dconf_file"
   # Load dconf settings
   dconf load / < "$temp_dconf_file" 2>/dev/null || echo "Error: Failed to load dconf settings from $temp_dconf_file"
   rm -f "$temp_dconf_file"
 else
-  echo "Error: dconf settings file not found at ~/.local/share/omakub/default/dconf/omakub-gnome.ini"
+  echo "Error: dconf settings file not found at ~/.local/share/omakub/default/dconf/omakub.dconf"
   exit 1
 fi

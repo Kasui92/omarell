@@ -1,0 +1,21 @@
+#!/bin/bash
+
+gum confirm "Do you want to refresh GNOME settings? You will lose your current settings." && {
+  # Backup current dconf (with timestamp) to avoid clobbering (Ex: omakub.dconf.bak.1753817951)
+  dconf dump / > "$HOME/gnome.dconf.bak.$(date +%s)"
+
+  # Apply dconf settings
+  if [ -f ~/.local/share/omakub/default/dconf/omakub.dconf ]; then
+    # Replace placeholder with actual background URL
+    temp_dconf_file=$(mktemp /tmp/omakub-gnome.XXXXXX.ini)
+    cp ~/.local/share/omakub/default/dconf/omakub.dconf "$temp_dconf_file"
+    sed -i "s|{{OMAKUB_BACKGROUND_URL}}|file://$HOME/.config/omakub/current/background|g" "$temp_dconf_file"
+    # Load dconf settings
+    dconf reset /org/gnome/
+    dconf load / < "$temp_dconf_file" 2>/dev/null || echo "Error: Failed to load dconf settings from $temp_dconf_file"
+    rm -f "$temp_dconf_file"
+  else
+    echo "Error: dconf settings file not found at ~/.local/share/omakub/default/dconf/omakub.dconf"
+    exit 1
+  fi
+}
