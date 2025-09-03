@@ -47,12 +47,13 @@ app_remove() {
 }
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n  Omakub\n  Ubuntu\n  Neovim\n󱆃  Bash" "--width 250 --height 300") in
+  case $(menu "Learn" "  Keybindings\n  Omakub\n  Ubuntu\n  Neovim\n  Zellij\n󱆃  Bash" "--width 250 --height 300") in
   *Keybindings*) omakub-launch-webapp "https://learn.omacom.io/1/read/29/hotkeys" ;;
   *Omakub*) omakub-launch-webapp "https://learn.omacom.io/1/read#leaf_40" ;;
   *Ubuntu*) omakub-launch-webapp "https://help.ubuntu.com/" ;;
   *Bash*) omakub-launch-webapp "https://devhints.io/bash" ;;
   *Neovim*) omakub-launch-webapp "https://www.lazyvim.org/keymaps" ;;
+  *Zellij*) omakub-launch-webapp "https://zellij.dev/documentation/keybindings.html" ;;
   *) show_main_menu ;;
   esac
 }
@@ -93,9 +94,10 @@ show_font_family_menu() {
 }
 
 show_setup_menu() {
-  case $(menu "Setup" "  Folders\n  Starship\n󰌧  Wofi" "--width 250 --height 300") in
+  case $(menu "Setup" "  Folders\n  Starship\n  Zellij\n󰌧  Wofi" "--width 250 --height 300") in
   *Folders*) show_setup_folders_menu ;;
   *Starship*) edit_in_nvim ~/.config/starship.toml ;;
+  *Zellij*) edit_in_nvim ~/.config/zellij/config.kdl ;;
   *Wofi*) edit_in_nvim ~/.config/wofi/config ;;
   *) show_main_menu ;;
   esac
@@ -110,22 +112,71 @@ show_setup_folders_menu() {
 }
 
 show_install_menu() {
-  case $(menu "Install" "  Web App\n  TUI\n󰀻  App\n  Style" "--width 250 --height 300") in
+  case $(menu "Install" "  Web App\n  TUI\n  Tools\n  Style\n  Service\n󰵮  Development\n  Editor" "--width 250 --height 350") in
   *Web*) present_terminal omakub-webapp-install ;;
   *TUI*) present_terminal omakub-tui-install ;;
-  *App*) show_install_app_menu ;;
+  *Tools*) show_install_tools_menu ;;
   *Style*) show_install_style_menu ;;
+  *Service*) show_install_service_menu ;;
+  *Development*) show_install_development_menu ;;
+  *Editor*) show_install_editor_menu ;;
   *) show_main_menu ;;
   esac
 }
 
-show_install_app_menu() {
-  app=$(menu "App" "$(omakub-app-install-list)" "--width 350")
-  if [[ "$app" == "CNCLD" || -z "$app" ]]; then
-    show_main_menu
-  else
-    app_install "$app"
-  fi
+show_install_tools_menu() {
+  case $(menu "Install" "  Flameshot\n  Mainline Kernels\n  Pinta\n  Starship\n  Xournalpp" "--width 250 --height 300") in
+  *Flameshot*) app_install "flameshot" ;;
+  *Pinta*) app_install "pinta" ;;
+  *Mainline*) app_install "mainline-kernels" ;;
+  *Xournalpp*) app_install "xournalpp" ;;
+  *Starship*) app_install "starship" ;;
+  *) show_install_menu ;;
+  esac
+}
+
+show_install_service_menu() {
+  case $(menu "Install" "  Chromium\n  Firefox\n  Discord\n  LibreOffice\n  LocalSend\n  Spotify" "--width 250 --height 300") in
+  *Firefox*) app_install "firefox" ;;
+  *Chromium*) app_install "chromium" ;;
+  *LibreOffice*) app_install "libreoffice" ;;
+  *LocalSend*) app_install "localsend" ;;
+  *Discord*) app_install "discord" ;;
+  *Spotify*) app_install "spotify" ;;
+  *) show_install_menu ;;
+  esac
+}
+
+show_install_editor_menu() {
+  case $(menu "Install" "  NeoVim\n  Visual Studio Code" "--width 250 --height 200") in
+  *Visual*) app_install "visual-studio-code" ;;
+  *NeoVim*) app_install "neovim" ;;
+  *) show_install_menu ;;
+  esac
+}
+
+show_install_development_menu() {
+  case $(menu "Install" "  Docker\n󱘲  Databases\n  Github\n  Gitlab\\n  JavaScript\n  Go\n  PHP\n  Python\n  Rust" "--width 250 --height 400") in
+  *Docker*) app_install "docker" ;;
+  *Databases*) present_terminal "omakub-install-docker-dbs" ;;
+  *Github*) app_install "github-cli" ;;
+  *Gitlab*) app_install "gitlab-cli" ;;
+  *JavaScript*) show_install_javascript_menu ;;
+  *Go*) present_terminal "omakub-install-dev-env go" ;;
+  *PHP*) present_terminal "omakub-install-dev-env php" ;;
+  *Python*) present_terminal "omakub-install-dev-env python" ;;
+  *Rust*) present_terminal "omakub-install-dev-env rust" ;;
+  *) show_install_menu ;;
+  esac
+}
+
+show_install_javascript_menu() {
+  case $(menu "Install" "  Node.js\n  Bun\n  Deno") in
+  *Node*) present_terminal "omakub-install-dev-env node" ;;
+  *Bun*) present_terminal "omakub-install-dev-env bun" ;;
+  *Deno*) present_terminal "omakub-install-dev-env deno" ;;
+  *) show_install_development_menu ;;
+  esac
 }
 
 # TODO: Add font installation
@@ -167,8 +218,9 @@ show_update_menu() {
 }
 
 show_update_config_menu() {
-  case $(menu "Use default config" "  Starship\n  Gnome\n󰍂  GDM\n󱣴  Plymouth\n󰌧  Wofi" "--width 250") in
+  case $(menu "Use default config" "  Starship\n  Zellij\n  Gnome\n󰍂  GDM\n󱣴  Plymouth\n󰌧  Wofi" "--width 250") in
   *Starship*) present_terminal omakub-refresh-config starship.toml ;;
+  *Zellij*) present_terminal omakub-refresh-config zellij/config.kdl ;;
   *Gnome*) present_terminal omakub-refresh-gnome ;;
   *GDM*) present_terminal omakub-refresh-gdm ;;
   *Plymouth*) present_terminal omakub-refresh-plymouth ;;

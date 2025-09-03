@@ -22,12 +22,16 @@ source $OMAKUB_INSTALL/preflight/trap-errors.sh
 source $OMAKUB_INSTALL/preflight/guard.sh
 source $OMAKUB_INSTALL/preflight/migrations.sh
 source $OMAKUB_INSTALL/preflight/presentation.sh
+
+# User Inputs
+show_logo
+show_subtext "Get ready to fill out some configuration... [1/5]"
 source $OMAKUB_INSTALL/preflight/identification.sh
 source $OMAKUB_INSTALL/preflight/timezone.sh
 
 # Packaging
 show_logo
-show_subtext "Installing packages [1/4]"
+show_subtext "Installing packages [2/5]"
 source $OMAKUB_INSTALL/packages.sh
 source $OMAKUB_INSTALL/packaging/remove-snap.sh
 source $OMAKUB_INSTALL/packaging/fonts.sh
@@ -39,7 +43,7 @@ source $OMAKUB_INSTALL/packaging/tuis.sh
 
 # Configuration
 show_logo
-show_subtext "Apply Omakub configuration! [2/4]"
+show_subtext "Apply Omakub configuration! [3/5]"
 source $OMAKUB_INSTALL/config/config.sh
 source $OMAKUB_INSTALL/config/theme.sh
 source $OMAKUB_INSTALL/config/git.sh
@@ -55,14 +59,14 @@ source $OMAKUB_INSTALL/config/gnome/dconf-user.sh
 
 # Login
 show_logo
-show_subtext "Configuring login settings! [3/4]"
+show_subtext "Configuring login settings! [4/5]"
 source $OMAKUB_INSTALL/login/plymouth.sh
 source $OMAKUB_INSTALL/login/gdm3.sh
 source $OMAKUB_INSTALL/login/alt-bootloaders.sh
 
 # Landing
 show_logo
-show_subtext "Preparing system and cleaning up [4/4]"
+show_subtext "Preparing system and cleaning up [5/5]"
 source $OMAKUB_INSTALL/landing/cleanup.sh
 source $OMAKUB_INSTALL/landing/network.sh
 
