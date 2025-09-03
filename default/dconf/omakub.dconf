@@ -21,7 +21,7 @@ name='Utilities'
 translate=true
 
 [org/gnome/desktop/app-folders/folders/Xtra]
-apps=['org.gnome.font-viewer.desktop', 'gnome-language-selector.desktop', 'info.desktop', 'yelp.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.eog.desktop']
+apps=['gnome-language-selector.desktop', 'info.desktop', 'yelp.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.eog.desktop']
 name='Xtra'
 
 [org/gnome/desktop/app-folders/folders/YaST]
