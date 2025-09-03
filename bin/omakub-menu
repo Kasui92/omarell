@@ -47,12 +47,13 @@ app_remove() {
 }
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n  Omakub\n  Ubuntu\n  Neovim\n󱆃  Bash" "--width 250 --height 300") in
+  case $(menu "Learn" "  Keybindings\n  Omakub\n  Ubuntu\n  Neovim\n  Zellij\n󱆃  Bash" "--width 250 --height 300") in
   *Keybindings*) omakub-launch-webapp "https://learn.omacom.io/1/read/29/hotkeys" ;;
   *Omakub*) omakub-launch-webapp "https://learn.omacom.io/1/read#leaf_40" ;;
   *Ubuntu*) omakub-launch-webapp "https://help.ubuntu.com/" ;;
   *Bash*) omakub-launch-webapp "https://devhints.io/bash" ;;
   *Neovim*) omakub-launch-webapp "https://www.lazyvim.org/keymaps" ;;
+  *Zellij*) omakub-launch-webapp "https://zellij.dev/documentation/keybindings.html" ;;
   *) show_main_menu ;;
   esac
 }
@@ -93,9 +94,10 @@ show_font_family_menu() {
 }
 
 show_setup_menu() {
-  case $(menu "Setup" "  Folders\n  Starship\n󰌧  Wofi" "--width 250 --height 300") in
+  case $(menu "Setup" "  Folders\n  Starship\n  Zellij\n󰌧  Wofi" "--width 250 --height 300") in
   *Folders*) show_setup_folders_menu ;;
   *Starship*) edit_in_nvim ~/.config/starship.toml ;;
+  *Zellij*) edit_in_nvim ~/.config/zellij/config.kdl ;;
   *Wofi*) edit_in_nvim ~/.config/wofi/config ;;
   *) show_main_menu ;;
   esac
@@ -167,8 +169,9 @@ show_update_menu() {
 }
 
 show_update_config_menu() {
-  case $(menu "Use default config" "  Starship\n  Gnome\n󰍂  GDM\n󱣴  Plymouth\n󰌧  Wofi" "--width 250") in
+  case $(menu "Use default config" "  Starship\n  Zellij\n  Gnome\n󰍂  GDM\n󱣴  Plymouth\n󰌧  Wofi" "--width 250") in
   *Starship*) present_terminal omakub-refresh-config starship.toml ;;
+  *Zellij*) present_terminal omakub-refresh-config zellij/config.kdl ;;
   *Gnome*) present_terminal omakub-refresh-gnome ;;
   *GDM*) present_terminal omakub-refresh-gdm ;;
   *Plymouth*) present_terminal omakub-refresh-plymouth ;;
