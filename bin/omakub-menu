@@ -125,11 +125,12 @@ show_install_menu() {
 }
 
 show_install_tools_menu() {
-  case $(menu "Install" "  Flameshot\n  Mainline Kernels\n  Pinta\n  Xournalpp" "--width 250 --height 300") in
+  case $(menu "Install" "  Flameshot\n  Mainline Kernels\n  Pinta\n  Starship\n  Xournalpp" "--width 250 --height 300") in
   *Flameshot*) app_install "flameshot" ;;
   *Pinta*) app_install "pinta" ;;
   *Mainline*) app_install "mainline-kernels" ;;
   *Xournalpp*) app_install "xournalpp" ;;
+  *Starship*) app_install "starship" ;;
   *) show_install_menu ;;
   esac
 }
