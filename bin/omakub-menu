@@ -93,10 +93,19 @@ show_font_family_menu() {
 }
 
 show_setup_menu() {
-  case $(menu "Setup" "  Starship\n󰌧  Wofi" "--width 250 --height 300") in
+  case $(menu "Setup" "  Folders\n  Starship\n󰌧  Wofi" "--width 250 --height 300") in
+  *Folders*) show_setup_folders_menu ;;
   *Starship*) edit_in_nvim ~/.config/starship.toml ;;
   *Wofi*) edit_in_nvim ~/.config/wofi/config ;;
   *) show_main_menu ;;
+  esac
+}
+
+show_setup_folders_menu() {
+  case $(menu "Folders" "󰮝  Add\n󰮞  Remove" "--width 200 --height 200") in
+  *Add*) present_terminal omakub-app-folder-add ;;
+  *Remove*) present_terminal omakub-app-folder-remove ;;
+  *) show_setup_menu ;;
   esac
 }
 
