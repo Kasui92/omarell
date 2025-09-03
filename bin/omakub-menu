@@ -112,22 +112,55 @@ show_setup_folders_menu() {
 }
 
 show_install_menu() {
-  case $(menu "Install" "  Web App\n  TUI\n󰀻  App\n  Style" "--width 250 --height 300") in
+  case $(menu "Install" "  Web App\n  TUI\n  Tools\n  Style\n  Service\n󰵮  Development\n  Editor" "--width 250 --height 350") in
   *Web*) present_terminal omakub-webapp-install ;;
   *TUI*) present_terminal omakub-tui-install ;;
-  *App*) show_install_app_menu ;;
+  *Tools*) show_install_tools_menu ;;
   *Style*) show_install_style_menu ;;
+  *Service*) show_install_service_menu ;;
+  *Development*) show_install_development_menu ;;
+  *Editor*) show_install_editor_menu ;;
   *) show_main_menu ;;
   esac
 }
 
-show_install_app_menu() {
-  app=$(menu "App" "$(omakub-app-install-list)" "--width 350")
-  if [[ "$app" == "CNCLD" || -z "$app" ]]; then
-    show_main_menu
-  else
-    app_install "$app"
-  fi
+show_install_tools_menu() {
+  case $(menu "Install" "  Flameshot\n  Mainline Kernels\n  Pinta\n  Xournalpp" "--width 250 --height 300") in
+  *Flameshot*) app_install "flameshot" ;;
+  *Pinta*) app_install "pinta" ;;
+  *Mainline*) app_install "mainline-kernels" ;;
+  *Xournalpp*) app_install "xournalpp" ;;
+  *) show_install_menu ;;
+  esac
+}
+
+show_install_service_menu() {
+  case $(menu "Install" "  Chromium\n  Firefox\n  Discord\n  LibreOffice\n  LocalSend\n  Spotify" "--width 250 --height 300") in
+  *Firefox*) app_install "firefox" ;;
+  *Chromium*) app_install "chromium" ;;
+  *LibreOffice*) app_install "libreoffice" ;;
+  *LocalSend*) app_install "localsend" ;;
+  *Discord*) app_install "discord" ;;
+  *Spotify*) app_install "spotify" ;;
+  *) show_install_menu ;;
+  esac
+}
+
+show_install_editor_menu() {
+  case $(menu "Install" "  NeoVim\n  Visual Studio Code" "--width 250 --height 200") in
+  *Visual*) app_install "visual-studio-code" ;;
+  *NeoVim*) app_install "neovim" ;;
+  *) show_install_menu ;;
+  esac
+}
+
+show_install_development_menu() {
+  case $(menu "Install" "  Docker\n  Github\n  Gitlab" "--width 250 --height 300") in
+  *Docker*) app_install "docker" ;;
+  *Github*) app_install "github-cli" ;;
+  *Gitlab*) app_install "gitlab-cli" ;;
+  *) show_install_menu ;;
+  esac
 }
 
 # TODO: Add font installation
