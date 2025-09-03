@@ -7,9 +7,11 @@ echo
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 # Install Starship
-gum confirm "Do you want to install starship?" && {
-  source ~/.local/share/omakub/applications/install/starship.sh
-}
+if ! command -v starship &>/dev/null; then
+  gum confirm "Do you want to install starship?" && {
+    source ~/.local/share/omakub/applications/install/starship.sh
+  }
+fi
 echo
 
 # Update VSCode
