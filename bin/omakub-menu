@@ -156,22 +156,16 @@ show_install_editor_menu() {
 }
 
 show_install_development_menu() {
-  case $(menu "Install" "  Docker\n󱘲  Databases\n  Github\n  Gitlab\n󰫏  Ruby on Rails\n  JavaScript\n  Go\n  PHP\n  Python\n  Elixir\n  Zig\n  Rust\n  Java\n  .NET\n  OCaml" "--width 250 --height 650") in
+  case $(menu "Install" "  Docker\n󱘲  Databases\n  Github\n  Gitlab\\n  JavaScript\n  Go\n  PHP\n  Python\n  Rust" "--width 250 --height 400") in
   *Docker*) app_install "docker" ;;
   *Databases*) present_terminal "omakub-install-docker-dbs" ;;
   *Github*) app_install "github-cli" ;;
   *Gitlab*) app_install "gitlab-cli" ;;
-  *Rails*) present_terminal "omakub-install-dev-env ruby" ;;
   *JavaScript*) show_install_javascript_menu ;;
   *Go*) present_terminal "omakub-install-dev-env go" ;;
   *PHP*) present_terminal "omakub-install-dev-env php" ;;
   *Python*) present_terminal "omakub-install-dev-env python" ;;
-  *Elixir*) show_install_elixir_menu ;;
-  *Zig*) present_terminal "omakub-install-dev-env zig" ;;
   *Rust*) present_terminal "omakub-install-dev-env rust" ;;
-  *Java*) present_terminal "omakub-install-dev-env java" ;;
-  *NET*) present_terminal "omakub-install-dev-env dotnet" ;;
-  *OCaml*) present_terminal "omakub-install-dev-env ocaml" ;;
   *) show_install_menu ;;
   esac
 }
@@ -181,14 +175,6 @@ show_install_javascript_menu() {
   *Node*) present_terminal "omakub-install-dev-env node" ;;
   *Bun*) present_terminal "omakub-install-dev-env bun" ;;
   *Deno*) present_terminal "omakub-install-dev-env deno" ;;
-  *) show_install_development_menu ;;
-  esac
-}
-
-show_install_elixir_menu() {
-  case $(menu "Install" "  Elixir\n  Phoenix") in
-  *Elixir*) present_terminal "omakub-install-dev-env elixir" ;;
-  *Phoenix*) present_terminal "omakub-install-dev-env phoenix" ;;
   *) show_install_development_menu ;;
   esac
 }
