@@ -11,7 +11,8 @@ if ! command -v zellij &>/dev/null; then
   tar -xf zellij.tar.gz zellij
   sudo install zellij /usr/local/bin
   rm zellij.tar.gz zellij
-cd -
+  cd -
+fi
 
 # Apply Zellij theme
 mkdir -p ~/.config/zellij/themes
