@@ -42,10 +42,6 @@ app_install() {
   present_terminal "echo 'Installing $1...'; omakub-app-install $1"
 }
 
-app_remove() {
-  present_terminal "echo 'Removing $1...'; omakub-app-remove $1"
-}
-
 show_learn_menu() {
   case $(menu "Learn" "  Keybindings\n  Omakub\n  Ubuntu\n  Neovim\n  Zellij\n󱆃  Bash" "--width 250 --height 300") in
   *Keybindings*) omakub-launch-webapp "https://learn.omacom.io/1/read/29/hotkeys" "Omakub Keybindings" ;;
