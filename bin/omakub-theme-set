@@ -91,6 +91,22 @@ if command -v code &>/dev/null; then
   fi
 fi
 
+# Change Chromium colors
+if command -v chromium &>/dev/null; then
+  if [[ -f ~/.config/omakub/current/theme/light.mode ]]; then
+    chromium --no-startup-window --set-color-scheme="light"
+  else
+    chromium --no-startup-window --set-color-scheme="dark"
+  fi
+
+  if [[ -f ~/.config/omakub/current/theme/chromium.theme ]]; then
+    chromium --no-startup-window --set-theme-color="$(<~/.config/omakub/current/theme/chromium.theme)"
+  else
+    # Use a default, neutral grey if theme doesn't have a color
+    chromium --no-startup-window --set-theme-color="28,32,39"
+  fi
+fi
+
 # Touch alacritty config to pickup the changed theme
 touch "$HOME/.config/alacritty/alacritty.toml"
 
